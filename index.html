@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidian | Engineering Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple-dark: #6D28D9;
+            --purple: #8B5CF6;
+            --purple-light: #C4B5FD;
+            --pink: #EC4899;
+            --pink-light: #F9A8D4;
+            --accent: #F59E0B;
+            --white: #FFFFFF;
+            --text: #1F2937;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Image with Overlay */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navbar */
+        nav {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(109, 40, 217, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--purple-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            transition: var(--transition);
+            background: rgba(109, 40, 217, 0.1);
+            border: 1px solid rgba(109, 40, 217, 0.2);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            background: var(--purple-dark);
+            color: white;
+            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+        }
+
+        /* Main Content - Better Spacing */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            height: calc(100vh - 4rem);
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            max-width: 800px;
+        }
+
+        .headline br {
+            display: block;
+            content: "";
+            margin-bottom: 0.5rem;
+        }
+
+        /* Typing Animation - Better Spacing */
+        .typing-container {
+            height: 100px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .typing-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--purple-light);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 2rem;
+            background: var(--purple-light);
+            animation: blink 1s infinite;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Clients Section - Better Spacing */
+        .clients-section {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 700px;
+            width: 90%;
+        }
+
+        .trusted-by {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 4rem;
+            max-width: 180px;
+            width: auto;
+            transition: var(--transition);
+            object-fit: contain;
+        }
+
+        .client-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            .typing-text {
+                font-size: 1.6rem;
+            }
+            .typing-container {
+                height: 80px;
+                margin: 1.5rem 0;
+            }
+            .client-logos {
+                gap: 2rem;
+            }
+            .client-logo {
+                height: 3.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .headline {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+            .typing-text {
+                font-size: 1.3rem;
+            }
+            .typing-container {
+                height: 70px;
+                margin: 1rem 0;
+            }
+            .clients-section {
+                margin-top: 2rem;
+                padding: 1.2rem;
+            }
+            .client-logos {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .client-logo {
+                height: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background-container">
+        <img src="images/AI_in_construction.jpg" alt="Engineering background" class="background-image">
+        <div class="overlay"></div>
+    </div>
+
+    <nav>
+        <div class="logo">Sidian</div>
+        <div class="nav-links">
+            <a href="#" class="btn-blog">Blogs</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="headline">
+            We Understand the Structural<br>
+            Engineering Industry and<br>
+            the Solutions That Can Help You Today
+        </div>
+        
+        <div class="typing-container">
+            <div id="typing-text" class="typing-text"></div>
+            <div class="typing-cursor"></div>
+        </div>
+        
+        <div class="clients-section">
+            <div class="trusted-by">Trusted by </div>
+            <div class="client-logos">
+                <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
+                <img src="https://via.placeholder.com/200x60?text=Company+2" alt="Partner Company" class="client-logo">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phrases = [
+                "Engineer Task to EIT",
+                "EIT Task to Agent", 
+                "Free up Time for Ground Breaking Decisions"
+            ];
+            const typingElement = document.getElementById('typing-text');
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+            
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (isDeleting) {
+                    typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 50;
+                } else {
+                    typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 100;
+                }
+                
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typingSpeed = 1500;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typingSpeed = 500;
+                }
+                
+                setTimeout(type, typingSpeed);
+            }
+            
+            // Start typing animation after 1 second
+            setTimeout(type, 1000);
+        });
+    </script>
+</body>
+</html>

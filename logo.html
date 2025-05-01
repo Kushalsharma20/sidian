@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Animated S Logo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f0ff;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .logo-container {
+            width: 300px;
+            height: 213px;
+            position: relative;
+        }
+        
+        .s-line {
+            fill: none;
+            stroke: #6a0dad;
+            stroke-width: 10;
+            stroke-dasharray: 2000; /* Increased from 1000 */
+            stroke-dashoffset: 2000; /* Increased from 1000 */
+            animation: draw 3s ease-in-out forwards; /* Slightly longer duration */
+            animation-delay: var(--delay);
+        }
+        
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .logo-container:hover .s-line {
+            filter: drop-shadow(0 0 12px rgba(138, 43, 226, 0.7));
+            stroke: #8a2be2;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container.animated .s-line {
+            animation: wave 3s ease-in-out infinite, purple-pulse 4s ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+        
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @keyframes purple-pulse {
+            0%, 100% {
+                stroke: #6a0dad;
+                opacity: 1;
+            }
+            50% {
+                stroke: #9370db;
+                opacity: 0.9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <svg
+           version="1.0"
+           width="300.000000pt"
+           height="213.000000pt"
+           viewBox="0 0 300.000000 213.000000"
+           preserveAspectRatio="xMidYMid meet"
+           id="svg17"
+           xmlns="http://www.w3.org/2000/svg"
+           xmlns:svg="http://www.w3.org/2000/svg">
+          <defs id="defs17" />
+          <g
+             transform="translate(0.000000,213.000000) scale(0.100000,-0.100000)"
+             fill="none"
+             stroke="none"
+             id="g17">
+            <path
+               d="m 1413,1890 c -126,-18 -252,-110 -309,-225 -26,-55 -29,-69 -29,-165 0,-96 3,-110 29,-165 62,-125 182,-207 328,-226 45,-5 89,-14 99,-19 35,-19 59,-62 59,-105 0,-115 -161,-155 -218,-55 -19,33 -21,34 -40,21 -20,-12 9,-64 51,-90 53,-33 105,-36 157,-9 82,42 112,124 74,204 -25,52 -64,75 -150,85 -41,6 -100,19 -130,30 -68,25 -150,100 -189,171 -28,49 -30,60 -30,158 0,98 2,109 30,158 100,182 328,251 508,154 45,-24 115,-91 147,-140 20,-32 55,-21 38,11 -73,143 -255,231 -425,207 z"
+               id="path1"
+               style="--delay:0s"
+               class="s-line" />
+            <path
+               d="M1360 1815 c-58 -19 -132 -74 -170 -127 -94 -129 -72 -322 48 -429 62 -56 114 -77 213 -90 93 -11 126 -25 163 -69 122 -145 -44 -351 -220 -271 -37 17 -63 41 -89 86 -6 10 -16 14 -27 10 -16 -6 -16 -10 -4 -33 8 -15 27 -39 43 -53 104 -97 262 -81 341 35 27 41 32 57 32 108 0 64 -16 106 -59 151 -39 43 -77 59 -159 68 -133 15 -221 70 -271 171 -92 184 30 399 242 424 102 12 232 -47 285 -129 18 -28 33 -41 45 -39 23 5 22 13 -12 58 -40 55 -68 78 -131 111 -46 23 -70 28 -140 30 -54 2 -101 -3 -130 -12z"
+               id="path2"
+               style="--delay:0.2s"
+               class="s-line" />
+            <path
+               d="M1355 1746 c-58 -27 -108 -74 -138 -131 -17 -31 -22 -58 -22 -115 0 -85 15 -122 74 -183 51 -55 104 -78 195 -89 167 -18 271 -128 252 -265 -30 -224 -330 -289 -450 -99 -18 28 -33 43 -42 39 -22 -8 -17 -28 19 -75 109 -143 320 -151 441 -18 51 57 69 103 69 181 0 54 -5 76 -29 119 -51 93 -123 138 -246 151 -94 11 -144 34 -190 89 -154 179 25 443 256 376 55 -16 137 -80 148 -115 5 -16 38 -8 38 9 0 22 -87 104 -135 126 -69 33 -171 33 -240 0z"
+               id="path3"
+               style="--delay:0.4s"
+               class="s-line" />
+            <path
+               d="M1390 1699 c-156 -63 -182 -275 -45 -371 31 -22 62 -32 133 -43 115 -17 169 -42 227 -107 179 -199 11 -510 -261 -485 -37 4 -83 16 -111 31 -52 26 -126 99 -138 135 -7 23 -13 25 -35 11 -12 -7 -8 -18 23 -63 91 -133 265 -186 417 -128 227 86 289 370 119 540 -57 57 -129 90 -221 100 -128 14 -194 68 -206 166 -13 119 111 219 230 186 44 -13 92 -49 113 -85 8 -14 13 -15 28 -4 16 12 15 15 -13 50 -43 51 -103 78 -176 77 -32 0 -70 -5 -84 -10z"
+               id="path4"
+               style="--delay:0.6s"
+               class="s-line" />
+            <path
+               d="M1390 1627 c-94 -63 -95 -191 -3 -253 21 -14 61 -25 111 -31 145 -19 241 -81 303 -195 32 -59 34 -69 34 -158 0 -83 -3 -102 -28 -151 -34 -70 -109 -142 -185 -177 -49 -23 -69 -27 -152 -26 -80 0 -103 4 -150 26 -71 32 -140 94 -170 152 -20 37 -27 43 -42 35 -18 -10 -18 -12 4 -50 30 -55 114 -131 176 -163 29 -14 85 -31 125 -38 180 -28 352 64 435 232 24 49 27 66 27 155 0 87 -3 107 -27 157 -14 31 -46 78 -70 104 -76 83 -152 120 -276 134 -86 11 -127 35 -141 85 -19 69 20 132 92 150 35 9 92 -11 116 -41 20 -26 36 -30 46 -13 9 13 -30 56 -67 75 -42 22 -119 18 -158 -9z"
+               id="path5"
+               style="--delay:0.8s"
+               class="s-line" />
+            <path
+               d="M504 486 c-65 -29 -94 -104 -58 -154 19 -27 76 -57 127 -66 57 -10 87 -27 87 -47 0 -22 -37 -49 -67 -49 -13 0 -23 -5 -23 -11 0 -8 13 -10 38 -6 46 8 87 50 73 76 -16 30 -33 39 -111 60 -80 21 -120 53 -120 94 0 51 63 97 132 97 45 -1 118 -35 118 -56 0 -18 -4 -17 -81 12 -43 17 -47 17 -85 -2 -71 -35 -53 -93 34 -110 46 -9 40 11 -9 25 -22 7 -43 19 -46 28 -15 38 75 57 127 28 34 -20 67 -19 78 3 15 27 3 42 -52 68 -57 26 -115 30 -162 10z"
+               id="path6"
+               style="--delay:0.8s"
+               class="s-line" />
+            <path
+               d="M920 470 c-13 -25 -9 -105 5 -104 6 0 10 23 10 50 0 38 4 49 17 52 15 3 18 -9 20 -104 2 -75 7 -109 16 -112 20 -6 17 202 -4 222 -22 22 -51 20 -64 -4z"
+               id="path7"
+               style="--delay:1.0s"
+               class="s-line" />
+            <path
+               d="M1182 478 c-8 -8 -12 -65 -12 -190 0 -207 -1 -205 102 -194 104 10 176 65 199 149 12 44 7 103 -10 120 -17 17 -21 3 -10 -36 19 -69 -24 -157 -94 -193 -17 -9 -58 -17 -96 -18 l-66 -1 -3 179 -2 179 75 -5 c57 -4 84 -11 105 -27 31 -22 50 -27 50 -12 0 5 -23 21 -52 35 -57 29 -163 37 -186 14z"
+               id="path8"
+               style="--delay:1.2s"
+               class="s-line" />
+            <path
+               d="M1662 478 c-14 -14 -16 -118 -3 -118 6 0 11 24 13 53 2 38 7 52 18 52 12 0 16 -20 18 -107 4 -142 22 -142 22 0 0 110 -7 132 -40 132 -9 0 -21 -5 -28 -12z"
+               id="path9"
+               style="--delay:1.4s"
+               class="s-line" />
+            <path
+               d="M2043 482 c-18 -11 -144 -343 -138 -363 14 -44 67 -29 86 26 13 35 13 35 75 35 l62 0 15 -39 c9 -21 23 -41 32 -45 22 -8 55 11 55 31 0 23 -70 202 -81 209 -17 10 -9 -22 27 -110 34 -85 37 -116 14 -116 -6 0 -19 20 -30 45 l-19 45 -75 0 -74 0 -15 -39 c-18 -44 -28 -53 -45 -42 -9 6 -1 38 34 127 25 65 55 143 66 172 21 56 43 67 57 30 25 -67 44 -102 48 -91 5 14 -23 99 -40 121 -11 13 -36 16 -54 4z"
+               id="path10"
+               style="--delay:1.6s"
+               class="s-line" />
+            <path
+               d="M2430 482 c-8 -3 -18 -10 -22 -16 -11 -17 -9 -124 2 -131 6 -4 10 18 10 59 0 58 2 66 19 66 12 0 36 -23 64 -63 49 -69 77 -97 77 -78 0 15 -107 158 -123 164 -7 2 -19 2 -27 -1z"
+               id="path11"
+               style="--delay:1.8s"
+               class="s-line" />
+            <path
+               d="M2644 469 c-3 -6 -6 -57 -5 -113 1 -101 1 -101 -18 -78 -21 24 -31 28 -31 11 0 -17 52 -79 61 -73 5 3 9 59 9 125 0 109 2 120 18 117 15 -3 17 -20 20 -164 4 -222 2 -223 -124 -55 -54 71 -101 128 -106 125 -4 -3 -8 -58 -8 -123 0 -65 -3 -120 -6 -124 -3 -3 -12 -3 -20 0 -11 4 -14 27 -14 94 0 53 -4 89 -10 89 -6 0 -10 -36 -10 -89 0 -68 4 -93 16 -105 19 -19 25 -20 47 -3 13 9 17 33 19 115 l3 104 85 -114 c47 -62 92 -114 101 -116 9 -2 24 4 33 13 13 14 16 43 16 184 0 116 -4 171 -12 179 -15 15 -55 16 -64 1z"
+               id="path12"
+               style="--delay:1.9s"
+               class="s-line" />
+            <path
+               d="M1230 375 c0 -30 5 -55 10 -55 6 0 10 20 10 45 0 51 13 57 73 31 92 -38 89 -173 -5 -211 -63 -25 -68 -22 -68 40 0 30 -4 55 -10 55 -6 0 -10 -29 -10 -66 l0 -67 46 7 c86 11 137 62 137 137 0 76 -66 139 -145 139 l-38 0 0 -55z"
+               id="path13"
+               style="--delay:1.3s"
+               class="s-line" />
+            <path
+               d="M2050 356 c-13 -34 -13 -46 0 -46 6 0 10 5 10 12 0 16 13 0 28 -34 11 -27 10 -28 -18 -28 -20 0 -30 5 -30 15 0 8 -4 15 -10 15 -5 0 -10 -4 -10 -9 0 -5 -3 -16 -6 -25 -5 -13 3 -16 50 -16 31 0 56 4 56 10 0 14 -40 114 -50 124 -6 6 -13 -2 -20 -18z"
+               id="path14"
+               style="--delay:1.7s"
+               class="s-line" />
+            <path
+               d="M910 231 c0 -86 3 -113 16 -125 19 -20 24 -20 52 0 20 14 23 23 20 67 -4 63 -23 64 -24 2 -1 -53 -15 -73 -33 -51 -9 11 -12 46 -9 116 2 75 0 100 -9 100 -10 0 -13 -29 -13 -109z"
+               id="path15"
+               style="--delay:1.1s"
+               class="s-line" />
+            <path
+               d="M1650 225 c0 -104 2 -115 20 -125 14 -8 26 -8 40 0 17 9 20 21 20 72 0 74 -17 68 -22 -7 -2 -36 -7 -50 -18 -50 -12 0 -16 20 -18 113 -4 149 -22 147 -22 -3z"
+               id="path16"
+               style="--delay:1.5s"
+               class="s-line" />
+            <path
+               d="M624 315 c11 -8 24 -15 30 -15 22 0 66 -54 66 -83 0 -60 -88 -112 -166 -98 -42 8 -99 35 -109 51 -15 24 8 30 39 10 33 -20 66 -27 66 -12 -1 4 -23 18 -50 31 -41 20 -52 22 -65 11 -75 -62 132 -148 232 -97 70 37 93 109 52 161 -23 30 -69 56 -96 56 -17 -1 -17 -2 1 -15z"
+               id="path17"
+               style="--delay:0.9s"
+               class="s-line" />
+          </g>
+        </svg>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoContainer = document.querySelector('.logo-container');
+            const paths = document.querySelectorAll('.s-line');
+            
+            // Calculate the total animation time based on the longest delay
+            const maxDelay = 1.9; // From the last path's delay
+            const animationDuration = 3; // Seconds
+            const totalAnimationTime = (maxDelay + animationDuration) * 1000;
+            
+            // After all paths are drawn, start the wave animation
+            setTimeout(() => {
+                logoContainer.classList.add('animated');
+                
+                // Add purple color cycling effect
+                let colorIndex = 0;
+                const colorInterval = setInterval(() => {
+                    colorIndex = (colorIndex + 1) % 6;
+                    paths.forEach((path, index) => {
+                        // Use different purple shades based on path index
+                        const purpleShades = [
+                            '#6a0dad', // Royal purple
+                            '#8a2be2', // Blue violet
+                            '#9370db', // Medium purple
+                            '#9932cc', // Dark orchid
+                            '#ba55d3', // Medium orchid
+                            '#d8bfd8'  // Thistle
+                        ];
+                        const shadeIndex = (colorIndex + Math.floor(index/3)) % 6;
+                        path.style.stroke = purpleShades[shadeIndex];
+                    });
+                }, 1000);
+                
+                // Clear interval when container is clicked to restart animation
+                logoContainer.addEventListener('click', function() {
+                    clearInterval(colorInterval);
+                });
+            }, totalAnimationTime);
+            
+            // Click to replay animation
+            logoContainer.addEventListener('click', function() {
+                logoContainer.classList.remove('animated');
+                paths.forEach(path => {
+                    path.style.strokeDashoffset = '2000';
+                    path.style.animation = 'none';
+                    path.style.stroke = '#6a0dad';
+                    void path.offsetWidth; // Trigger reflow
+                    path.style.animation = `draw 3s ease-in-out forwards`;
+                    path.style.animationDelay = path.style.getPropertyValue('--delay');
+                });
+                
+                setTimeout(() => {
+                    logoContainer.classList.add('animated');
+                }, totalAnimationTime);
+            });
+        });
+    </script>
+</body>
+</html>
