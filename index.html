@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidian | Engineering Automation</title>
+    <title>Sidian | Construction Technology Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --purple-dark: #6D28D9;
-            --purple: #8B5CF6;
-            --purple-light: #C4B5FD;
-            --pink: #EC4899;
-            --pink-light: #F9A8D4;
-            --accent: #F59E0B;
+            /* Modern Purple Color Scheme */
+            --primary-dark: #4B2E83;  /* Deep purple */
+            --primary: #6A4C9D;       /* Medium purple */
+            --primary-light: #9D8DCB;  /* Light purple */
+            --accent: #FFA630;        /* Golden orange */
+            --neutral: #5D5D5D;       /* Dark gray */
+            --highlight: #FFD166;     /* Soft gold */
             --white: #FFFFFF;
-            --text: #1F2937;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --text: #2D3748;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
@@ -28,7 +30,6 @@
 
         html, body {
             height: 100%;
-            overflow: hidden;
         }
 
         body {
@@ -36,15 +37,16 @@
             color: var(--text);
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* Background Image with Overlay */
+        /* Background Styles - Reduced height */
         .background-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 80vh; /* Reduced from 100vh */
             z-index: -1;
         }
 
@@ -63,10 +65,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(
+                to bottom, 
+                rgba(0, 0, 0, 0.6) 0%, 
+                rgba(0, 0, 0, 0.4) 50%, 
+                rgba(0, 0, 0, 0.6) 100%
+            );
         }
 
-        /* Navbar */
+        /* Navigation */
         nav {
             padding: 1rem 5%;
             display: flex;
@@ -77,40 +84,40 @@
             z-index: 100;
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(109, 40, 217, 0.1);
+            border-bottom: 1px solid var(--primary-light);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
         .nav-links a {
-            color: var(--purple-dark);
+            color: var(--primary-dark);
             text-decoration: none;
             font-weight: 600;
             padding: 0.7rem 1.5rem;
             border-radius: 2rem;
             transition: var(--transition);
-            background: rgba(109, 40, 217, 0.1);
-            border: 1px solid rgba(109, 40, 217, 0.2);
+            background: rgba(106, 76, 157, 0.1);
+            border: 1px solid var(--primary-light);
             font-size: 1rem;
         }
 
         .nav-links a:hover {
-            background: var(--purple-dark);
+            background: var(--primary);
             color: white;
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+            box-shadow: 0 4px 12px rgba(106, 76, 157, 0.2);
         }
 
-        /* Main Content - Better Spacing */
-        main {
-            flex: 1;
+        /* Main Page Content - Adjusted for shorter background */
+        #main-page {
+            min-height: 80vh; /* Matches background height */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -119,73 +126,51 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            height: calc(100vh - 4rem);
-            box-sizing: border-box;
-            overflow: hidden;
         }
 
         .headline {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: 700;
             line-height: 1.4;
             margin-bottom: 2rem;
             color: var(--white);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 
+                0 2px 10px rgba(0,0,0,0.8),
+                0 0 20px rgba(75, 46, 131, 0.5);
             max-width: 800px;
         }
 
-        .headline br {
-            display: block;
-            content: "";
-            margin-bottom: 0.5rem;
-        }
-
-        /* Typing Animation - Better Spacing */
-        .typing-container {
-            height: 100px;
-            margin: 2rem 0;
-            position: relative;
-        }
-
+        /* Typing Animation */
         .typing-text {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            color: var(--purple-light);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: var(--white);
+            text-shadow: 
+                0 2px 10px rgba(0,0,0,0.8),
+                0 0 20px rgba(75, 46, 131, 0.5);
+            line-height: 1.4;
+            margin: 1rem 0;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 2rem;
-            background: var(--purple-light);
-            animation: blink 1s infinite;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Clients Section - Better Spacing */
+        /* Clients Section - Now visible without scrolling */
         .clients-section {
-            margin-top: 3rem;
-            padding: 1.5rem;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 1rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 700px;
-            width: 90%;
+            width: 100%;
+            padding: 2rem;
+            background: white;
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
         .trusted-by {
-            font-size: 1rem;
-            color: var(--text);
+            font-size: 1.1rem;
+            color: var(--primary-dark);
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -198,6 +183,8 @@
             gap: 3rem;
             align-items: center;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .client-logo {
@@ -212,47 +199,53 @@
             transform: scale(1.1);
         }
 
-        /* Responsive Adjustments */
+        /* Process Section */
+        #process-section {
+            background: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .background-container, #main-page {
+                height: 70vh; /* Adjust for smaller screens */
+            }
+            
             .headline {
-                font-size: 1.8rem;
+                font-size: 2rem;
                 line-height: 1.3;
             }
+            
             .typing-text {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
+                height: 90px;
             }
-            .typing-container {
-                height: 80px;
-                margin: 1.5rem 0;
-            }
-            .client-logos {
-                gap: 2rem;
-            }
+            
             .client-logo {
                 height: 3.5rem;
             }
         }
 
         @media (max-width: 480px) {
+            .background-container, #main-page {
+                height: 65vh; /* Further adjust for mobile */
+            }
+            
             .headline {
-                font-size: 1.5rem;
-                line-height: 1.3;
+                font-size: 1.6rem;
             }
+            
             .typing-text {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+                height: 80px;
             }
-            .typing-container {
-                height: 70px;
-                margin: 1rem 0;
-            }
-            .clients-section {
-                margin-top: 2rem;
-                padding: 1.2rem;
-            }
+            
             .client-logos {
-                flex-direction: column;
                 gap: 1.5rem;
             }
+            
             .client-logo {
                 height: 3rem;
             }
@@ -260,7 +253,6 @@
     </style>
 </head>
 <body>
-    <!-- Background Image -->
     <div class="background-container">
         <img src="images/AI_in_construction.jpg" alt="Engineering background" class="background-image">
         <div class="overlay"></div>
@@ -273,28 +265,30 @@
         </div>
     </nav>
 
-    <main>
+    <main id="main-page">
         <div class="headline">
             We Understand the Structural<br>
             Engineering Industry and<br>
             the Solutions That Can Help You Today
         </div>
         
-        <div class="typing-container">
-            <div id="typing-text" class="typing-text"></div>
-            <div class="typing-cursor"></div>
-        </div>
-        
-        <div class="clients-section">
-            <div class="trusted-by">Trusted by </div>
-            <div class="client-logos">
-                <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
-                <img src="https://via.placeholder.com/200x60?text=Company+2" alt="Partner Company" class="client-logo">
-            </div>
-        </div>
+        <div id="typing-text" class="typing-text"></div>
     </main>
 
+    <div class="clients-section">
+        <div class="trusted-by">Trusted by Industry Leaders</div>
+        <div class="client-logos">
+            <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
+            <img src="https://via.placeholder.com/200x60?text=Company+2" alt="Partner Company" class="client-logo">
+        </div>
+    </div>
+
+    <div id="process-section">
+        <!-- Process section content will be loaded here -->
+    </div>
+
     <script>
+        // Typing Animation
         document.addEventListener('DOMContentLoaded', function() {
             const phrases = [
                 "Engineer Task to EIT",
@@ -305,7 +299,7 @@
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
-            let typingSpeed = 100;
+            let typingSpeed = 150;
             
             function type() {
                 const currentPhrase = phrases[phraseIndex];
@@ -331,9 +325,23 @@
                 
                 setTimeout(type, typingSpeed);
             }
-            
-            // Start typing animation after 1 second
             setTimeout(type, 1000);
+
+            // Load process section
+            fetch('process-section.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('process-section').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading process section:', error);
+                    document.getElementById('process-section').innerHTML = `
+                        <div style="text-align: center; padding: 2rem;">
+                            <h2 style="color: var(--primary-dark);">Our Process</h2>
+                            <p>Content will be loaded here</p>
+                        </div>
+                    `;
+                });
         });
     </script>
 </body>
