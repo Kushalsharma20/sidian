@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidian | Construction Technology Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             /* Modern Purple Color Scheme */
-            --primary-dark: #4B2E83;  /* Deep purple */
-            --primary: #6A4C9D;       /* Medium purple */
-            --primary-light: #9D8DCB;  /* Light purple */
-            --accent: #FFA630;        /* Golden orange */
-            --neutral: #5D5D5D;       /* Dark gray */
-            --highlight: #FFD166;     /* Soft gold */
+            --primary-dark: #4B2E83;
+            /* Deep purple */
+            --primary: #6A4C9D;
+            /* Medium purple */
+            --primary-light: #9D8DCB;
+            /* Light purple */
+            --accent: #FFA630;
+            /* Golden orange */
+            --neutral: #5D5D5D;
+            /* Dark gray */
+            --highlight: #FFD166;
+            /* Soft gold */
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -28,7 +37,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
         }
 
@@ -40,37 +50,40 @@
             overflow-x: hidden;
         }
 
-        /* Background Styles - Reduced height */
+        /* Updated Background Styles with boundary space */
         .background-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 80vh; /* Reduced from 100vh */
+            height: 80vh;
+            /* Reduced from 100vh */
             z-index: -1;
+            padding: 0 5%; /* Added horizontal padding */
         }
 
         .background-image {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 5%; /* Match container padding */
+            width: 90%; /* Reduced width for side margins */
             height: 100%;
             object-fit: cover;
+            border-radius: 0 0 12px 12px; /* Soft rounded bottom corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Added depth */
         }
 
         .overlay {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 5%; /* Match image positioning */
+            width: 90%; /* Match image width */
             height: 100%;
-            background: linear-gradient(
-                to bottom, 
-                rgba(0, 0, 0, 0.6) 0%, 
-                rgba(0, 0, 0, 0.4) 50%, 
-                rgba(0, 0, 0, 0.6) 100%
-            );
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.6) 0%,
+                    rgba(0, 0, 0, 0.4) 50%,
+                    rgba(0, 0, 0, 0.6) 100%);
+            border-radius: 0 0 12px 12px; /* Match image corners */
         }
 
         /* Navigation */
@@ -117,7 +130,8 @@
 
         /* Main Page Content - Adjusted for shorter background */
         #main-page {
-            min-height: 80vh; /* Matches background height */
+            min-height: 80vh;
+            /* Matches background height */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -135,8 +149,8 @@
             line-height: 1.4;
             margin-bottom: 2rem;
             color: var(--white);
-            text-shadow: 
-                0 2px 10px rgba(0,0,0,0.8),
+            text-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(75, 46, 131, 0.5);
             max-width: 800px;
         }
@@ -147,8 +161,8 @@
             font-size: 2.2rem;
             font-weight: 600;
             color: var(--white);
-            text-shadow: 
-                0 2px 10px rgba(0,0,0,0.8),
+            text-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(75, 46, 131, 0.5);
             line-height: 1.4;
             margin: 1rem 0;
@@ -209,49 +223,67 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .background-container, #main-page {
-                height: 70vh; /* Adjust for smaller screens */
+
+            .background-container,
+            #main-page {
+                height: 70vh;
+                /* Adjust for smaller screens */
             }
-            
+
             .headline {
                 font-size: 2rem;
                 line-height: 1.3;
             }
-            
+
             .typing-text {
                 font-size: 1.8rem;
                 height: 90px;
             }
-            
+
             .client-logo {
                 height: 3.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .background-container, #main-page {
-                height: 65vh; /* Further adjust for mobile */
+
+            .background-container,
+            #main-page {
+                height: 65vh;
+                /* Further adjust for mobile */
+            }
+
+            .background-container {
+                padding: 0; /* Remove padding on mobile */
             }
             
+            .background-image,
+            .overlay {
+                left: 0;
+                width: 100%; /* Full width on mobile */
+                border-radius: 0; /* Remove rounded corners on mobile */
+            }
+
             .headline {
                 font-size: 1.6rem;
             }
-            
+
             .typing-text {
                 font-size: 1.4rem;
                 height: 80px;
             }
-            
+
             .client-logos {
                 gap: 1.5rem;
             }
-            
+
             .client-logo {
                 height: 3rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="background-container">
         <img src="images/AI_in_construction.jpg" alt="Engineering background" class="background-image">
@@ -271,28 +303,29 @@
             Engineering Industry and<br>
             the Solutions That Can Help You Today
         </div>
-        
+
         <div id="typing-text" class="typing-text"></div>
     </main>
 
     <div class="clients-section">
-        <div class="trusted-by">Trusted by Industry Leaders</div>
+        <div class="trusted-by">Trusted by </div>
         <div class="client-logos">
             <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
-            <img src="https://via.placeholder.com/200x60?text=Company+2" alt="Partner Company" class="client-logo">
+            <!-- <img src="https://via.placeholder.com/200x60?text=Company+2" alt="Partner Company" class="client-logo"> -->
         </div>
     </div>
 
     <div id="process-section">
         <!-- Process section content will be loaded here -->
     </div>
+    <div id="videos"></div>
 
     <script>
         // Typing Animation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const phrases = [
                 "Engineer Task to EIT",
-                "EIT Task to Agent", 
+                "EIT Task to Agent",
                 "Free up Time for Ground Breaking Decisions"
             ];
             const typingElement = document.getElementById('typing-text');
@@ -300,10 +333,10 @@
             let charIndex = 0;
             let isDeleting = false;
             let typingSpeed = 150;
-            
+
             function type() {
                 const currentPhrase = phrases[phraseIndex];
-                
+
                 if (isDeleting) {
                     typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
                     charIndex--;
@@ -313,7 +346,7 @@
                     charIndex++;
                     typingSpeed = 100;
                 }
-                
+
                 if (!isDeleting && charIndex === currentPhrase.length) {
                     isDeleting = true;
                     typingSpeed = 1500;
@@ -322,13 +355,14 @@
                     phraseIndex = (phraseIndex + 1) % phrases.length;
                     typingSpeed = 500;
                 }
-                
+
                 setTimeout(type, typingSpeed);
             }
             setTimeout(type, 1000);
 
             // Load process section
             fetch('process-section.html')
+
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('process-section').innerHTML = data;
@@ -342,7 +376,24 @@
                         </div>
                     `;
                 });
+
+            fetch('videos.html')
+
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('videos').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading video section:', error);
+                    document.getElementById('videos').innerHTML = `
+                    <div style="text-align: center; padding: 2rem;">
+                        <h2 style="color: var(--primary-dark);">Our Process</h2>
+                        <p>Content will be loaded here</p>
+                    </div>
+                `;
+                });
         });
     </script>
 </body>
+
 </html>
