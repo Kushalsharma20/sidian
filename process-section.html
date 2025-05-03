@@ -1,12 +1,12 @@
 <style>
     :root {
         /* Modern Purple Color Scheme */
-        --primary-dark: #4B2E83;  /* Deep purple (university/tech feel) */
-        --primary: #6A4C9D;       /* Medium purple */
-        --primary-light: #9D8DCB;  /* Light purple */
-        --accent: #FFA630;        /* Golden orange (contrast) */
-        --neutral: #5D5D5D;       /* Dark gray */
-        --highlight: #FFD166;     /* Soft gold */
+        --primary-dark: #4B2E83;
+        --primary: #6A4C9D;
+        --primary-light: #9D8DCB;
+        --accent: #FFA630;
+        --neutral: #5D5D5D;
+        --highlight: #FFD166;
         --white: #FFFFFF;
         --text: #2D3748;
         --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -17,6 +17,7 @@
         background: linear-gradient(to bottom, #F8F7FC 0%, #EDEAF5 100%);
         position: relative;
         z-index: 2;
+        overflow-x: auto; /* Allows horizontal scrolling on small screens */
     }
 
     .section-title {
@@ -54,138 +55,110 @@
     }
 
     .steps-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2.5rem;
-        max-width: 1200px;
+        display: flex; /* Changed to flex for horizontal layout */
+        justify-content: center;
+        gap: 1.5rem; /* Reduced gap to fit 4 items */
+        max-width: 1400px; /* Increased max width */
         margin: 0 auto;
-        padding: 2rem;
+        padding: 1rem;
     }
 
     .step-card {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 2.5rem;
-        box-shadow: 0 10px 30px rgba(106, 76, 157, 0.08);
+        background: transparent;
+        min-width: 280px; /* Minimum width for each card */
+        max-width: 320px; /* Maximum width for each card */
+        padding: 2rem;
         transition: var(--transition);
         position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(157, 141, 203, 0.3);
+        flex: 1; /* Allows cards to grow/shrink equally */
     }
 
-    .step-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(106, 76, 157, 0.12);
+    .step-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 100%;
     }
 
     .step-number {
         font-family: 'Manrope', sans-serif;
         font-size: 1.2rem;
-        font-weight: 700;
+        font-weight: 800; /* Made bolder */
         color: var(--primary-dark);
         margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .step-number::before {
-        content: '';
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background-color: var(--primary);
+        order: 1;
+        background: var(--primary);
         color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-    .step-card:nth-child(1) .step-number::before {
-        content: '1';
-    }
-    .step-card:nth-child(2) .step-number::before {
-        content: '2';
-    }
-    .step-card:nth-child(3) .step-number::before {
-        content: '3';
-    }
-    .step-card:nth-child(4) .step-number::before {
-        content: '4';
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        width: fit-content;
     }
 
     .step-icon {
-        font-size: 2.5rem;
+        font-size: 3rem; /* Increased size */
         color: var(--primary);
         margin-bottom: 1.5rem;
         transition: var(--transition);
+        order: 2;
     }
 
     .step-card:hover .step-icon {
         color: var(--accent);
+        transform: scale(1.1);
     }
 
     .step-title {
         font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 1.6rem; /* Increased size */
+        font-weight: 700; /* Made bolder */
         color: var(--primary-dark);
         margin-bottom: 1.5rem;
+        order: 3;
+        line-height: 1.3;
     }
 
     .step-description {
         color: var(--neutral);
         line-height: 1.7;
+        font-size: 1.1rem; /* Slightly larger */
+        order: 4;
     }
 
-    .step-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(to right, var(--primary), var(--accent));
-        opacity: 0;
-        transition: opacity 0.4s ease;
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        .steps-container {
+            gap: 1rem;
+        }
+        .step-card {
+            min-width: 240px;
+            padding: 1.5rem;
+        }
     }
 
-    .step-card:hover::after {
-        opacity: 1;
+    @media (max-width: 992px) {
+        .steps-container {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .step-card {
+            min-width: 45%;
+            max-width: 45%;
+            margin-bottom: 2rem;
+        }
     }
 
     @media (max-width: 768px) {
         .section-title {
             font-size: 2.2rem;
         }
-        .steps-container {
-            grid-template-columns: 1fr;
-        }
         .step-card {
-            padding: 2rem;
+            min-width: 100%;
+            max-width: 100%;
         }
-        .step-icon {
-            font-size: 2rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .section-title {
-            font-size: 1.8rem;
-        }
-        .process-section {
-            padding: 3rem 1rem;
-        }
-        .step-number {
-            font-size: 1rem;
-        }
-        .step-number::before {
-            width: 35px;
-            height: 35px;
-            font-size: 1.2rem;
+        .steps-container {
+            flex-direction: column;
+            align-items: center;
         }
     }
 </style>
@@ -196,27 +169,39 @@
     
     <div class="steps-container">
         <div class="step-card">
-            <div class="step-number">Discovery</div>
-            <div class="step-icon"><i class="fas fa-search-plus"></i></div>
-            <p class="step-description">Look at internal systems and process to understand what can be automated</p>
+            <div class="step-content">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-search-plus"></i></div>
+                <h3 class="step-title">Discovery</h3>
+                <p class="step-description">Analyze internal systems to identify automation opportunities</p>
+            </div>
         </div>
         
         <div class="step-card">
-            <div class="step-number">Contract</div>
-            <div class="step-icon"><i class="fas fa-handshake"></i></div>
-            <p class="step-description">Outline milestones, timelines, price, and requirements to align customer vision with outcome</p>
+            <div class="step-content">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-handshake"></i></div>
+                <h3 class="step-title">Contract</h3>
+                <p class="step-description">Outline milestones and requirements for alignment</p>
+            </div>
         </div>
         
         <div class="step-card">
-            <div class="step-number">Delivery</div>
-            <div class="step-icon"><i class="fas fa-rocket"></i></div>
-            <p class="step-description">Implement Solutions and Ensure Company Wide Understanding of use</p>
+            <div class="step-content">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                <h3 class="step-title">Delivery</h3>
+                <p class="step-description">Implement solutions with comprehensive training</p>
+            </div>
         </div>
         
         <div class="step-card">
-            <div class="step-number">Learning & Maintenance</div>
-            <div class="step-icon"><i class="fas fa-sync-alt"></i></div>
-            <p class="step-description">Optional ongoing support and system improvements</p>
+            <div class="step-content">
+                <div class="step-number">4</div>
+                <div class="step-icon"><i class="fas fa-sync-alt"></i></div>
+                <h3 class="step-title">Maintenance</h3>
+                <p class="step-description">Provide ongoing support and improvements</p>
+            </div>
         </div>
     </div>
 </section>
