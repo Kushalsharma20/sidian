@@ -1,207 +1,232 @@
-<style>
-    :root {
-        /* Modern Purple Color Scheme */
-        --primary-dark: #4B2E83;
-        --primary: #6A4C9D;
-        --primary-light: #9D8DCB;
-        --accent: #FFA630;
-        --neutral: #5D5D5D;
-        --highlight: #FFD166;
-        --white: #FFFFFF;
-        --text: #2D3748;
-        --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .process-section {
-        padding: 6rem 2rem;
-        background: linear-gradient(to bottom, #F8F7FC 0%, #EDEAF5 100%);
-        position: relative;
-        z-index: 2;
-        overflow-x: auto; /* Allows horizontal scrolling on small screens */
-    }
-
-    .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.8rem;
-        font-weight: 700;
-        color: var(--primary-dark);
-        margin: 0 auto 2rem;
-        padding: 0 2rem;
-        text-align: center;
-        position: relative;
-        display: inline-block;
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: var(--accent);
-    }
-
-    .section-subtitle {
-        font-size: 1.25rem;
-        color: var(--neutral);
-        margin-bottom: 4rem;
-        text-align: center;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.6;
-    }
-
-    .steps-container {
-        display: flex; /* Changed to flex for horizontal layout */
-        justify-content: center;
-        gap: 1.5rem; /* Reduced gap to fit 4 items */
-        max-width: 1400px; /* Increased max width */
-        margin: 0 auto;
-        padding: 1rem;
-    }
-
-    .step-card {
-        background: transparent;
-        min-width: 280px; /* Minimum width for each card */
-        max-width: 320px; /* Maximum width for each card */
-        padding: 2rem;
-        transition: var(--transition);
-        position: relative;
-        flex: 1; /* Allows cards to grow/shrink equally */
-    }
-
-    .step-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        height: 100%;
-    }
-
-    .step-number {
-        font-family: 'Manrope', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 800; /* Made bolder */
-        color: var(--primary-dark);
-        margin-bottom: 1.5rem;
-        order: 1;
-        background: var(--primary);
-        color: white;
-        padding: 0.5rem 1.2rem;
-        border-radius: 20px;
-        width: fit-content;
-    }
-
-    .step-icon {
-        font-size: 3rem; /* Increased size */
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        transition: var(--transition);
-        order: 2;
-    }
-
-    .step-card:hover .step-icon {
-        color: var(--accent);
-        transform: scale(1.1);
-    }
-
-    .step-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6rem; /* Increased size */
-        font-weight: 700; /* Made bolder */
-        color: var(--primary-dark);
-        margin-bottom: 1.5rem;
-        order: 3;
-        line-height: 1.3;
-    }
-
-    .step-description {
-        color: var(--neutral);
-        line-height: 1.7;
-        font-size: 1.1rem; /* Slightly larger */
-        order: 4;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 1200px) {
-        .steps-container {
-            gap: 1rem;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidian | Construction Technology Solutions</title>
+    <meta name="description" content="Construction technology solutions for engineering workflows">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Modern Purple Color Scheme */
+            --primary-dark: #4B2E83;
+            --primary: #6A4C9D;
+            --primary-light: #9D8DCB;
+            --accent: #FFA630;
+            --neutral: #5D5D5D;
+            --highlight: #FFD166;
+            --white: #FFFFFF;
+            --text: #2D3748;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        .step-card {
-            min-width: 240px;
-            padding: 1.5rem;
-        }
-    }
 
-    @media (max-width: 992px) {
-        .steps-container {
-            flex-wrap: wrap;
-            justify-content: center;
+        .process-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, #F8F7FC 0%, #EDEAF5 100%);
+            position: relative;
+            z-index: 2;
+            overflow-x: auto;
         }
-        .step-card {
-            min-width: 45%;
-            max-width: 45%;
-            margin-bottom: 2rem;
-        }
-    }
 
-    @media (max-width: 768px) {
         .section-title {
-            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
         }
-        .step-card {
-            min-width: 100%;
-            max-width: 100%;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
         }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--neutral);
+            margin-bottom: 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
         .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .step-card {
+            background: transparent;
+            min-width: 280px;
+            max-width: 320px;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            flex: 1;
+        }
+
+        .step-card:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .step-content {
+            display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
+            height: 100%;
         }
-    }
-</style>
 
-<section class="process-section">
-    <h2 class="section-title">MAPPING IT OUT</h2>
-    <p class="section-subtitle">Use Artificial intelligence, Machine Learning, Connecting Existing Company Solutions, and Organizing Data and Processes to Automate Workflows</p>
-    
-    <div class="steps-container">
-        <div class="step-card">
-            <div class="step-content">
-                <div class="step-number">1</div>
-                <div class="step-icon"><i class="fas fa-search-plus"></i></div>
-                <h3 class="step-title">Discovery</h3>
-                <p class="step-description">Analyze internal systems to identify automation opportunities</p>
-            </div>
-        </div>
+        .step-number {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            order: 1;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            order: 2;
+        }
+
+        .step-card:hover .step-icon {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            order: 3;
+            line-height: 1.3;
+        }
+
+        .step-description {
+            color: var(--neutral);
+            line-height: 1.7;
+            font-size: 1.1rem;
+            order: 4;
+        }
+
+        @media (max-width: 1200px) {
+            .steps-container {
+                gap: 1rem;
+            }
+            .step-card {
+                min-width: 240px;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .steps-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .step-card {
+                min-width: 45%;
+                max-width: 45%;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .step-card {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+            .step-icon, 
+            .step-card {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="process-section" aria-labelledby="processTitle processSubtitle">
+        <h2 id="processTitle" class="section-title">MAPPING IT OUT</h2>
+        <p id="processSubtitle" class="section-subtitle">Use Artificial intelligence, Machine Learning, Connecting Existing Company Solutions, and Organizing Data and Processes to Automate Workflows</p>
         
-        <div class="step-card">
-            <div class="step-content">
-                <div class="step-number">2</div>
-                <div class="step-icon"><i class="fas fa-handshake"></i></div>
-                <h3 class="step-title">Contract</h3>
-                <p class="step-description">Outline milestones and requirements for alignment</p>
+        <div class="steps-container" role="list">
+            <div class="step-card" role="listitem" tabindex="0">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">1</span>
+                    <span class="step-icon" aria-hidden="true"><i class="fas fa-search-plus" focusable="false"></i></span>
+                    <h3 class="step-title">Discovery</h3>
+                    <p class="step-description">Analyze internal systems to identify automation opportunities</p>
+                </div>
+            </div>
+            
+            <div class="step-card" role="listitem" tabindex="0">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">2</span>
+                    <span class="step-icon" aria-hidden="true"><i class="fas fa-handshake" focusable="false"></i></span>
+                    <h3 class="step-title">Contract</h3>
+                    <p class="step-description">Outline milestones and requirements for alignment</p>
+                </div>
+            </div>
+            
+            <div class="step-card" role="listitem" tabindex="0">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">3</span>
+                    <span class="step-icon" aria-hidden="true"><i class="fas fa-rocket" focusable="false"></i></span>
+                    <h3 class="step-title">Delivery</h3>
+                    <p class="step-description">Implement solutions with comprehensive training</p>
+                </div>
+            </div>
+            
+            <div class="step-card" role="listitem" tabindex="0">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">4</span>
+                    <span class="step-icon" aria-hidden="true"><i class="fas fa-sync-alt" focusable="false"></i></span>
+                    <h3 class="step-title">Maintenance</h3>
+                    <p class="step-description">Provide ongoing support and improvements</p>
+                </div>
             </div>
         </div>
-        
-        <div class="step-card">
-            <div class="step-content">
-                <div class="step-number">3</div>
-                <div class="step-icon"><i class="fas fa-rocket"></i></div>
-                <h3 class="step-title">Delivery</h3>
-                <p class="step-description">Implement solutions with comprehensive training</p>
-            </div>
-        </div>
-        
-        <div class="step-card">
-            <div class="step-content">
-                <div class="step-number">4</div>
-                <div class="step-icon"><i class="fas fa-sync-alt"></i></div>
-                <h3 class="step-title">Maintenance</h3>
-                <p class="step-description">Provide ongoing support and improvements</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</body>
+</html>
