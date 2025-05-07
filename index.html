@@ -110,6 +110,11 @@
             color: transparent;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
         .nav-links a {
             color: var(--primary-dark);
             text-decoration: none;
@@ -126,6 +131,18 @@
             background: var(--primary);
             color: white;
             box-shadow: 0 4px 12px rgba(106, 76, 157, 0.2);
+        }
+
+        /* Special style for Book button */
+        .nav-links .book-btn {
+            background: var(--accent);
+            border: 1px solid var(--accent);
+            color: white;
+        }
+
+        .nav-links .book-btn:hover {
+            background: var(--highlight);
+            box-shadow: 0 4px 12px rgba(255, 166, 48, 0.3);
         }
 
         /* Main Page Content - Adjusted for shorter background */
@@ -294,6 +311,7 @@
         <div class="logo">Sidian</div>
         <div class="nav-links">
             <a href="#" class="btn-blog">Blogs</a>
+            <a href="calendlyBooking.html" class="book-btn">Book Now</a>
         </div>
     </nav>
 
@@ -311,7 +329,7 @@
         <div class="trusted-by">Trusted by </div>
         <div class="client-logos">
             <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
-            <!-- <img src="https://via.placeholder.com/200x60?text=Company+2" alt="Partner Company" class="client-logo"> -->
+            <img src="images/TT_company.png" alt="TT_company" class="client-logo">
         </div>
     </div>
 
@@ -362,7 +380,6 @@
 
             // Load process section
             fetch('process-section.html')
-
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('process-section').innerHTML = data;
@@ -378,7 +395,6 @@
                 });
 
             fetch('videos.html')
-
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('videos').innerHTML = data;
@@ -395,5 +411,4 @@
         });
     </script>
 </body>
-
 </html>

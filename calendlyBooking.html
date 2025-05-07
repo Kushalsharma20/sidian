@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Consultation | Sidian</title>
+    <style>
+        :root {
+            --primary-dark: #4B2E83;
+            --primary: #6A4C9D;
+            --accent: #FFA630;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Success Message (hidden by default) */
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        #success-message h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        #success-message p {
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        .return-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .return-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(106, 76, 157, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Calendly Inline Widget -->
+        <div class="calendly-inline-widget" 
+             data-url="https://calendly.com/kushalsharma5520" 
+             style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        
+        <!-- Success Message -->
+        <div id="success-message">
+            <h2>Booking Confirmed! 🎉</h2>
+            <p>Thank you for scheduling your consultation. We've sent the details to your email.</p>
+            <a href="index.html" class="return-btn">Return to Homepage</a>
+        </div>
+    </div>
+
+    <script>
+        // More reliable way to detect Calendly events
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to show success message
+            function showSuccessMessage() {
+                document.getElementById('success-message').style.display = 'block';
+                document.querySelector('.calendly-inline-widget').style.display = 'none';
+                
+                // Smooth scroll to message
+                document.getElementById('success-message').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Method 1: Listen for Calendly messages
+            window.addEventListener('message', function(e) {
+                if(e.data.event && e.data.event.indexOf('calendly.event_scheduled') === 0) {
+                    showSuccessMessage();
+                }
+            });
+            
+            // Method 2: Check URL for success parameter (backup)
+            setTimeout(function() {
+                if(window.location.search.includes('event_type=success')) {
+                    showSuccessMessage();
+                }
+            }, 1000);
+            
+            // Method 3: Poll for Calendly's thank you message (fallback)
+            setTimeout(function() {
+                const thankYou = document.querySelector('.ct-thank-you');
+                if(thankYou) {
+                    showSuccessMessage();
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
