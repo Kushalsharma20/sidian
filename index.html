@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidian | Construction Technology Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             /* Modern Purple Color Scheme */
             --primary-dark: #4B2E83;
-            /* Deep purple */
             --primary: #6A4C9D;
-            /* Medium purple */
             --primary-light: #9D8DCB;
-            /* Light purple */
             --accent: #FFA630;
-            /* Golden orange */
             --neutral: #5D5D5D;
-            /* Dark gray */
             --highlight: #FFD166;
-            /* Soft gold */
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -50,43 +41,41 @@
             overflow-x: hidden;
         }
 
-        /* Updated Background Styles with boundary space */
+        /* Background Styles */
         .background-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 80vh;
-            /* Reduced from 100vh */
             z-index: -1;
-            padding: 0 5%; /* Added horizontal padding */
         }
 
         .background-image {
             position: absolute;
             top: 0;
-            left: 5%; /* Match container padding */
-            width: 90%; /* Reduced width for side margins */
+            left: 0;
+            width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 0 0 12px 12px; /* Soft rounded bottom corners */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Added depth */
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .overlay {
             position: absolute;
             top: 0;
-            left: 5%; /* Match image positioning */
-            width: 90%; /* Match image width */
+            left: 0;
+            width: 100%;
             height: 100%;
             background: linear-gradient(to bottom,
                     rgba(0, 0, 0, 0.6) 0%,
                     rgba(0, 0, 0, 0.4) 50%,
                     rgba(0, 0, 0, 0.6) 100%);
-            border-radius: 0 0 12px 12px; /* Match image corners */
+            border-radius: 0 0 12px 12px;
         }
 
-        /* Navigation */
+        /* Navigation with Slogan */
         nav {
             padding: 1rem 5%;
             display: flex;
@@ -100,31 +89,63 @@
             border-bottom: 1px solid var(--primary-light);
         }
 
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            height: 120px; /* Increased from 40px to 120px (3x) */
+            width: auto;
+            max-height: 100%; /* Ensures it doesn't overflow the nav */
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .slogan {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
             font-weight: 700;
-            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .slogan::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 2px;
+            background: var(--accent);
         }
 
         .nav-links {
             display: flex;
             gap: 1rem;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 600;
-            padding: 0.7rem 1.5rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 2rem;
             transition: var(--transition);
             background: rgba(106, 76, 157, 0.1);
             border: 1px solid var(--primary-light);
-            font-size: 1rem;
+            font-size: 0.95rem;
+            min-width: max-content;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -133,11 +154,12 @@
             box-shadow: 0 4px 12px rgba(106, 76, 157, 0.2);
         }
 
-        /* Special style for Book button */
         .nav-links .book-btn {
             background: var(--accent);
             border: 1px solid var(--accent);
             color: white;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .nav-links .book-btn:hover {
@@ -145,10 +167,9 @@
             box-shadow: 0 4px 12px rgba(255, 166, 48, 0.3);
         }
 
-        /* Main Page Content - Adjusted for shorter background */
+        /* Main Content */
         #main-page {
             min-height: 80vh;
-            /* Matches background height */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -189,7 +210,7 @@
             justify-content: center;
         }
 
-        /* Clients Section - Now visible without scrolling */
+        /* Clients Section */
         .clients-section {
             width: 100%;
             padding: 2rem;
@@ -240,11 +261,9 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-
             .background-container,
             #main-page {
                 height: 70vh;
-                /* Adjust for smaller screens */
             }
 
             .headline {
@@ -260,25 +279,25 @@
             .client-logo {
                 height: 3.5rem;
             }
+
+            .brand-container {
+                gap: 1rem;
+            }
+            
+            .slogan {
+                font-size: 0.9rem;
+                padding-left: 1rem;
+            }
+
+            .logo {
+                height: 90px; /* Adjusted for tablet */
+            }
         }
 
         @media (max-width: 480px) {
-
             .background-container,
             #main-page {
                 height: 65vh;
-                /* Further adjust for mobile */
-            }
-
-            .background-container {
-                padding: 0; /* Remove padding on mobile */
-            }
-            
-            .background-image,
-            .overlay {
-                left: 0;
-                width: 100%; /* Full width on mobile */
-                border-radius: 0; /* Remove rounded corners on mobile */
             }
 
             .headline {
@@ -297,10 +316,23 @@
             .client-logo {
                 height: 3rem;
             }
+
+            /* Mobile Nav Adjustments */
+            .nav-links a {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .logo {
+                height: 70px; /* Adjusted for mobile */
+            }
+            
+            .slogan {
+                display: none; /* Hide slogan on very small screens */
+            }
         }
     </style>
 </head>
-
 <body>
     <div class="background-container">
         <img src="images/AI_in_construction.jpg" alt="Engineering background" class="background-image">
@@ -308,7 +340,10 @@
     </div>
 
     <nav>
-        <div class="logo">Sidian</div>
+        <div class="brand-container">
+            <img src="images/logo.webp" alt="Sidian Logo" class="logo">
+            <div class="slogan">MASTER THE MAZE</div>
+        </div>
         <div class="nav-links">
             <a href="#" class="btn-blog">Blogs</a>
             <a href="calendlyBooking.html" class="book-btn">Book Now</a>
@@ -329,7 +364,7 @@
         <div class="trusted-by">Trusted by </div>
         <div class="client-logos">
             <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
-            <img src="images/TT_company.png" alt="TT_company" class="client-logo">
+            <img src="images/TT_company.png" alt="TT Company" class="client-logo">
         </div>
     </div>
 
@@ -337,7 +372,8 @@
         <!-- Process section content will be loaded here -->
     </div>
     <div id="videos"></div>
-
+    <div id="booking"></div>
+    <div id="footer"></div>
     <script>
         // Typing Animation
         document.addEventListener('DOMContentLoaded', function () {
@@ -378,35 +414,29 @@
             }
             setTimeout(type, 1000);
 
-            // Load process section
+            // Load sections
             fetch('process-section.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('process-section').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading process section:', error);
-                    document.getElementById('process-section').innerHTML = `
-                        <div style="text-align: center; padding: 2rem;">
-                            <h2 style="color: var(--primary-dark);">Our Process</h2>
-                            <p>Content will be loaded here</p>
-                        </div>
-                    `;
                 });
-
+                
             fetch('videos.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('videos').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading video section:', error);
-                    document.getElementById('videos').innerHTML = `
-                    <div style="text-align: center; padding: 2rem;">
-                        <h2 style="color: var(--primary-dark);">Our Process</h2>
-                        <p>Content will be loaded here</p>
-                    </div>
-                `;
+                });
+                
+            fetch('booking.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('booking').innerHTML = data;
+                });
+                
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
                 });
         });
     </script>
