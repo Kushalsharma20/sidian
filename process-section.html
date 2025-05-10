@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,29 @@
     <meta name="description" content="Construction technology solutions for engineering workflows">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Cache-busted Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=3">
+    <style id="color-override">
         :root {
-            /* Modern Purple Color Scheme */
             --primary-dark: #4B2E83;
             --primary: #6A4C9D;
             --primary-light: #9D8DCB;
-            --accent: #FFA630;
+            --accent: #7E57C2 !important;
             --neutral: #5D5D5D;
-            --highlight: #FFD166;
+            --highlight: #B39DDB !important;
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            /* Typography */
+            --heading-font: 'Playfair Display', serif;
+            --subheading-font: 'Manrope', sans-serif;
+            --heading-size: 2.8rem;
+            --subheading-size: 1.6rem;
+            --body-size: 1.1rem;
         }
 
         .process-section {
@@ -29,16 +39,16 @@
             position: relative;
             z-index: 2;
             overflow-x: auto;
+            text-align: center;
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-family: var(--heading-font);
+            font-size: var(--heading-size);
             font-weight: 700;
             color: var(--primary-dark);
             margin: 0 auto 2rem;
             padding: 0 2rem;
-            text-align: center;
             position: relative;
             display: inline-block;
         }
@@ -55,10 +65,10 @@
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-family: var(--subheading-font);
+            font-size: var(--subheading-size);
             color: var(--neutral);
             margin-bottom: 4rem;
-            text-align: center;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -98,7 +108,7 @@
         }
 
         .step-number {
-            font-family: 'Manrope', sans-serif;
+            font-family: var(--subheading-font);
             font-size: 1.2rem;
             font-weight: 800;
             color: var(--primary-dark);
@@ -113,20 +123,36 @@
 
         .step-icon {
             font-size: 3rem;
-            color: var(--primary);
+            color: var(--primary) !important;
             margin-bottom: 1.5rem;
             transition: var(--transition);
             order: 2;
+            position: relative;
+        }
+
+        .step-icon i {
+            color: inherit !important;
         }
 
         .step-card:hover .step-icon {
-            color: var(--accent);
+            color: var(--accent) !important;
             transform: scale(1.1);
+            animation: purpleGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes purpleGlow {
+            from {
+                text-shadow: 0 0 5px rgba(125, 87, 194, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 15px rgba(125, 87, 194, 0.8);
+            }
         }
 
         .step-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-family: var(--subheading-font);
+            font-size: var(--subheading-size);
             font-weight: 700;
             color: var(--primary-dark);
             margin-bottom: 1.5rem;
@@ -135,9 +161,10 @@
         }
 
         .step-description {
+            font-family: var(--subheading-font);
             color: var(--neutral);
             line-height: 1.7;
-            font-size: 1.1rem;
+            font-size: var(--body-size);
             order: 4;
         }
 
@@ -145,6 +172,7 @@
             .steps-container {
                 gap: 1rem;
             }
+
             .step-card {
                 min-width: 240px;
                 padding: 1.5rem;
@@ -156,6 +184,7 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
             .step-card {
                 min-width: 45%;
                 max-width: 45%;
@@ -164,13 +193,17 @@
         }
 
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.2rem;
+            :root {
+                --heading-size: 2.2rem;
+                --subheading-size: 1.4rem;
+                --body-size: 1rem;
             }
+
             .step-card {
                 min-width: 100%;
                 max-width: 100%;
             }
+
             .steps-container {
                 flex-direction: column;
                 align-items: center;
@@ -178,28 +211,35 @@
         }
 
         @media (prefers-reduced-motion) {
-            .step-icon, 
+            .step-icon,
             .step-card {
                 transition: none;
+            }
+
+            .step-card:hover .step-icon {
+                animation: none;
             }
         }
     </style>
 </head>
+
 <body>
     <section class="process-section" aria-labelledby="processTitle processSubtitle">
         <h2 id="processTitle" class="section-title">MAPPING IT OUT</h2>
-        <p id="processSubtitle" class="section-subtitle">Use Artificial intelligence, Machine Learning, Connecting Existing Company Solutions, and Organizing Data and Processes to Automate Workflows</p>
-        
+        <p id="processSubtitle" class="section-subtitle">Use Artificial intelligence, Machine Learning, Connecting
+            Existing Company Solutions, and Organizing Data and Processes to Automate Workflows</p>
+
         <div class="steps-container" role="list">
             <div class="step-card" role="listitem" tabindex="0">
                 <div class="step-content">
                     <span class="step-number" aria-hidden="true">1</span>
-                    <span class="step-icon" aria-hidden="true"><i class="fas fa-search-plus" focusable="false"></i></span>
+                    <span class="step-icon" aria-hidden="true"><i class="fas fa-search-plus"
+                            focusable="false"></i></span>
                     <h3 class="step-title">Discovery</h3>
                     <p class="step-description">Analyze internal systems to identify automation opportunities</p>
                 </div>
             </div>
-            
+
             <div class="step-card" role="listitem" tabindex="0">
                 <div class="step-content">
                     <span class="step-number" aria-hidden="true">2</span>
@@ -208,7 +248,7 @@
                     <p class="step-description">Outline milestones and requirements for alignment</p>
                 </div>
             </div>
-            
+
             <div class="step-card" role="listitem" tabindex="0">
                 <div class="step-content">
                     <span class="step-number" aria-hidden="true">3</span>
@@ -217,7 +257,7 @@
                     <p class="step-description">Implement solutions with comprehensive training</p>
                 </div>
             </div>
-            
+
             <div class="step-card" role="listitem" tabindex="0">
                 <div class="step-content">
                     <span class="step-number" aria-hidden="true">4</span>
@@ -229,4 +269,5 @@
         </div>
     </section>
 </body>
+
 </html>

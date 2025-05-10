@@ -8,7 +8,7 @@
         :root {
             --primary-dark: #4B2E83;
             --primary: #6A4C9D;
-            --accent: #FFA630;
+            --accent: #7E57C2; /* CHANGED FROM ORANGE TO PURPLE */
             --white: #FFFFFF;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -52,7 +52,7 @@
         }
         
         .return-btn {
-            background: var(--accent);
+            background: var(--accent); /* Now uses the purple accent color */
             color: white;
             border: none;
             padding: 0.8rem 2rem;
@@ -66,7 +66,7 @@
         }
         
         .return-btn:hover {
-            background: var(--primary);
+            background: var(--primary); /* Changes to darker purple on hover */
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(106, 76, 157, 0.3);
         }
