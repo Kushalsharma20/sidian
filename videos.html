@@ -81,18 +81,18 @@
 
         .solution-item {
             display: flex;
-            align-items: center; /* Changed to center for vertical alignment */
+            align-items: center;
             margin-bottom: 5rem;
             gap: 3rem;
-            min-height: 350px; /* Added minimum height for consistency */
+            min-height: 350px;
         }
 
         .solution-content {
             flex: 1;
-            padding: 2rem 0; /* Increased padding for better spacing */
+            padding: 2rem 0;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically */
+            justify-content: center;
             height: 100%;
         }
 
@@ -124,32 +124,90 @@
             margin-bottom: 1.5rem;
         }
 
-        .video-wrapper {
+        /* CHANGED CLASS NAMES TO AVOID CONFLICTS */
+        .solution-video-wrapper {
             flex: 1;
             display: flex;
-            align-items: center; /* Center video vertically */
-            justify-content: center; /* Center video horizontally */
+            align-items: center;
+            justify-content: center;
             height: 100%;
+            margin-top: 0; /* Ensure no extra margin */
         }
 
-        .video-container {
+        .solution-video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px; /* Added max-width for better control */
+            max-width: 600px;
         }
 
-        .video-container iframe {
+        .solution-video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        /* Solution categories section */
+        .solution-categories {
+            max-width: 1200px;
+            margin: 6rem auto 0;
+        }
+
+        .category-header {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .category-description {
+            font-style: italic;
+            color: var(--neutral);
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .solution-card h4 {
+            font-family: var(--subheading-font);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .solution-card p {
+            font-family: var(--subheading-font);
+            color: var(--neutral);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Alternate layout for even items */
@@ -169,7 +227,7 @@
                 flex-direction: column;
             }
             
-            .video-wrapper {
+            .solution-video-wrapper {
                 width: 100%;
                 margin-top: 2rem;
             }
@@ -178,8 +236,12 @@
                 padding: 1rem 0;
             }
 
-            .video-container {
+            .solution-video-container {
                 max-width: 100%;
+            }
+
+            .solution-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
@@ -193,12 +255,20 @@
             #solutions-section {
                 padding: 4rem 1.5rem;
             }
+
+            .category-header {
+                font-size: 1.6rem;
+            }
         }
 
         @media (max-width: 480px) {
             :root {
                 --heading-size: 1.8rem;
                 --subheading-size: 1.4rem;
+            }
+
+            .solution-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -207,7 +277,7 @@
     <section id="solutions-section">
         <div class="section-header">
             <h2>Solutions</h2>
-            <p>Innovative tools designed to streamline your engineering workflow and enhance productivity</p>
+            <p><b>Innovative tools designed to streamline your engineering workflow and enhance productivity</b></p>
         </div>
         
         <div class="solutions-container">
@@ -216,11 +286,12 @@
                 <div class="solution-content">
                     <span class="solution-tag">AI-Powered</span>
                     <h3>C-IAN</h3>
-                    <p>Advanced weld defect detection system that uses computer vision to identify and classify welding imperfections in real-time. Our proprietary algorithms achieve 98.7% accuracy in defect classification, significantly reducing inspection time and costs.</p>
-                    <p>Key features include automated reporting, historical defect tracking, and integration with existing quality management systems.</p>
+                    <p>CIAN is an image recognition system. The model can be trained on a variety of data sets like beam defects, concrete cracks, PPE detectors — situations with large quantities of data. </p>
+                    <p>The provided sample is a weld defect detection system trained on over 5000 photos. CIAN proved over 95% accuracy towards weld defect classification. </p>
+                    <p>Key elements include instant draft report writing from imported images, improved unity across reports, and leveraging existing datasets.  </p>
                 </div>
-                <div class="video-wrapper">
-                    <div class="video-container">
+                <div class="solution-video-wrapper">
+                    <div class="solution-video-container">
                         <iframe src="https://www.youtube.com/embed/pLQw0DbubdM" 
                                 loading="lazy" 
                                 title="C-IAN Demo Video" 
@@ -235,11 +306,12 @@
                 <div class="solution-content">
                     <span class="solution-tag">Code Compliance</span>
                     <h3>SID CODE</h3>
-                    <p>Intelligent building code assistant that helps engineers quickly reference and apply relevant building codes and standards. Our natural language processing engine understands engineering queries and provides precise code references with context.</p>
-                    <p>Includes automatic updates for code changes, multi-standard comparison tools, and case law references for disputed interpretations.</p>
+                    <p>A building code assistant to aid in information retrieval, clause identification, and quick response verification via a document viewer. Sid Code is designed to lighten the loads on your office tables.  </p>
+                    <p>With its quick retrieval characteristics Sid Code will provide an answer to your design solutions in seconds without tirelessly looking through large design manuals.  </p>
+                    <p>The knowledge base incudes the concrete, steel, wood design manuals, OBC, and NBC. SID code provides accurate and precise engineering answers to your technical questions. </p>
                 </div>
-                <div class="video-wrapper">
-                    <div class="video-container">
+                <div class="solution-video-wrapper">
+                    <div class="solution-video-container">
                         <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
                                 loading="lazy" 
                                 title="SID CODE Demo Video" 
@@ -254,11 +326,11 @@
                 <div class="solution-content">
                     <span class="solution-tag">Automation</span>
                     <h3>RISA/SAP Automation</h3>
-                    <p>Seamless integration between Excel and structural analysis software to automate data transfer and reduce manual entry. Our solution eliminates 90% of repetitive data transfer tasks, reducing errors and saving hundreds of engineering hours annually.</p>
-                    <p>Supports bidirectional data flow, version control, and automated model validation checks before analysis.</p>
+                    <p>With Sidian report generator, quickly generate a written report based on your drafting requirements. Save valuable and costly time with the power of Natural Language Processing. </p>
+                    
                 </div>
-                <div class="video-wrapper">
-                    <div class="video-container">
+                <div class="solution-video-wrapper">
+                    <div class="solution-video-container">
                         <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
                                 loading="lazy" 
                                 title="RISA/SAP Automation Demo" 
@@ -276,14 +348,76 @@
                     <p>In-house developed tools that automatically complete complex engineering spreadsheets, saving hours of manual work. Our templates incorporate industry best practices and can be customized to firm-specific calculation methodologies.</p>
                     <p>Features include automated unit conversion, error flagging, audit trails, and integration with BIM platforms.</p>
                 </div>
-                <div class="video-wrapper">
-                    <div class="video-container">
+                <div class="solution-video-wrapper">
+                    <div class="solution-video-container">
                         <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" 
                                 loading="lazy" 
                                 title="Spreadsheet Automation Demo" 
                                 allowfullscreen>
                         </iframe>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Solution Categories -->
+        <div class="solution-categories">
+            <h3 class="category-header">Pre-Project Solutions</h3>
+            <p class="category-description">Tools to help you win work and start projects efficiently</p>
+            <div class="solution-list">
+                <div class="solution-card">
+                    <h4>Proposal Completion</h4>
+                    <p>Automated tools for generating comprehensive project proposals with pre-approved content libraries and compliance checking.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>RFP Response Automation</h4>
+                    <p>AI-assisted response generation for RFPs with template libraries and past project matching.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Bid Preparation</h4>
+                    <p>Streamlined bid development with cost estimation tools and historical data integration.</p>
+                </div>
+            </div>
+
+            <h3 class="category-header">Design Solutions</h3>
+            <p class="category-description">Enhance your design process with intelligent tools</p>
+            <div class="solution-list">
+                <div class="solution-card">
+                    <h4>API Connections</h4>
+                    <p>Seamless integration between design software and analysis tools for real-time data flow.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Tech & Architect Assistant</h4>
+                    <p>AI-powered design suggestions based on project parameters and best practices.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Design Automation</h4>
+                    <p>Automated generation of standard design elements based on project specifications.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Map Cracking</h4>
+                    <p>Advanced analysis tools for identifying and addressing potential structural stress points.</p>
+                </div>
+            </div>
+
+            <h3 class="category-header">Internal Coordination</h3>
+            <p class="category-description">Solutions for better team collaboration and knowledge management</p>
+            <div class="solution-list">
+                <div class="solution-card">
+                    <h4>Team Management</h4>
+                    <p>Resource allocation and workload balancing tools with predictive analytics.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Past Project Information Retrieval</h4>
+                    <p>AI-powered search across all historical projects to find relevant precedents and solutions.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Data Organization</h4>
+                    <p>Automated classification and tagging of project data for easy retrieval.</p>
+                </div>
+                <div class="solution-card">
+                    <h4>Document Layout</h4>
+                    <p>Standardized templates and automated formatting for consistent deliverables.</p>
                 </div>
             </div>
         </div>

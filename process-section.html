@@ -1,102 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidian | Construction Technology Solutions</title>
-    <meta name="description" content="Construction technology solutions for engineering workflows">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- Cache-busted Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=3">
-    <style id="color-override">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
         :root {
             --primary-dark: #4B2E83;
             --primary: #6A4C9D;
             --primary-light: #9D8DCB;
-            --accent: #7E57C2 !important;
+            --accent: #7E57C2 !important;  /* Correct purple accent */
             --neutral: #5D5D5D;
-            --highlight: #B39DDB !important;
+            --highlight: #B39DDB !important;  /* Light purple highlight */
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* Typography */
-            --heading-font: 'Playfair Display', serif;
-            --subheading-font: 'Manrope', sans-serif;
-            --heading-size: 2.8rem;
-            --subheading-size: 1.6rem;
-            --body-size: 1.1rem;
         }
 
         .process-section {
             padding: 6rem 2rem;
             background: linear-gradient(to bottom, #F8F7FC 0%, #EDEAF5 100%);
-            position: relative;
-            z-index: 2;
-            overflow-x: auto;
-            text-align: center;
         }
 
         .section-title {
-            font-family: var(--heading-font);
-            font-size: var(--heading-size);
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             color: var(--primary-dark);
-            margin: 0 auto 2rem;
-            padding: 0 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
-            font-family: var(--subheading-font);
-            font-size: var(--subheading-size);
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.2rem;
             color: var(--neutral);
-            margin-bottom: 4rem;
+            text-align: center;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 3rem;
             line-height: 1.6;
         }
 
         .steps-container {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 1400px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
         }
 
         .step-card {
-            background: transparent;
-            min-width: 280px;
-            max-width: 320px;
+            background: white;
+            border-radius: 16px;
             padding: 2rem;
+            box-shadow: 0 4px 24px rgba(106, 76, 157, 0.08);
             transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
             position: relative;
-            flex: 1;
+            overflow: hidden;
         }
 
-        .step-card:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 4px;
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card.active {
+            box-shadow: 0 12px 32px rgba(106, 76, 157, 0.15);
+            transform: translateY(-8px);
+            border-color: var(--primary-light);
+        }
+
+        .step-card.active::before {
+            transform: scaleX(1);
         }
 
         .step-content {
@@ -104,170 +91,290 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            height: 100%;
         }
 
         .step-number {
-            font-family: var(--subheading-font);
+            font-family: 'Manrope', sans-serif;
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            order: 1;
-            background: var(--primary);
             color: white;
+            background: var(--primary);
             padding: 0.5rem 1.2rem;
             border-radius: 20px;
             width: fit-content;
+            margin-bottom: 1.5rem;
         }
 
         .step-icon {
             font-size: 3rem;
-            color: var(--primary) !important;
             margin-bottom: 1.5rem;
-            transition: var(--transition);
-            order: 2;
-            position: relative;
         }
 
         .step-icon i {
-            color: inherit !important;
+            color: var(--primary);
+            transition: var(--transition);
         }
 
-        .step-card:hover .step-icon {
-            color: var(--accent) !important;
-            transform: scale(1.1);
-            animation: purpleGlow 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes purpleGlow {
-            from {
-                text-shadow: 0 0 5px rgba(125, 87, 194, 0.5);
-            }
-
-            to {
-                text-shadow: 0 0 15px rgba(125, 87, 194, 0.8);
-            }
+        .step-card:hover .step-icon i,
+        .step-card.active .step-icon i {
+            color: var(--accent);
+            transform: scale(1.2);
         }
 
         .step-title {
-            font-family: var(--subheading-font);
-            font-size: var(--subheading-size);
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            order: 3;
-            line-height: 1.3;
+            margin-bottom: 1rem;
         }
 
         .step-description {
-            font-family: var(--subheading-font);
+            font-family: 'Manrope', sans-serif;
             color: var(--neutral);
-            line-height: 1.7;
-            font-size: var(--body-size);
-            order: 4;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        @media (max-width: 1200px) {
-            .steps-container {
-                gap: 1rem;
-            }
-
-            .step-card {
-                min-width: 240px;
-                padding: 1.5rem;
-            }
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(106, 76, 157, 0.08);
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
         }
 
-        @media (max-width: 992px) {
-            .steps-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        .read-more:hover {
+            background: rgba(106, 76, 157, 0.15);
+        }
 
-            .step-card {
-                min-width: 45%;
-                max-width: 45%;
-                margin-bottom: 2rem;
-            }
+        .read-more i {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-card.active .read-more {
+            background: rgba(106, 76, 157, 0.15);
+        }
+
+        .step-card.active .read-more i {
+            transform: rotate(180deg);
+        }
+
+        .step-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        opacity 0.3s ease,
+                        transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(-10px);
+            color: var(--neutral);
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .step-card.active .step-details {
+            max-height: 1000px;
+            opacity: 1;
+            transform: translateY(0);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 2px solid rgba(106, 76, 157, 0.1);
+        }
+
+        .step-details ul {
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            list-style: none;
+        }
+
+        .step-details li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .step-details li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
         }
 
         @media (max-width: 768px) {
-            :root {
-                --heading-size: 2.2rem;
-                --subheading-size: 1.4rem;
-                --body-size: 1rem;
+            .section-title {
+                font-size: 2.2rem;
             }
-
-            .step-card {
-                min-width: 100%;
-                max-width: 100%;
-            }
-
+            
             .steps-container {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
-        }
-
-        @media (prefers-reduced-motion) {
-            .step-icon,
+            
             .step-card {
-                transition: none;
+                padding: 1.5rem;
             }
-
-            .step-card:hover .step-icon {
-                animation: none;
+            
+            .step-icon {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
-
 <body>
-    <section class="process-section" aria-labelledby="processTitle processSubtitle">
-        <h2 id="processTitle" class="section-title">MAPPING IT OUT</h2>
-        <p id="processSubtitle" class="section-subtitle">Use Artificial intelligence, Machine Learning, Connecting
-            Existing Company Solutions, and Organizing Data and Processes to Automate Workflows</p>
 
-        <div class="steps-container" role="list">
-            <div class="step-card" role="listitem" tabindex="0">
-                <div class="step-content">
-                    <span class="step-number" aria-hidden="true">1</span>
-                    <span class="step-icon" aria-hidden="true"><i class="fas fa-search-plus"
-                            focusable="false"></i></span>
-                    <h3 class="step-title">Discovery</h3>
-                    <p class="step-description">Analyze internal systems to identify automation opportunities</p>
+<section class="process-section">
+    <h1 class="section-title">MAPPING IT OUT</h1>
+    <h2 class="section-subtitle">Use Artificial intelligence, Machine Learning, Connecting Existing Company Solutions, and Organizing Data and Processes to Automate Workflows</h2>
+
+    <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+            <div class="step-content">
+                <div class="step-number">01</div>
+                <span class="step-icon"><i class="fas fa-search-plus"></i></span>
+                <h2 class="step-title">Discovery</h2>
+                <p class="step-description">Analyze internal systems to identify automation opportunities</p>
+                <div class="read-more" onclick="event.stopPropagation(); toggleStep(this.closest('.step-card'))">
+                    <span>Read More</span>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-            </div>
-
-            <div class="step-card" role="listitem" tabindex="0">
-                <div class="step-content">
-                    <span class="step-number" aria-hidden="true">2</span>
-                    <span class="step-icon" aria-hidden="true"><i class="fas fa-handshake" focusable="false"></i></span>
-                    <h3 class="step-title">Contract</h3>
-                    <p class="step-description">Outline milestones and requirements for alignment</p>
-                </div>
-            </div>
-
-            <div class="step-card" role="listitem" tabindex="0">
-                <div class="step-content">
-                    <span class="step-number" aria-hidden="true">3</span>
-                    <span class="step-icon" aria-hidden="true"><i class="fas fa-rocket" focusable="false"></i></span>
-                    <h3 class="step-title">Delivery</h3>
-                    <p class="step-description">Implement solutions with comprehensive training</p>
-                </div>
-            </div>
-
-            <div class="step-card" role="listitem" tabindex="0">
-                <div class="step-content">
-                    <span class="step-number" aria-hidden="true">4</span>
-                    <span class="step-icon" aria-hidden="true"><i class="fas fa-sync-alt" focusable="false"></i></span>
-                    <h3 class="step-title">Maintenance</h3>
-                    <p class="step-description">Provide ongoing support and improvements</p>
+                <div class="step-details">
+                    <p><strong>In-depth Process Analysis:</strong> We conduct comprehensive interviews with your team to understand pain points and workflow bottlenecks.</p>
+                    <ul>
+                        <li>Document current processes and data flows</li>
+                        <li>Identify repetitive tasks suitable for automation</li>
+                        <li>Map integration points between existing systems</li>
+                        <li>Assess data quality and structure</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-</body>
 
+        <!-- Step 2 -->
+        <div class="step-card">
+            <div class="step-content">
+                <div class="step-number">02</div>
+                <span class="step-icon"><i class="fas fa-handshake"></i></span>
+                <h2 class="step-title">Planning</h2>
+                <p class="step-description">Outline milestones and requirements for alignment</p>
+                <div class="read-more" onclick="event.stopPropagation(); toggleStep(this.closest('.step-card'))">
+                    <span>Read More</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="step-details">
+                    <p><strong>Customized Solution Design:</strong> We translate discovery findings into a tailored implementation plan.</p>
+                    <ul>
+                        <li>Define project scope and success metrics</li>
+                        <li>Establish clear milestones and timelines</li>
+                        <li>Detail technical requirements and specifications</li>
+                        <li>Outline data security and compliance protocols</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+            <div class="step-content">
+                <div class="step-number">03</div>
+                <span class="step-icon"><i class="fas fa-rocket"></i></span>
+                <h2 class="step-title">Implementation</h2>
+                <p class="step-description">Implement solutions with comprehensive training</p>
+                <div class="read-more" onclick="event.stopPropagation(); toggleStep(this.closest('.step-card'))">
+                    <span>Read More</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="step-details">
+                    <p><strong>Phased Implementation:</strong> We deploy solutions in manageable stages with continuous feedback loops.</p>
+                    <ul>
+                        <li>Configure and test automation workflows</li>
+                        <li>Integrate with existing systems (ERP, CRM, etc.)</li>
+                        <li>Develop custom connectors and APIs as needed</li>
+                        <li>Conduct user acceptance testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+            <div class="step-content">
+                <div class="step-number">04</div>
+                <span class="step-icon"><i class="fas fa-sync-alt"></i></span>
+                <h2 class="step-title"> Maintenance </h2>
+                <p class="step-description">Provide ongoing support and improvements</p>
+                <div class="read-more" onclick="event.stopPropagation(); toggleStep(this.closest('.step-card'))">
+                    <span>Read More</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="step-details">
+                    <p><strong>Continuous Maintenance:</strong> We ensure your solution evolves with your business needs.</p>
+                    <ul>
+                        <li>24/7 monitoring and incident response</li>
+                        <li>Regular performance reviews and tuning</li>
+                        <li>Quarterly feature enhancement updates</li>
+                        <li>User feedback collection and implementation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleStep(clickedCard) {
+        const wasActive = clickedCard.classList.contains('active');
+        
+        // Close all cards
+        document.querySelectorAll('.step-card').forEach(card => {
+            if (card !== clickedCard) {
+                card.classList.remove('active');
+            }
+        });
+        
+        // Toggle the clicked card
+        clickedCard.classList.toggle('active');
+        
+        // Smooth scroll to keep card in view if opening
+        if (clickedCard.classList.contains('active')) {
+            const cardTop = clickedCard.getBoundingClientRect().top;
+            const offsetPosition = cardTop + window.pageYOffset - 100;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Close when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.step-card') && 
+            !event.target.closest('.read-more')) {
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.classList.remove('active');
+            });
+        }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.classList.remove('active');
+            });
+        }
+    });
+</script>
+
+</body>
 </html>

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Modern Purple Color Scheme */
             --primary-dark: #4B2E83;
             --primary: #6A4C9D;
             --primary-light: #9D8DCB;
@@ -19,13 +18,11 @@
             --highlight: #B39DDB;
             --white: #FFFFFF;
             --text: #2D3748;
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* Typography */
+            --transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
-            --heading-size: 2.5rem;
-            --subheading-size: 1.8rem;
+            --heading-size: 2.2rem;
+            --subheading-size: 1.5rem;
             --body-size: 1rem;
         }
 
@@ -35,20 +32,18 @@
             box-sizing: border-box;
         }
 
-        html,
-        body {
+        html, body {
             height: 100%;
         }
 
         body {
-            font-family: 'Manrope', sans-serif;
+            font-family: var(--subheading-font);
             color: var(--text);
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
         }
 
-        /* Background Styles */
         .background-container {
             position: fixed;
             top: 0;
@@ -82,9 +77,8 @@
             border-radius: 0 0 12px 12px;
         }
 
-        /* Navigation with Slogan */
         nav {
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -94,6 +88,7 @@
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--primary-light);
+            height: 95px;
         }
 
         .brand-container {
@@ -103,7 +98,7 @@
         }
 
         .logo {
-            height: 120px;
+            height: 75px;
             width: auto;
             max-height: 100%;
             transition: var(--transition);
@@ -115,11 +110,11 @@
 
         .slogan {
             font-family: var(--subheading-font);
-            font-size: var(--body-size);
+            font-size: 1rem;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             position: relative;
             padding-left: 1.5rem;
         }
@@ -145,12 +140,12 @@
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 600;
-            padding: 0.7rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 2rem;
             transition: var(--transition);
             background: rgba(106, 76, 157, 0.1);
             border: 1px solid var(--primary-light);
-            font-size: var(--body-size);
+            font-size: 1rem;
             min-width: max-content;
             white-space: nowrap;
         }
@@ -161,28 +156,13 @@
             box-shadow: 0 4px 12px rgba(106, 76, 157, 0.2);
         }
 
-        .nav-links .book-btn {
-            color: var(--primary-dark);
-            background: rgba(106, 76, 157, 0.1);
-            border: 1px solid var(--primary-light);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links .book-btn:hover {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 12px rgba(106, 76, 157, 0.2);
-        }
-
-        /* Main Content */
         #main-page {
-            min-height: 80vh;
+            min-height: calc(80vh - 95px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 6rem 2rem 2rem;
+            padding: 130px 2rem 2rem;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -193,47 +173,73 @@
             font-size: var(--heading-size);
             font-weight: 700;
             line-height: 1.3;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--white);
             text-shadow:
                 0 2px 10px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(75, 46, 131, 0.5);
             max-width: 800px;
+            padding: 0 1rem;
         }
 
         .sub-heading {
             font-family: var(--subheading-font);
             font-size: var(--subheading-size);
             font-weight: 600;
-            line-height: 1.5;
+            line-height: 1.4;
             margin-bottom: 2rem;
             color: var(--white);
             text-shadow:
                 0 2px 5px rgba(0, 0, 0, 0.8);
             max-width: 800px;
+            padding: 0 1rem;
         }
 
-        /* Typing Animation */
-        .typing-text {
-            font-family: var(--subheading-font);
-            font-size: var(--subheading-size);
+        .text-rotator {
+            position: relative;
+            height: 130px; /* Increased from 110px */
+            margin: 1.8rem 0;
+            perspective: 1000px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .rotating-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            opacity: 0;
+            transform: translate3d(0, 100%, 0) rotateX(-30deg);
+            transform-origin: bottom center;
+            transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            font-family: var(--heading-font);
+            font-size: 2rem; /* Increased from 1.5rem */
             font-weight: 600;
-            color: var(--white);
-            text-shadow:
+            color: var(--highlight); /* Purple color */
+            text-shadow: 
                 0 2px 10px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(75, 46, 131, 0.5);
-            line-height: 1.4;
-            margin: 1rem 0;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            line-height: 1.5;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+        }
+        
+        .rotating-text.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) rotateX(0deg);
+        }
+        
+        .rotating-text.leaving {
+            opacity: 0;
+            transform: translate3d(0, -100%, 0) rotateX(30deg);
         }
 
-        /* Clients Section */
         .clients-section {
             width: 100%;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background: white;
             text-align: center;
             position: relative;
@@ -243,7 +249,7 @@
         .trusted-by {
             font-size: var(--body-size);
             color: var(--primary-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 600;
@@ -260,94 +266,96 @@
         }
 
         .client-logo {
-            height: 4rem;
+            height: 4.2rem;
             max-width: 180px;
             width: auto;
             transition: var(--transition);
             object-fit: contain;
         }
 
-        .client-logo:hover {
-            transform: scale(1.1);
-        }
-
-        /* Process Section */
-        #process-section {
-            background: white;
-            padding: 4rem 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             :root {
-                --heading-size: 2rem;
-                --subheading-size: 1.5rem;
-                --body-size: 0.95rem;
+                --heading-size: 1.9rem;
+                --subheading-size: 1.3rem;
             }
             
-            .background-container,
-            #main-page {
-                height: 70vh;
+            nav {
+                height: 85px;
+                padding: 1rem 5%;
             }
-
-            .typing-text {
-                height: 90px;
-            }
-
-            .client-logo {
-                height: 3.5rem;
-            }
-
-            .brand-container {
-                gap: 1rem;
+            
+            .logo {
+                height: 60px;
             }
             
             .slogan {
                 font-size: 0.9rem;
                 padding-left: 1rem;
             }
-
-            .logo {
-                height: 90px;
+            
+            #main-page {
+                padding-top: 110px;
+                min-height: calc(80vh - 85px);
+            }
+            
+            .text-rotator {
+                height: 120px; /* Increased from 100px */
+            }
+            
+            .rotating-text {
+                font-size: 1.7rem; /* Increased from 1.3rem */
+            }
+            
+            .client-logo {
+                height: 3.8rem;
             }
         }
 
         @media (max-width: 480px) {
             :root {
-                --heading-size: 1.8rem;
-                --subheading-size: 1.3rem;
-                --body-size: 0.85rem;
+                --heading-size: 1.6rem;
+                --subheading-size: 1.1rem;
             }
             
-            .background-container,
-            #main-page {
-                height: 65vh;
-            }
-
-            .typing-text {
-                height: 80px;
-            }
-
-            .client-logos {
-                gap: 1.5rem;
-            }
-
-            .client-logo {
-                height: 3rem;
-            }
-
-            .nav-links a {
-                padding: 0.6rem 1.2rem;
+            nav {
+                height: 75px;
+                padding: 0.8rem 5%;
             }
             
             .logo {
-                height: 70px;
+                height: 50px;
             }
             
             .slogan {
                 display: none;
+            }
+            
+            #main-page {
+                padding-top: 95px;
+                min-height: calc(80vh - 75px);
+            }
+            
+            .text-rotator {
+                height: 110px; /* Increased from 90px */
+                margin: 1.2rem 0;
+            }
+            
+            .rotating-text {
+                font-size: 1.4rem; /* Increased from 1.1rem */
+                padding: 0 1rem;
+            }
+            
+            .nav-links a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .client-logos {
+                gap: 1.8rem;
+            }
+            
+            .client-logo {
+                height: 3.2rem;
             }
         }
     </style>
@@ -364,7 +372,7 @@
             <div class="slogan">MASTER THE MAZE</div>
         </div>
         <div class="nav-links">
-            <a href="#" class="btn-blog">Blogs</a>
+            <a href="#" class="btn-blog">Newletters</a>
             <a href="calendlyBooking.html" class="book-btn">Book Now</a>
         </div>
     </nav>
@@ -372,10 +380,15 @@
     <main id="main-page">
         <h1 class="main-heading">General Contractors to Automate Structural Engineering Workflows</h1>
         <h2 class="sub-heading">
-            We Understand the Structural Engineering Industry and<br>
+            We Understand the Structural Engineering Industry and
             the Solutions That Can Help You Today
         </h2>
-        <div id="typing-text" class="typing-text"></div>
+        
+        <div class="text-rotator">
+            <h1 class="rotating-text active">Automate the Algorithmic. Engineer the Extravagant</h1>
+            <h1 class="rotating-text">Engineer Task to EIT</h1>
+            <h1 class="rotating-text">Free up Time for Ground Breaking Decisions</h1>
+        </div>
     </main>
 
     <div class="clients-section">
@@ -386,77 +399,128 @@
         </div>
     </div>
 
-    <div id="process-section">
-        <!-- Process section content will be loaded here -->
-    </div>
+    <div id="companyVideo"></div>
+    <div id="process-section"></div>
     <div id="videos"></div>
     <div id="booking"></div>
     <div id="footer"></div>
+
     <script>
-        // Typing Animation
-        document.addEventListener('DOMContentLoaded', function () {
-            const phrases = [
-                "Automate the Algorithmic. Engineer the Extravagant.",
-                "Engineer Task to EIT",
-                "Free up Time for Ground Breaking Decisions"
-            ];
-            const typingElement = document.getElementById('typing-text');
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typingSpeed = 150;
-
-            function type() {
-                const currentPhrase = phrases[phraseIndex];
-
-                if (isDeleting) {
-                    typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                    typingSpeed = 50;
-                } else {
-                    typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                    typingSpeed = 100;
-                }
-
-                if (!isDeleting && charIndex === currentPhrase.length) {
-                    isDeleting = true;
-                    typingSpeed = 1500;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typingSpeed = 500;
-                }
-
-                setTimeout(type, typingSpeed);
+        function toggleStep(clickedCard) {
+        const wasActive = clickedCard.classList.contains('active');
+        
+        // Close all cards except the clicked one
+        document.querySelectorAll('.step-card').forEach(card => {
+            if (card !== clickedCard) {
+                card.classList.remove('active');
             }
-            setTimeout(type, 1000);
-
-            // Load sections
-            fetch('process-section.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('process-section').innerHTML = data;
-                });
-                
-            fetch('videos.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('videos').innerHTML = data;
-                });
-                
-            fetch('booking.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('booking').innerHTML = data;
-                });
-                
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer').innerHTML = data;
-                });
         });
+        
+        // Toggle the clicked card
+        clickedCard.classList.toggle('active');
+        
+        // Smooth scroll to keep card in view if opening
+        if (clickedCard.classList.contains('active')) {
+            const cardTop = clickedCard.getBoundingClientRect().top;
+            const offsetPosition = cardTop + window.pageYOffset - 100;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Text rotator functionality
+        const textRotator = document.querySelector('.text-rotator');
+        const textElements = textRotator.querySelectorAll('.rotating-text');
+        let currentIndex = 0;
+        const displayDuration = 3000;
+        const transitionDuration = 800;
+
+        textElements[0].classList.add('active');
+
+        function showNextPhrase() {
+            textElements[currentIndex].classList.remove('active');
+            textElements[currentIndex].classList.add('leaving');
+            
+            currentIndex = (currentIndex + 1) % textElements.length;
+            
+            setTimeout(() => {
+                textElements.forEach(el => {
+                    el.classList.remove('leaving');
+                    el.classList.remove('active');
+                });
+                textElements[currentIndex].classList.add('active');
+            }, transitionDuration);
+            
+            setTimeout(showNextPhrase, displayDuration);
+        }
+
+        setTimeout(showNextPhrase, displayDuration);
+
+        // Event delegation for step cards (works for dynamically loaded content)
+        document.addEventListener('click', function(event) {
+            // Handle read-more clicks
+            const readMoreBtn = event.target.closest('.read-more');
+            if (readMoreBtn) {
+                event.stopPropagation();
+                const clickedCard = readMoreBtn.closest('.step-card');
+                toggleStep(clickedCard);
+                return;
+            }
+            
+            // Close when clicking outside
+            if (!event.target.closest('.step-card')) {
+                document.querySelectorAll('.step-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.step-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        });
+
+        // Load sections
+        fetch('process-section.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('process-section').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading process section:', error));
+
+        // Other fetch calls remain the same...
+        fetch('videos.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('videos').innerHTML = data;
+            });
+
+        fetch('booking.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('booking').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+        
+        fetch('companyVideo.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('companyVideo').innerHTML = data;
+            });
+    });
     </script>
 </body>
 </html>
