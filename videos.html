@@ -23,9 +23,9 @@
             /* Typography */
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
-            --heading-size: 2.5rem;
-            --subheading-size: 1.8rem;
-            --body-size: 1.1rem;
+            --heading-size: 2.2rem;
+            --subheading-size: 1.6rem;
+            --body-size: 1rem;
         }
 
         * {
@@ -45,25 +45,26 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
         #solutions-section {
             background: white;
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             position: relative;
             z-index: 2;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-header h2 {
             font-family: var(--heading-font);
             font-size: var(--heading-size);
             color: var(--primary-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .section-header p {
@@ -79,59 +80,62 @@
             margin: 0 auto;
         }
 
-        .solution-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5rem;
-            gap: 3rem;
-            min-height: 350px;
+        .solution-section {
+            margin-bottom: 4rem;
         }
 
-        .solution-content {
-            flex: 1;
-            padding: 2rem 0;
+        .solution-section-title {
+            font-family: var(--heading-font);
+            font-size: var(--subheading-size);
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .solution-section-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border-top: 3px solid var(--primary);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            height: 100%;
         }
 
-        .solution-content h3 {
-            font-family: var(--subheading-font);
-            font-size: var(--subheading-size);
-            font-weight: 600;
-            color: var(--primary-dark);
+        .solution-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .solution-card-content {
+            flex: 1;
             margin-bottom: 1rem;
         }
 
-        .solution-content p {
+        .solution-card p {
             font-family: var(--subheading-font);
             color: var(--neutral);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
             font-size: var(--body-size);
-        }
-
-        .solution-tag {
-            display: inline-block;
-            font-family: var(--subheading-font);
-            background: rgba(106, 76, 157, 0.1);
-            color: var(--primary);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        /* CHANGED CLASS NAMES TO AVOID CONFLICTS */
-        .solution-video-wrapper {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            margin-top: 0; /* Ensure no extra margin */
+            margin-bottom: 1rem;
         }
 
         .solution-video-container {
@@ -140,9 +144,9 @@
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: auto;
         }
 
         .solution-video-container iframe {
@@ -154,121 +158,47 @@
             border: none;
         }
 
-        /* Solution categories section */
-        .solution-categories {
-            max-width: 1200px;
-            margin: 6rem auto 0;
-        }
-
-        .category-header {
-            font-family: var(--heading-font);
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            margin: 3rem 0 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary-light);
-        }
-
-        .category-description {
+        .coming-soon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
             font-style: italic;
             color: var(--neutral);
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .solution-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            border-left: 4px solid var(--primary);
-        }
-
-        .solution-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .solution-card h4 {
-            font-family: var(--subheading-font);
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .solution-card p {
-            font-family: var(--subheading-font);
-            color: var(--neutral);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Alternate layout for even items */
-        .solution-item:nth-child(even) {
-            flex-direction: row-reverse;
+            height: 100%;
         }
 
         @media (max-width: 992px) {
-            .solution-item {
-                flex-direction: column;
-                gap: 2rem;
-                margin-bottom: 4rem;
-                min-height: auto;
-            }
-            
-            .solution-item:nth-child(even) {
-                flex-direction: column;
-            }
-            
-            .solution-video-wrapper {
-                width: 100%;
-                margin-top: 2rem;
-            }
-
-            .solution-content {
-                padding: 1rem 0;
-            }
-
-            .solution-video-container {
-                max-width: 100%;
-            }
-
-            .solution-list {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .solution-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
             :root {
                 --heading-size: 2rem;
-                --subheading-size: 1.6rem;
-                --body-size: 1rem;
+                --subheading-size: 1.4rem;
             }
             
             #solutions-section {
-                padding: 4rem 1.5rem;
+                padding: 3rem 1rem;
             }
 
-            .category-header {
-                font-size: 1.6rem;
+            .solution-section {
+                margin-bottom: 3rem;
             }
         }
 
         @media (max-width: 480px) {
-            :root {
-                --heading-size: 1.8rem;
-                --subheading-size: 1.4rem;
-            }
-
-            .solution-list {
+            .solution-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .solution-card {
+                padding: 1.25rem;
             }
         }
     </style>
@@ -281,143 +211,191 @@
         </div>
         
         <div class="solutions-container">
-            <!-- Solution 1 -->
-            <div class="solution-item">
-                <div class="solution-content">
-                    <span class="solution-tag">AI-Powered</span>
-                    <h3>C-IAN</h3>
-                    <p>CIAN is an image recognition system. The model can be trained on a variety of data sets like beam defects, concrete cracks, PPE detectors — situations with large quantities of data. </p>
-                    <p>The provided sample is a weld defect detection system trained on over 5000 photos. CIAN proved over 95% accuracy towards weld defect classification. </p>
-                    <p>Key elements include instant draft report writing from imported images, improved unity across reports, and leveraging existing datasets.  </p>
-                </div>
-                <div class="solution-video-wrapper">
-                    <div class="solution-video-container">
-                        <iframe src="https://www.youtube.com/embed/pLQw0DbubdM" 
-                                loading="lazy" 
-                                title="C-IAN Demo Video" 
-                                allowfullscreen>
-                        </iframe>
+            <!-- Computer Vision Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">Computer Vision</h3>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Upload an image and quickly find defects with a report generated immediately. Concept can be transferred to a variety of use cases.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/pLQw0DbubdM" 
+                                    loading="lazy" 
+                                    title="C-IAN Demo Video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Solution 2 -->
-            <div class="solution-item">
-                <div class="solution-content">
-                    <span class="solution-tag">Code Compliance</span>
-                    <h3>SID CODE</h3>
-                    <p>A building code assistant to aid in information retrieval, clause identification, and quick response verification via a document viewer. Sid Code is designed to lighten the loads on your office tables.  </p>
-                    <p>With its quick retrieval characteristics Sid Code will provide an answer to your design solutions in seconds without tirelessly looking through large design manuals.  </p>
-                    <p>The knowledge base incudes the concrete, steel, wood design manuals, OBC, and NBC. SID code provides accurate and precise engineering answers to your technical questions. </p>
-                </div>
-                <div class="solution-video-wrapper">
-                    <div class="solution-video-container">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                                loading="lazy" 
-                                title="SID CODE Demo Video" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Solution 3 -->
-            <div class="solution-item">
-                <div class="solution-content">
-                    <span class="solution-tag">Automation</span>
-                    <h3>RISA/SAP Automation</h3>
-                    <p>With Sidian report generator, quickly generate a written report based on your drafting requirements. Save valuable and costly time with the power of Natural Language Processing. </p>
                     
-                </div>
-                <div class="solution-video-wrapper">
-                    <div class="solution-video-container">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                                loading="lazy" 
-                                title="RISA/SAP Automation Demo" 
-                                allowfullscreen>
-                        </iframe>
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Say goodbye to missing photos on site and sifting through thousands of photos.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                                    loading="lazy" 
+                                    title="Openspace Video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Solution 4 -->
-            <div class="solution-item">
-                <div class="solution-content">
-                    <span class="solution-tag">Productivity</span>
-                    <h3>Automated Spreadsheet Completion</h3>
-                    <p>In-house developed tools that automatically complete complex engineering spreadsheets, saving hours of manual work. Our templates incorporate industry best practices and can be customized to firm-specific calculation methodologies.</p>
-                    <p>Features include automated unit conversion, error flagging, audit trails, and integration with BIM platforms.</p>
-                </div>
-                <div class="solution-video-wrapper">
-                    <div class="solution-video-container">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" 
-                                loading="lazy" 
-                                title="Spreadsheet Automation Demo" 
-                                allowfullscreen>
-                        </iframe>
+            
+            <!-- Document Assistant Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">Document Assistant</h3>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Quickly find relevant clauses, referenced pages, and never miss info at a rapid pace.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
+                                    loading="lazy" 
+                                    title="SID Code Video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Quickly find relevant information from contracts, borehole assessments, and reports and generate a document to share.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" 
+                                    loading="lazy" 
+                                    title="Civils.ai video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Additional Solution Categories -->
-        <div class="solution-categories">
-            <h3 class="category-header">Pre-Project Solutions</h3>
-            <p class="category-description">Tools to help you win work and start projects efficiently</p>
-            <div class="solution-list">
-                <div class="solution-card">
-                    <h4>Proposal Completion</h4>
-                    <p>Automated tools for generating comprehensive project proposals with pre-approved content libraries and compliance checking.</p>
-                </div>
-                <div class="solution-card">
-                    <h4>RFP Response Automation</h4>
-                    <p>AI-assisted response generation for RFPs with template libraries and past project matching.</p>
-                </div>
-                <div class="solution-card">
-                    <h4>Bid Preparation</h4>
-                    <p>Streamlined bid development with cost estimation tools and historical data integration.</p>
-                </div>
-            </div>
-
-            <h3 class="category-header">Design Solutions</h3>
-            <p class="category-description">Enhance your design process with intelligent tools</p>
-            <div class="solution-list">
-                <div class="solution-card">
-                    <h4>API Connections</h4>
-                    <p>Seamless integration between design software and analysis tools for real-time data flow.</p>
-                </div>
-                <div class="solution-card">
-                    <h4>Tech & Architect Assistant</h4>
-                    <p>AI-powered design suggestions based on project parameters and best practices.</p>
-                </div>
-                <div class="solution-card">
-                    <h4>Design Automation</h4>
-                    <p>Automated generation of standard design elements based on project specifications.</p>
-                </div>
-                <div class="solution-card">
-                    <h4>Map Cracking</h4>
-                    <p>Advanced analysis tools for identifying and addressing potential structural stress points.</p>
+            
+            <!-- Website Chatbot Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">Website Chatbot</h3>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Provide a user friendly chatbot to help navigate your website.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" 
+                                    loading="lazy" 
+                                    title="Jotform video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Increase customer retention and add additional knowledge without cluttering your website.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" 
+                                    loading="lazy" 
+                                    title="Botpress Video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <h3 class="category-header">Internal Coordination</h3>
-            <p class="category-description">Solutions for better team collaboration and knowledge management</p>
-            <div class="solution-list">
-                <div class="solution-card">
-                    <h4>Team Management</h4>
-                    <p>Resource allocation and workload balancing tools with predictive analytics.</p>
+            
+            <!-- Building and Site Layout Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">Building and Site Layout</h3>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Quickly determine optimal site plans that meet your project requirements.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" 
+                                    loading="lazy" 
+                                    title="Spacio Video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Use satellite imaging to understand topography and quickly get your preliminary project design.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" 
+                                    loading="lazy" 
+                                    title="Hektar video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
-                <div class="solution-card">
-                    <h4>Past Project Information Retrieval</h4>
-                    <p>AI-powered search across all historical projects to find relevant precedents and solutions.</p>
+            </div>
+            
+            <!-- API Connection Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">API Connection</h3>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Connect Your Software to a user friendly interface.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" 
+                                    loading="lazy" 
+                                    title="Viktor Video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Etabs, SAP, Revit, Rhino, Grasshopper and many more are welcome.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" 
+                                    loading="lazy" 
+                                    title="Strucwise video" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
-                <div class="solution-card">
-                    <h4>Data Organization</h4>
-                    <p>Automated classification and tagging of project data for easy retrieval.</p>
-                </div>
-                <div class="solution-card">
-                    <h4>Document Layout</h4>
-                    <p>Standardized templates and automated formatting for consistent deliverables.</p>
+            </div>
+            
+            <!-- Spreadsheet Automation Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">Spreadsheet Automation</h3>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Connect your spreadsheets to a friendly UI.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_11" 
+                                    loading="lazy" 
+                                    title="Viktor" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Allow spreadsheets to interact with other modelling or report software.</p>
+                        </div>
+                        <div class="coming-soon">
+                            Demo Coming Soon
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
