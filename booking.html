@@ -1,107 +1,163 @@
-<!-- Book a Call Section (30-min only) -->
-<section class="book-section" aria-labelledby="bookHeading">
-    <div class="book-container">
-        <h1 id="bookHeading" class="section-title">BOOK A CALL</h1>
-        <h2 class="section-subtitle">Schedule a 30-minute consultation to discuss your construction workflow automation needs</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidian | Construction Technology Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #4B2E83;
+            --primary: #6A4C9D;
+            --primary-light: #9D8DCB;
+            --primary-very-light: #F0EBF8;
+            --accent: #7E57C2;
+            --neutral: #5D5D5D;
+            --highlight: #B39DDB;
+            --white: #FFFFFF;
+            --text: #2D3748;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Book Section Styles - Matching Your Theme */
+        .book-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, #EDEAF5 0%, #E2DDF0 100%);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
         
-        <div class="booking-options">
-            <!-- Single 30-min Option -->
-            <div class="booking-card" tabindex="0">
-                <div class="booking-icon">
-                    <i class="fas fa-calendar-check"></i>
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+        }
+        
+        .section-subtitle {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neutral);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .booking-options {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .booking-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(106, 76, 157, 0.1);
+        }
+        
+        .booking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(106, 76, 157, 0.15);
+        }
+        
+        .booking-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .booking-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .booking-card p {
+            color: var(--neutral);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .book-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.1rem;
+            text-decoration: none;
+            min-width: 200px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(106, 76, 157, 0.2);
+        }
+        
+        .book-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(106, 76, 157, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .book-section {
+                padding: 4rem 1rem;
+            }
+            .booking-card {
+                padding: 2rem 1.5rem;
+            }
+            .booking-card h3 {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Book a Call Section (30-min only) -->
+    <section class="book-section" aria-labelledby="bookHeading">
+        <div class="book-container">
+            <h1 id="bookHeading" class="section-title">BOOK A CALL</h1>
+            <h2 class="section-subtitle">Schedule a 30-minute consultation to discuss your construction workflow automation needs</h2>
+            
+            <div class="booking-options">
+                <!-- Single 30-min Option -->
+                <div class="booking-card" tabindex="0">
+                    <div class="booking-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Strategy Session</h3>
+                    <p>30-minute detailed discussion about your project requirements and automation opportunities</p>
+                    <a href="calendlyBooking.html" class="book-btn">Schedule Now</a>
                 </div>
-                <h3>Strategy Session</h3>
-                <p>30-minute detailed discussion about your project requirements and automation opportunities</p>
-                <a href="calendlyBooking.html" class="book-btn">Schedule Now</a>
             </div>
         </div>
-    </div>
-</section>
-
-<style>
-    /* Book Section Styles - Matching Your Theme */
-    .book-section {
-        padding: 6rem 2rem;
-        background: linear-gradient(to bottom, #EDEAF5 0%, #E2DDF0 100%);
-        position: relative;
-        z-index: 2;
-        text-align: center;
-    }
-    
-    .booking-options {
-        display: flex;
-        justify-content: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .booking-card {
-        background: var(--white);
-        border-radius: 12px;
-        padding: 2.5rem;
-        width: 100%;
-        max-width: 500px;
-        text-align: center;
-        transition: var(--transition);
-        box-shadow: 0 4px 20px rgba(106, 76, 157, 0.1);
-    }
-    
-    .booking-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(106, 76, 157, 0.15);
-    }
-    
-    .booking-icon {
-        font-size: 3rem;
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-    }
-    
-    .booking-card h3 {
-        font-family: 'Playfair Display', serif;
-        color: var(--primary-dark);
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .booking-card p {
-        color: var(--neutral);
-        margin-bottom: 2rem;
-        line-height: 1.6;
-        font-size: 1.1rem;
-    }
-    
-    .book-btn {
-        display: inline-block;
-        background: var(--accent);
-        color: white;
-        border: none;
-        padding: 1rem 3rem;
-        border-radius: 2rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        font-family: 'Manrope', sans-serif;
-        font-size: 1.1rem;
-        text-decoration: none;
-        min-width: 200px;
-    }
-    
-    .book-btn:hover {
-        background: var(--highlight);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(255, 166, 48, 0.3);
-    }
-
-    @media (max-width: 768px) {
-        .book-section {
-            padding: 4rem 1rem;
-        }
-        .booking-card {
-            padding: 2rem 1.5rem;
-        }
-        .booking-card h3 {
-            font-size: 1.5rem;
-        }
-    }
-</style>
+    </section>
+</body>
+</html>

@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidian | Construction Technology Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-dark: #4B2E83;
             --primary: #6A4C9D;
             --primary-light: #9D8DCB;
+            --primary-very-light: #F0EBF8;
             --accent: #FFA630;
             --neutral: #5D5D5D;
             --highlight: #FFD166;
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* Typography */
+
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
             --heading-size: 2.2rem;
@@ -34,7 +37,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             scroll-behavior: smooth;
         }
@@ -53,6 +57,16 @@
             padding: 4rem 1.5rem;
             position: relative;
             z-index: 2;
+        }
+
+        /* Added purple line for main title */
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            margin: 1rem auto 0;
         }
 
         .section-header {
@@ -82,6 +96,16 @@
 
         .solution-section {
             margin-bottom: 4rem;
+        }
+
+        /* Added purple line for solution section titles */
+        .solution-section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            margin-top: 1rem;
         }
 
         .solution-section-title {
@@ -114,7 +138,7 @@
             background: white;
             border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
             border-top: 3px solid var(--primary);
             display: flex;
@@ -123,7 +147,7 @@
 
         .solution-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
 
         .solution-card-content {
@@ -141,11 +165,11 @@
         .solution-video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-top: auto;
         }
 
@@ -171,6 +195,107 @@
             height: 100%;
         }
 
+        .full-width-purple {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: var(--primary-very-light);
+        }
+
+        .other-solutions-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        /* Added purple line for "Other Solutions" title */
+        .other-solutions-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+        }
+
+        .other-solutions-title {
+            font-family: var(--heading-font);
+            font-size: var(--subheading-size);
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .checkerboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-bottom: 3rem;
+            background-color: #ddd;
+        }
+
+        .solution-box {
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-box.purple {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .solution-box.white {
+            background-color: white;
+            color: var(--text);
+        }
+
+        .solution-box h4 {
+            font-family: var(--heading-font);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .solution-box p {
+            font-family: var(--subheading-font);
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .solution-box:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .solution-box:hover p {
+            opacity: 1;
+            max-height: 200px;
+        }
+
+        .solution-box.purple:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .solution-box.white:hover {
+            background-color: #f9f9f9;
+        }
+
         @media (max-width: 992px) {
             .solution-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -182,7 +307,7 @@
                 --heading-size: 2rem;
                 --subheading-size: 1.4rem;
             }
-            
+
             #solutions-section {
                 padding: 3rem 1rem;
             }
@@ -190,26 +315,40 @@
             .solution-section {
                 margin-bottom: 3rem;
             }
+
+            .checkerboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-box {
+                min-height: 150px;
+            }
+
+            .solution-box h4 {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 480px) {
             .solution-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .solution-card {
                 padding: 1.25rem;
             }
         }
     </style>
 </head>
+
 <body>
+
     <section id="solutions-section">
         <div class="section-header">
             <h2>Solutions</h2>
             <p><b>Innovative tools designed to streamline your engineering workflow and enhance productivity</b></p>
         </div>
-        
+
         <div class="solutions-container">
             <!-- Computer Vision Section -->
             <div class="solution-section">
@@ -217,32 +356,29 @@
                 <div class="solution-grid">
                     <div class="solution-card">
                         <div class="solution-card-content">
-                            <p>Upload an image and quickly find defects with a report generated immediately. Concept can be transferred to a variety of use cases.</p>
+                            <p>Upload an image and quickly find defects with a report generated immediately. Concept can
+                                be transferred to a variety of use cases.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/pLQw0DbubdM" 
-                                    loading="lazy" 
-                                    title="C-IAN Demo Video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/loWLNZ72MKU" loading="lazy"
+                                title="C-IAN Demo Video" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
-                    
+
                     <div class="solution-card">
                         <div class="solution-card-content">
                             <p>Say goodbye to missing photos on site and sifting through thousands of photos.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                                    loading="lazy" 
-                                    title="Openspace Video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/nRKnwK6L1po" loading="lazy"
+                                title="Openspace Video" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Document Assistant Section -->
             <div class="solution-section">
                 <h3 class="solution-section-title">Document Assistant</h3>
@@ -252,29 +388,26 @@
                             <p>Quickly find relevant clauses, referenced pages, and never miss info at a rapid pace.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                                    loading="lazy" 
-                                    title="SID Code Video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/5Sp1S3QFjUQ" loading="lazy"
+                                title="SID Code Video" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
-                    
+
                     <div class="solution-card">
                         <div class="solution-card-content">
-                            <p>Quickly find relevant information from contracts, borehole assessments, and reports and generate a document to share.</p>
+                            <p>Quickly find relevant information from contracts, borehole assessments, and reports and
+                                generate a document to share.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" 
-                                    loading="lazy" 
-                                    title="Civils.ai video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/Naigfmgl8sc" loading="lazy"
+                                title="Civils.ai video" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Website Chatbot Section -->
             <div class="solution-section">
                 <h3 class="solution-section-title">Website Chatbot</h3>
@@ -284,29 +417,28 @@
                             <p>Provide a user friendly chatbot to help navigate your website.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" 
-                                    loading="lazy" 
-                                    title="Jotform video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/loWLNZ72MKU" loading="lazy"
+                                title="C-IAN Demo Video" allowfullscreen>
                             </iframe>
+
+
                         </div>
                     </div>
-                    
+
                     <div class="solution-card">
                         <div class="solution-card-content">
-                            <p>Increase customer retention and add additional knowledge without cluttering your website.</p>
+                            <p>Increase customer retention and add additional knowledge without cluttering your website.
+                            </p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" 
-                                    loading="lazy" 
-                                    title="Botpress Video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" loading="lazy" title="Botpress Video"
+                                allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Building and Site Layout Section -->
             <div class="solution-section">
                 <h3 class="solution-section-title">Building and Site Layout</h3>
@@ -316,29 +448,26 @@
                             <p>Quickly determine optimal site plans that meet your project requirements.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" 
-                                    loading="lazy" 
-                                    title="Spacio Video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/dVl09LBFJNw" loading="lazy" title="Spacio Video"
+                                allowfullscreen>
                             </iframe>
                         </div>
                     </div>
-                    
+
                     <div class="solution-card">
                         <div class="solution-card-content">
-                            <p>Use satellite imaging to understand topography and quickly get your preliminary project design.</p>
+                            <p>Use satellite imaging to understand topography and quickly get your preliminary project
+                                design.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" 
-                                    loading="lazy" 
-                                    title="Hektar video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/aqfgrCDnp2w" loading="lazy" title="Hektar video"
+                                allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- API Connection Section -->
             <div class="solution-section">
                 <h3 class="solution-section-title">API Connection</h3>
@@ -348,29 +477,25 @@
                             <p>Connect Your Software to a user friendly interface.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" 
-                                    loading="lazy" 
-                                    title="Viktor Video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/n_ysu2XsVdQ" loading="lazy" title="Viktor Video"
+                                allowfullscreen>
                             </iframe>
                         </div>
                     </div>
-                    
+
                     <div class="solution-card">
                         <div class="solution-card-content">
                             <p>Etabs, SAP, Revit, Rhino, Grasshopper and many more are welcome.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" 
-                                    loading="lazy" 
-                                    title="Strucwise video" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/gnAVOqqvNB0" loading="lazy"
+                                title="Strucwise video" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Spreadsheet Automation Section -->
             <div class="solution-section">
                 <h3 class="solution-section-title">Spreadsheet Automation</h3>
@@ -380,14 +505,12 @@
                             <p>Connect your spreadsheets to a friendly UI.</p>
                         </div>
                         <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_11" 
-                                    loading="lazy" 
-                                    title="Viktor" 
-                                    allowfullscreen>
+                            <iframe src="https://www.youtube.com/embed/mOkCm27gYAM" loading="lazy" title="Viktor"
+                                allowfullscreen>
                             </iframe>
                         </div>
                     </div>
-                    
+
                     <div class="solution-card">
                         <div class="solution-card-content">
                             <p>Allow spreadsheets to interact with other modelling or report software.</p>
@@ -401,14 +524,48 @@
         </div>
     </section>
 
+    <div class="full-width-purple">
+        <section class="other-solutions-section">
+            <h2 class="other-solutions-title">Other Solutions</h2>
+            <div class="checkerboard-grid">
+                <!-- Row 1 -->
+                <div class="solution-box purple">
+                    <h4>RFP Generation</h4>
+                    <p>Leverage past data to win more projects at a fraction of the time</p>
+                </div>
+                <div class="solution-box white">
+                    <h4>Data Organization</h4>
+                    <p>Ensure folder structure and documents are laid to enable machine learning</p>
+                </div>
+                <div class="solution-box purple">
+                    <h4>Contract Understanding</h4>
+                    <p>Quickly identify crucial aspects of contracts to ensure nothing is missed</p>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="solution-box white">
+                    <h4>Permit Completion</h4>
+                    <p>Complete permit approval at a fraction of the time to reduce project delays</p>
+                </div>
+                <div class="solution-box purple">
+                    <h4>Project Database</h4>
+                    <p>Retrieve information from drawings, detailing, and design to leverage past projects</p>
+                </div>
+                <div class="solution-box white">
+                    <h4>Takeoff Estimates</h4>
+                    <p>Quickly determine building costs for materials, expected timelines, etc</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <script>
-        // Lazy load videos when they come into view
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const lazyVideos = [].slice.call(document.querySelectorAll("iframe[loading='lazy']"));
-            
+
             if ("IntersectionObserver" in window) {
-                let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(video) {
+                let lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (video) {
                         if (video.isIntersecting) {
                             for (let source in video.target.children) {
                                 let videoSource = video.target.children[source];
@@ -416,18 +573,19 @@
                                     videoSource.src = videoSource.dataset.src;
                                 }
                             }
-                            
+
                             video.target.load();
                             lazyVideoObserver.unobserve(video.target);
                         }
                     });
                 });
-                
-                lazyVideos.forEach(function(lazyVideo) {
+
+                lazyVideos.forEach(function (lazyVideo) {
                     lazyVideoObserver.observe(lazyVideo);
                 });
             }
         });
     </script>
 </body>
+
 </html>

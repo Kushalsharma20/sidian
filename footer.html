@@ -1,13 +1,17 @@
 <!-- Footer Section -->
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-brand">
-            <div class="footer-logo">Sidian</div>
-            <p class="footer-tagline">MASTER THE MAZE</p>
+<footer id="footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3>Sidian</h3>
+            <p class="footer-tagline">MAP THE MAZE</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
         
-        <div class="footer-contact">
-            <h3 class="footer-heading">CONTACT INFO</h3>
+        <div class="footer-column">
+            <h3>CONTACT INFO</h3>
             <ul class="contact-list">
                 <li class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -25,157 +29,163 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Waterloo, Ontario</span>
                 </li>
-                <li class="contact-item">
-                    <i class="fab fa-youtube"></i>
-                    <a href="" target="_blank">Our YouTube Channel</a>
-                </li>
-                <li class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="" target="_blank">Connect on LinkedIn</a>
-                </li>
             </ul>
         </div>
         
-        <div class="footer-legal">
-            <p>&copy; <span id="current-year"></span> Sidian. All rights reserved.</p>
-            <div class="legal-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="#">Newsletters</a>
+            <a href="about.html">About Us</a>
+            <a href="calendlyBooking.html">Book Now</a>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; <span id="current-year"></span> Sidian. All rights reserved.</p>
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
         </div>
     </div>
 </footer>
 
 <style>
     /* Footer Styles */
-    .site-footer {
+    footer {
         background-color: var(--primary-dark);
-        color: white;
-        padding: 4rem 2rem 2rem;
-        position: relative;
-        z-index: 2;
+        color: var(--white);
+        padding: 3rem 5%;
+        width: 100%;
+        font-family: var(--subheading-font);
     }
-    
-    .footer-container {
+
+    .footer-content {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
     }
-    
-    .footer-brand {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .footer-logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, var(--highlight), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        margin-bottom: 1rem;
-    }
-    
-    .footer-tagline {
-        font-size: 1.1rem;
-        color: var(--primary-light);
-        max-width: 300px;
-        line-height: 1.6;
-    }
-    
-    .footer-heading {
-        font-family: 'Manrope', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--highlight);
+
+    .footer-column h3 {
+        font-family: var(--heading-font);
         margin-bottom: 1.5rem;
+        position: relative;
+        color: var(--highlight);
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-size: 1.2rem;
     }
-    
+
+    .footer-column h3::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 2px;
+        background: var(--primary-light);
+    }
+
+    .footer-column a {
+        color: var(--primary-very-light);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.8rem;
+        transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+        color: var(--accent);
+        padding-left: 5px;
+    }
+
+    .footer-tagline {
+        color: var(--primary-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        color: var(--white);
+        font-size: 1.2rem;
+        transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+        color: var(--accent);
+        transform: translateY(-3px);
+    }
+
     .contact-list {
         list-style: none;
     }
-    
+
     .contact-item {
         display: flex;
-        align-items: flex-start;
-        margin-bottom: 1.2rem;
+        align-items: center;
+        margin-bottom: 1rem;
         font-size: 1.05rem;
-        line-height: 1.6;
     }
-    
+
     .contact-item i {
         width: 24px;
         color: var(--accent);
         margin-right: 1rem;
-        font-size: 1.2rem;
-        margin-top: 2px;
+        font-size: 1.1rem;
     }
-    
-    .contact-item a {
-        color: white;
-        text-decoration: none;
-        transition: var(--transition);
-    }
-    
-    .contact-item a:hover {
-        color: var(--highlight);
-    }
-    
+
     .contact-item span {
-        flex: 1;
+        color: var(--primary-very-light);
     }
-    
-    .footer-legal {
-        grid-column: 1 / -1;
+
+    .copyright {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
+        font-size: 0.9rem;
+        color: var(--primary-light);
     }
-    
+
     .legal-links {
         display: flex;
+        justify-content: center;
         gap: 1.5rem;
+        margin-top: 0.5rem;
     }
-    
+
     .legal-links a {
         color: var(--primary-light);
         text-decoration: none;
         transition: var(--transition);
         font-size: 0.9rem;
     }
-    
+
     .legal-links a:hover {
         color: var(--highlight);
     }
-    
+
     /* Responsive Footer */
     @media (max-width: 768px) {
-        .footer-container {
+        .footer-content {
             grid-template-columns: 1fr;
             gap: 2rem;
         }
         
-        .footer-brand {
-            margin-bottom: 1rem;
+        .footer-column {
+            margin-bottom: 1.5rem;
         }
         
-        .footer-legal {
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .contact-item {
-            align-items: center;
+        .footer-column h3::after {
+            margin-left: 0;
         }
     }
 </style>

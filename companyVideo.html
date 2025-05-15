@@ -1,143 +1,197 @@
-<!-- Add this section right AFTER your existing process-section -->
-<section class="video-section">
-    <div class="video-container">
-        <h2 class="section-title video-title">Didn't understand ?, Watch this</h2>
-        <p class="section-subtitle video-subtitle">Watch how our solutions transform construction workflows</p>
-        
-        <!-- Video Embed Container - Now with constrained width -->
-        <div class="video-wrapper" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
-            <iframe 
-                id="explainerVideo"
-                class="video-embed"
-                width="100%" 
-                height="100%"
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?rel=0&enablejsapi=1" 
-                frameborder="0" 
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-</section>
-
-<!-- Updated CSS with smaller video size -->
-<style>
-    .video-section {
-        padding: 4rem 2rem;
-        background: var(--white);
-    }
-
-    .video-container {
-        max-width: 1000px; /* Reduced from 1200px */
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .video-title {
-        color: var(--primary-dark);
-        margin-bottom: 1rem;
-        font-size: 2.2rem; /* Slightly smaller title */
-    }
-
-    .video-subtitle {
-        max-width: 700px; /* Reduced from 800px */
-        margin: 0 auto 2rem; /* Reduced bottom margin */
-        font-size: 1.1rem;
-    }
-
-    .video-wrapper {
-        position: relative;
-        width: 85%; /* Reduced from 100% */
-        margin: 0 auto; /* Center the smaller container */
-        padding-bottom: 48%; /* Slightly taller than 16:9 (was 56.25%) */
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 32px rgba(106, 76, 157, 0.1);
-        transition: var(--transition);
-        max-width: 800px; /* Added max-width constraint */
-    }
-
-    .video-wrapper:hover {
-        transform: translateY(-5px) scale(1.01); /* Subtle zoom effect */
-        box-shadow: 0 12px 40px rgba(106, 76, 157, 0.2);
-    }
-
-    .video-embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-    /* Purple overlay on hover */
-    .video-wrapper::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, rgba(106, 76, 157, 0.2) 0%, rgba(106, 76, 157, 0) 100%);
-        opacity: 0;
-        transition: var(--transition);
-        z-index: 1;
-    }
-
-    .video-wrapper:hover::before {
-        opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-        .video-wrapper {
-            width: 90%; /* Slightly more width on mobile */
-            padding-bottom: 60%; /* Taller aspect ratio for mobile */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidian | Construction Technology Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #4B2E83;
+            --primary: #6A4C9D;
+            --primary-light: #9D8DCB;
+            --primary-very-light: #F0EBF8;
+            --accent: #6A4C9D; /* Changed from yellow to primary purple */
+            --neutral: #5D5D5D;
+            --highlight: #9D8DCB; /* Changed from yellow to primary-light purple */
+            --white: #FFFFFF;
+            --text: #2D3748;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            --heading-font: 'Playfair Display', serif;
+            --subheading-font: 'Manrope', sans-serif;
+            --heading-size: 2.2rem;
+            --subheading-size: 1.6rem;
+            --body-size: 1rem;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--subheading-font);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.5;
+            background-color: var(--white);
+        }
+
+        /* Solutions Section Styles */
+        #solutions-section {
+            background: white;
+            padding: 4rem 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--heading-font);
+            font-size: var(--heading-size);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-family: var(--subheading-font);
+            color: var(--neutral);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: var(--body-size);
+        }
+
+        /* Video Section Styles */
+        .video-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .video-title {
-            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            position: relative;
+            font-family: var(--heading-font);
         }
-        
+
+        .video-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
         .video-subtitle {
-            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--neutral);
         }
-    }
-</style>
 
-<!-- JavaScript remains the same -->
-<script>
-    let player;
-    
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('explainerVideo', {
-            events: {
-                'onReady': onPlayerReady
+        .video-wrapper {
+            position: relative;
+            width: 85%;
+            margin: 0 auto;
+            padding-bottom: 48%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(106, 76, 157, 0.1);
+            transition: var(--transition);
+            max-width: 800px;
+            background-color: #000;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 40px rgba(106, 76, 157, 0.2);
+        }
+
+        .video-embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .video-wrapper {
+                width: 90%;
+                padding-bottom: 60%;
             }
+            
+            .video-title {
+                font-size: 1.8rem;
+            }
+            
+            .video-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="video-container">
+            <h2 class="video-title">Didn't understand? Watch this</h2>
+            <p class="video-subtitle">Watch how our solutions transform construction workflows</p>
+            
+            <div class="video-wrapper">
+                <iframe 
+                    class="video-embed"
+                    src="https://www.youtube.com/embed/NlBN4jo5V78?enablejsapi=1&rel=0&modestbranding=1" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"
+                    title="Sidian Solutions Demo Video">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple solution to handle hover play if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoWrapper = document.querySelector('.video-wrapper');
+            const iframe = document.querySelector('.video-embed');
+            
+            // This will make the video play on click (due to browser autoplay restrictions)
+            videoWrapper.addEventListener('click', function() {
+                iframe.src = iframe.src.includes('autoplay=1') 
+                    ? iframe.src.replace('autoplay=1', 'autoplay=0')
+                    : iframe.src + '&autoplay=1';
+            });
         });
-    }
-
-    function onPlayerReady(event) {
-        // Player is ready
-    }
-
-    function playVideo(element) {
-        if(player && typeof player.playVideo === 'function') {
-            player.playVideo();
-            element.classList.add('playing');
-        }
-    }
-
-    function pauseVideo(element) {
-        if(player && typeof player.pauseVideo === 'function') {
-            player.pauseVideo();
-            element.classList.remove('playing');
-        }
-    }
-
-    // Load YouTube API
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-</script>
+    </script>
+</body>
+</html>
