@@ -21,9 +21,10 @@
             --transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
-            --heading-size: 2.2rem;
-            --subheading-size: 1.5rem;
+            --heading-size: 3rem; /* Increased from 2.2rem */
+            --subheading-size: 1.8rem; /* Increased from 1.5rem */
             --body-size: 1rem;
+            --rotating-text-size: 2.5rem; /* Added for rotating text consistency */
         }
 
         * {
@@ -68,7 +69,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            background-image: url('images/AI_in_construction.jpg');
+            background-image: url('images/AI_in_construction.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -185,7 +186,7 @@
 
         .text-rotator {
             position: relative;
-            height: 130px;
+            height: 150px; /* Increased to accommodate larger text */
             margin: 1.8rem 0;
             perspective: 1000px;
             width: 100%;
@@ -204,7 +205,7 @@
             transform-origin: bottom center;
             transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
             font-family: var(--heading-font);
-            font-size: 2rem;
+            font-size: var(--rotating-text-size); /* Using variable now */
             font-weight: 600;
             color: var(--highlight);
             text-shadow: 
@@ -261,10 +262,23 @@
             object-fit: contain;
         }
 
+        @media (max-width: 1024px) {
+            :root {
+                --heading-size: 2.5rem;
+                --subheading-size: 1.6rem;
+                --rotating-text-size: 2rem;
+            }
+            
+            .text-rotator {
+                height: 130px;
+            }
+        }
+
         @media (max-width: 768px) {
             :root {
-                --heading-size: 1.9rem;
-                --subheading-size: 1.3rem;
+                --heading-size: 2.2rem;
+                --subheading-size: 1.4rem;
+                --rotating-text-size: 1.8rem;
             }
             
             nav {
@@ -290,10 +304,6 @@
                 height: 120px;
             }
             
-            .rotating-text {
-                font-size: 1.7rem;
-            }
-            
             .client-logo {
                 height: 3.8rem;
             }
@@ -310,8 +320,9 @@
 
         @media (max-width: 480px) {
             :root {
-                --heading-size: 1.6rem;
-                --subheading-size: 1.1rem;
+                --heading-size: 1.8rem;
+                --subheading-size: 1.2rem;
+                --rotating-text-size: 1.4rem;
             }
             
             nav {
@@ -333,13 +344,8 @@
             }
             
             .text-rotator {
-                height: 110px;
+                height: 100px;
                 margin: 1.2rem 0;
-            }
-            
-            .rotating-text {
-                font-size: 1.4rem;
-                padding: 0 1rem;
             }
             
             .nav-links a {
@@ -360,7 +366,7 @@
 <body>
     <nav>
         <div class="brand-container">
-            <img src="images/logo.webp" alt="Sidian Logo" class="logo">
+            <img src="images/sidian_logo.webp" alt="Sidian Logo" class="logo">
             <div class="slogan">MAP THE MAZE</div>
         </div>
         <div class="nav-links">
@@ -387,8 +393,8 @@
     <div class="clients-section">
         <div class="trusted-by">Trusted by </div>
         <div class="client-logos">
-            <img src="images/wadell_engineering_ltd.png" alt="Wadell Engineering" class="client-logo">
-            <img src="images/TT_company.png" alt="TT Company" class="client-logo">
+            <img src="images/wadell_engineering_ltd.webp" alt="Wadell Engineering" class="client-logo">
+            <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
         </div>
     </div>
 

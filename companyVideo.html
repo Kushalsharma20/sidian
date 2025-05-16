@@ -14,18 +14,31 @@
             --primary: #6A4C9D;
             --primary-light: #9D8DCB;
             --primary-very-light: #F0EBF8;
-            --accent: #6A4C9D; /* Changed from yellow to primary purple */
+            --accent: #6A4C9D;
             --neutral: #5D5D5D;
-            --highlight: #9D8DCB; /* Changed from yellow to primary-light purple */
+            --highlight: #9D8DCB;
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             
+            /* Updated Typography Scale */
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
-            --heading-size: 2.2rem;
-            --subheading-size: 1.6rem;
-            --body-size: 1rem;
+            --heading-size: 2.8rem;
+            --subheading-size: 1.8rem;
+            --body-size: 1.15rem;
+            --small-text: 1rem;
+            
+            /* New for video title emphasis */
+            --video-title-size: 3rem; /* Special larger size for this heading */
+            
+            /* New spacing variables */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-xxl: 4rem;
         }
 
         * {
@@ -45,41 +58,14 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            line-height: 1.5;
+            line-height: 1.6;
             background-color: var(--white);
-        }
-
-        /* Solutions Section Styles */
-        #solutions-section {
-            background: white;
-            padding: 4rem 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-family: var(--heading-font);
-            font-size: var(--heading-size);
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            font-family: var(--subheading-font);
-            color: var(--neutral);
-            max-width: 700px;
-            margin: 0 auto;
             font-size: var(--body-size);
         }
 
         /* Video Section Styles */
         .video-section {
-            padding: 4rem 2rem;
+            padding: var(--space-xxl) var(--space-md);
             background: var(--white);
         }
 
@@ -91,27 +77,31 @@
 
         .video-title {
             color: var(--primary-dark);
-            margin-bottom: 1rem;
-            font-size: 2.2rem;
+            margin-bottom: var(--space-md);
+            font-size: var(--video-title-size); /* Using special larger size */
             position: relative;
             font-family: var(--heading-font);
+            line-height: 1.2; /* Tighter line height for larger text */
+            font-weight: 700;
         }
 
         .video-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 3px;
+            width: 120px; /* Slightly longer to match bigger text */
+            height: 4px;
             background: var(--primary);
-            margin: 1rem auto 0;
+            margin: var(--space-sm) auto 0;
             border-radius: 2px;
         }
 
         .video-subtitle {
             max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
+            margin: 0 auto var(--space-lg);
+            font-size: var(--subheading-size);
             color: var(--neutral);
+            line-height: 1.5;
+            font-weight: 500;
         }
 
         .video-wrapper {
@@ -142,18 +132,61 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            :root {
+                --heading-size: 2.4rem;
+                --subheading-size: 1.6rem;
+                --body-size: 1.1rem;
+                --video-title-size: 2.6rem; /* Adjusted for tablet */
+            }
+            
             .video-wrapper {
                 width: 90%;
+            }
+            
+            .video-title::after {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --heading-size: 2rem;
+                --subheading-size: 1.4rem;
+                --body-size: 1.05rem;
+                --video-title-size: 2.2rem; /* Adjusted for mobile */
+            }
+            
+            .video-wrapper {
+                width: 95%;
                 padding-bottom: 60%;
             }
             
-            .video-title {
-                font-size: 1.8rem;
+            .video-title::after {
+                width: 80px;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --heading-size: 1.8rem;
+                --subheading-size: 1.2rem;
+                --body-size: 1rem;
+                --video-title-size: 2rem; /* Minimum size for mobile */
             }
             
-            .video-subtitle {
-                font-size: 1rem;
+            .video-section {
+                padding: var(--space-xl) var(--space-sm);
+            }
+            
+            .video-wrapper {
+                padding-bottom: 70%;
+                border-radius: 12px;
+            }
+            
+            .video-title::after {
+                width: 70px;
             }
         }
     </style>
@@ -162,8 +195,8 @@
     <!-- Video Section -->
     <section class="video-section">
         <div class="video-container">
-            <h2 class="video-title">Didn't understand? Watch this</h2>
-            <p class="video-subtitle">Watch how our solutions transform construction workflows</p>
+            <h2 class="video-title">Who we Are</h2>
+            
             
             <div class="video-wrapper">
                 <iframe 
