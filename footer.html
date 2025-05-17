@@ -2,11 +2,8 @@
 <footer id="footer">
     <div class="footer-content">
         <div class="footer-column">
-            <h3>Sidian</h3>
-            <p class="footer-tagline">MAP THE MAZE</p>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            <div class="footer-logo-container">
+                <img src="images/sidian_logo.webp" alt="Sidian Logo" class="footer-logo">
             </div>
         </div>
         
@@ -38,6 +35,12 @@
             <a href="#">Newsletters</a>
             <a href="aboutUs.html">About Us</a>
             <a href="calendlyBooking.html">Book Now</a>
+            
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/james-hinsperger-80946b211/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </div>
     
@@ -66,6 +69,23 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
+        align-items: center; /* Added to vertically center columns */
+    }
+
+    /* Updated Logo Container */
+    .footer-logo-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100%; /* Take full height of column */
+        padding-top: 2rem; /* Lower the logo */
+    }
+
+    /* Updated Logo Size */
+    .footer-logo {
+        height: 80px; /* Increased from 50px */
+        width: auto;
+        filter: brightness(0) invert(1);
     }
 
     .footer-column h3 {
@@ -88,7 +108,7 @@
         background: var(--primary-light);
     }
 
-    .footer-column a {
+    .footer-column a:not(.social-icons a) {
         color: var(--primary-very-light);
         text-decoration: none;
         display: block;
@@ -96,32 +116,36 @@
         transition: var(--transition);
     }
 
-    .footer-column a:hover {
+    .footer-column a:not(.social-icons a):hover {
         color: var(--accent);
         padding-left: 5px;
     }
 
-    .footer-tagline {
-        color: var(--primary-light);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
-
+    /* Improved Social Icons */
     .social-icons {
         display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        justify-content: flex-start;
     }
 
     .social-icons a {
         color: var(--white);
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .social-icons a:hover {
         color: var(--accent);
         transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.2);
     }
 
     .contact-list {
@@ -182,10 +206,22 @@
         
         .footer-column {
             margin-bottom: 1.5rem;
+            text-align: center;
         }
         
         .footer-column h3::after {
-            margin-left: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .footer-logo-container {
+            padding-top: 0; /* Reset padding on mobile */
+            height: auto;
+        }
+
+        .social-icons {
+            justify-content: center;
+            margin-top: 1.5rem;
         }
     }
 </style>

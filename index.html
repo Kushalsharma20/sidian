@@ -21,10 +21,10 @@
             --transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
-            --heading-size: 3rem; /* Increased from 2.2rem */
-            --subheading-size: 1.8rem; /* Increased from 1.5rem */
+            --heading-size: 3rem;
+            --subheading-size: 1.8rem;
             --body-size: 1rem;
-            --rotating-text-size: 2.5rem; /* Added for rotating text consistency */
+            --rotating-text-size: 2.5rem;
         }
 
         * {
@@ -46,7 +46,7 @@
         }
 
         nav {
-            padding: 1.2rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,16 +56,16 @@
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--primary-light);
-            height: 95px;
+            height: 110px;
         }
 
         #main-page {
-            min-height: calc(80vh - 95px);
+            min-height: calc(80vh - 110px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 130px 2rem 2rem;
+            padding: 150px 2rem 2rem;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -107,28 +107,6 @@
 
         .logo:hover {
             transform: scale(1.05);
-        }
-
-        .slogan {
-            font-family: var(--subheading-font);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .slogan::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 60%;
-            width: 2px;
-            background: var(--accent);
         }
 
         .nav-links {
@@ -186,7 +164,7 @@
 
         .text-rotator {
             position: relative;
-            height: 150px; /* Increased to accommodate larger text */
+            height: 150px;
             margin: 1.8rem 0;
             perspective: 1000px;
             width: 100%;
@@ -205,7 +183,7 @@
             transform-origin: bottom center;
             transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
             font-family: var(--heading-font);
-            font-size: var(--rotating-text-size); /* Using variable now */
+            font-size: var(--rotating-text-size);
             font-weight: 600;
             color: var(--highlight);
             text-shadow: 
@@ -235,13 +213,34 @@
             z-index: 2;
         }
 
-        .trusted-by {
-            font-size: var(--body-size);
-            color: var(--primary-dark);
+        .trusted-by-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
             margin-bottom: 1.8rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 2rem;
+        }
+
+        .trusted-by {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 600;
+            white-space: nowrap;
+            margin: 0 1rem;
+        }
+
+        .trusted-by-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-top: -5px;
         }
 
         .client-logos {
@@ -252,6 +251,7 @@
             flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .client-logo {
@@ -272,6 +272,15 @@
             .text-rotator {
                 height: 130px;
             }
+
+            .trusted-by {
+                font-size: 1.3rem;
+            }
+
+            .trusted-by-icon {
+                width: 35px;
+                height: 35px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -282,22 +291,17 @@
             }
             
             nav {
-                height: 85px;
-                padding: 1rem 5%;
+                height: 100px;
+                padding: 1.2rem 5%;
             }
             
             .logo {
                 height: 60px;
             }
             
-            .slogan {
-                font-size: 0.9rem;
-                padding-left: 1rem;
-            }
-            
             #main-page {
-                padding-top: 110px;
-                min-height: calc(80vh - 85px);
+                padding-top: 130px;
+                min-height: calc(80vh - 100px);
             }
             
             .text-rotator {
@@ -316,6 +320,15 @@
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
             }
+
+            .trusted-by {
+                font-size: 1.1rem;
+            }
+
+            .trusted-by-icon {
+                width: 30px;
+                height: 30px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -326,21 +339,17 @@
             }
             
             nav {
-                height: 75px;
-                padding: 0.8rem 5%;
+                height: 90px;
+                padding: 1rem 5%;
             }
             
             .logo {
                 height: 50px;
             }
             
-            .slogan {
-                display: none;
-            }
-            
             #main-page {
-                padding-top: 95px;
-                min-height: calc(80vh - 75px);
+                padding-top: 110px;
+                min-height: calc(80vh - 90px);
             }
             
             .text-rotator {
@@ -360,6 +369,15 @@
             .client-logo {
                 height: 3.2rem;
             }
+
+            .trusted-by {
+                font-size: 1rem;
+            }
+
+            .trusted-by-icon {
+                width: 25px;
+                height: 25px;
+            }
         }
     </style>
 </head>
@@ -367,7 +385,6 @@
     <nav>
         <div class="brand-container">
             <img src="images/sidian_logo.webp" alt="Sidian Logo" class="logo">
-            <div class="slogan">MAP THE MAZE</div>
         </div>
         <div class="nav-links">
             <a href="#" class="btn-blog">Newsletters</a>
@@ -377,9 +394,9 @@
     </nav>
 
     <main id="main-page">
-        <h1 class="main-heading">General Contractors to Automate Structural Engineering Workflows</h1>
+        <h1 class="main-heading">General Contractors to Automate Civil Engineering Workflows</h1>
         <h2 class="sub-heading">
-            We Understand the Structural Engineering Industry and
+            We Understand the Civil Engineering Industry and
             the Solutions That Can Help You Today
         </h2>
         
@@ -391,7 +408,11 @@
     </main>
 
     <div class="clients-section">
-        <div class="trusted-by">Trusted by </div>
+        <div class="trusted-by-container">
+            <img src="images/S_symbol.webp" alt="S Icon" class="trusted-by-icon">
+            <div class="trusted-by">Trusted by</div>
+            <img src="images/S_symbol.webp" alt="S Icon" class="trusted-by-icon">
+        </div>
         <div class="client-logos">
             <img src="images/wadell_engineering_ltd.webp" alt="Wadell Engineering" class="client-logo">
             <img src="images/TT_company.webp" alt="TT Company" class="client-logo">

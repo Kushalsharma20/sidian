@@ -224,6 +224,21 @@
             font-size: var(--body-size);
         }
 
+        /* New styles for standalone solution headers */
+        .standalone-solution-header {
+            font-family: var(--heading-font);
+            font-size: var(--subheading-size);
+            color: var(--primary-dark);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .standalone-solution-container {
+            margin-bottom: var(--space-xl);
+        }
+
         .full-width-purple {
             width: 100vw;
             position: relative;
@@ -535,33 +550,36 @@
                 </div>
             </div>
 
-            <!-- Combined Chatbot and Spreadsheet Section -->
-            <div class="solution-section">
-                <h3 class="solution-section-title">Automation Solutions</h3>
+            <!-- Standalone Solutions Section -->
+            <div class="standalone-solution-container">
                 <div class="solution-grid">
-                    <!-- Website Chatbot Card -->
-                    <div class="solution-card">
-                        <div class="solution-card-content">
-                            <h4>Website Chatbot</h4>
-                            <p>Provide a user friendly chatbot to help navigate your website and increase customer retention.</p>
-                        </div>
-                        <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/9YMOjF9RMb4" loading="lazy"
-                                title="website_chatbot_video" allowfullscreen>
-                            </iframe>
+                    <!-- Website Chatbot -->
+                    <div>
+                        <h3 class="standalone-solution-header">Website Chatbot</h3>
+                        <div class="solution-card">
+                            <div class="solution-card-content">
+                                <p>Provide a user friendly chatbot to help navigate your website and increase customer retention.</p>
+                            </div>
+                            <div class="solution-video-container">
+                                <iframe src="https://www.youtube.com/embed/9YMOjF9RMb4" loading="lazy"
+                                    title="website_chatbot_video" allowfullscreen>
+                                </iframe>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Spreadsheet Automation Card -->
-                    <div class="solution-card">
-                        <div class="solution-card-content">
-                            <h4>Spreadsheet Automation</h4>
-                            <p>Connect your spreadsheets to a friendly UI and interact with other software.</p>
-                        </div>
-                        <div class="solution-video-container">
-                            <iframe src="https://www.youtube.com/embed/mOkCm27gYAM" loading="lazy" title="Viktor"
-                                allowfullscreen>
-                            </iframe>
+                    <!-- Spreadsheet Automation -->
+                    <div>
+                        <h3 class="standalone-solution-header">Spreadsheet Automation</h3>
+                        <div class="solution-card">
+                            <div class="solution-card-content">
+                                <p>Connect your spreadsheets to a friendly UI and interact with other software.</p>
+                            </div>
+                            <div class="solution-video-container">
+                                <iframe src="https://www.youtube.com/embed/mOkCm27gYAM" loading="lazy" title="Viktor"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
                         </div>
                     </div>
                 </div>

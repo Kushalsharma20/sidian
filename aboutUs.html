@@ -61,7 +61,7 @@
 
         /* Navigation */
         nav {
-            padding: var(--space-sm) 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -71,13 +71,13 @@
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--primary-light);
-            height: 95px;
+            height: 110px;
         }
 
         .brand-container {
             display: flex;
             align-items: center;
-            gap: var(--space-lg);
+            gap: 1.5rem;
         }
 
         .logo {
@@ -91,31 +91,9 @@
             transform: scale(1.05);
         }
 
-        .slogan {
-            font-family: var(--subheading-font);
-            font-size: var(--small-text);
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-            padding-left: var(--space-md);
-        }
-
-        .slogan::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 60%;
-            width: 2px;
-            background: var(--primary);
-        }
-
         .nav-links {
             display: flex;
-            gap: var(--space-sm);
+            gap: 1rem;
             align-items: center;
         }
 
@@ -123,12 +101,12 @@
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 600;
-            padding: var(--space-xs) var(--space-md);
+            padding: 0.7rem 1.5rem;
             border-radius: 2rem;
             transition: var(--transition);
             background: rgba(106, 76, 157, 0.1);
             border: 1px solid var(--primary-light);
-            font-size: var(--body-size);
+            font-size: 1rem;
             min-width: max-content;
             white-space: nowrap;
         }
@@ -145,13 +123,13 @@
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 100vh; /* Changed from 80vh to 100vh to occupy full screen */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, #F8F7FC 0%, #EDEAF5 100%);
-            padding-top: 95px;
+            background: linear-gradient(to bottom, var(--primary-very-light) 0%, var(--primary-light) 100%); /* Enhanced gradient with more visible colors */
+            padding-top: 110px;
             position: relative;
             overflow: hidden;
         }
@@ -163,8 +141,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, var(--primary-light), transparent);
-            opacity: 0.1;
+            background: radial-gradient(circle, var(--primary), transparent);
+            opacity: 0.2; /* Increased opacity for better visibility */
         }
 
         .hero-content {
@@ -190,11 +168,13 @@
             margin: var(--space-sm) auto 0;
         }
 
+
         .hero p {
             font-size: var(--subheading-size);
-            color: var(--neutral);
+            color: #000000; /* Changed from var(--neutral) to pure black */
             max-width: 600px;
             margin: 0 auto var(--space-xl);
+            font-weight: 600; /* Added bold for better visibility */
         }
 
         /* Team Section */
@@ -334,7 +314,7 @@
             font-size: var(--body-size);
         }
 
-        /* Footer Styles */
+        /* Updated Footer Styles */
         footer {
             background-color: var(--primary-dark);
             color: var(--white);
@@ -349,6 +329,23 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            align-items: center;
+        }
+
+        /* Updated Logo Container */
+        .footer-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding-top: 2rem;
+        }
+
+        /* Updated Logo Size */
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .footer-column h3 {
@@ -371,7 +368,7 @@
             background: var(--primary-light);
         }
 
-        .footer-column a {
+        .footer-column a:not(.social-icons a) {
             color: var(--primary-very-light);
             text-decoration: none;
             display: block;
@@ -379,32 +376,36 @@
             transition: var(--transition);
         }
 
-        .footer-column a:hover {
+        .footer-column a:not(.social-icons a):hover {
             color: var(--accent);
             padding-left: 5px;
         }
 
-        .footer-tagline {
-            color: var(--primary-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
+        /* Improved Social Icons */
         .social-icons {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: flex-start;
         }
 
         .social-icons a {
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .social-icons a:hover {
             color: var(--accent);
             transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .contact-list {
@@ -477,8 +478,8 @@
             }
 
             nav {
-                height: 85px;
-                padding: var(--space-sm) 5%;
+                height: 100px;
+                padding: 1.2rem 5%;
             }
 
             .logo {
@@ -486,8 +487,8 @@
             }
 
             .hero {
-                height: 70vh;
-                padding-top: 85px;
+                height: 100vh; /* Maintain full screen height on mobile */
+                padding-top: 100px;
             }
 
             .hero h1 {
@@ -511,6 +512,11 @@
                 font-size: 2rem;
             }
 
+            .nav-links a {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -518,10 +524,22 @@
             
             .footer-column {
                 margin-bottom: 1.5rem;
+                text-align: center;
             }
             
             .footer-column h3::after {
-                margin-left: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-logo-container {
+                padding-top: 0;
+                height: auto;
+            }
+
+            .social-icons {
+                justify-content: center;
+                margin-top: 1.5rem;
             }
         }
 
@@ -533,21 +551,17 @@
             }
 
             nav {
-                height: 75px;
-                padding: var(--space-xs) 5%;
+                height: 90px;
+                padding: 1rem 5%;
             }
 
             .logo {
                 height: 50px;
             }
 
-            .slogan {
-                display: none;
-            }
-
             .hero {
-                height: 60vh;
-                padding-top: 75px;
+                height: 100vh; /* Maintain full screen height on small mobile */
+                padding-top: 90px;
             }
 
             .hero h1 {
@@ -572,8 +586,8 @@
             }
 
             .nav-links a {
-                padding: var(--space-xs) var(--space-sm);
-                font-size: var(--small-text);
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -583,7 +597,6 @@
     <nav>
         <div class="brand-container">
             <img src="images/sidian_logo.webp" alt="Sidian Logo" class="logo">
-            <div class="slogan">MAP THE MAZE</div>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -596,7 +609,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Meet Our Team</h1>
-            <p>Building the future of Civil Engineering with expertise and innovation</p>
+            <p><b>The future of Civil Engineering with expertise and innovation</b></p>
         </div>
     </section>
 
@@ -651,15 +664,12 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Updated Footer Section -->
     <footer id="footer">
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Sidian</h3>
-                <p class="footer-tagline">MAP THE MAZE</p>
-                <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <div class="footer-logo-container">
+                    <img src="images/sidian_logo.webp" alt="Sidian Logo" class="footer-logo">
                 </div>
             </div>
             
@@ -691,6 +701,12 @@
                 <a href="#">Newsletters</a>
                 <a href="aboutUs.html">About Us</a>
                 <a href="calendlyBooking.html">Book Now</a>
+                
+                <!-- Social Icons -->
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/james-hinsperger-80946b211/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
         
