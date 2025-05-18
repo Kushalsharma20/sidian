@@ -66,20 +66,39 @@
             background: linear-gradient(to bottom, #EDEAF5 0%, #E2DDF0 100%);
             position: relative;
             z-index: 2;
-            text-align: center;
         }
         
-        .section-title {
+        .booking-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .booking-option {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .option-title {
             font-family: var(--heading-font);
             font-size: var(--heading-size);
             color: var(--primary-dark);
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-md);
             position: relative;
             line-height: 1.3;
             font-weight: 700;
+            text-align: center;
         }
         
-        .section-title::after {
+        .option-title::after {
             content: '';
             display: block;
             width: 100px;
@@ -89,29 +108,11 @@
             border-radius: 2px;
         }
         
-        .section-subtitle {
-            font-family: var(--subheading-font);
-            font-size: var(--subheading-size);
-            color: var(--neutral);
-            max-width: 700px;
-            margin: 0 auto var(--space-xl);
-            line-height: 1.5;
-            font-weight: 500;
-        }
-        
-        .booking-options {
-            display: flex;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
         .booking-card {
             background: var(--white);
             border-radius: 16px;
             padding: var(--space-xl);
             width: 100%;
-            max-width: 500px;
             text-align: center;
             transition: var(--transition);
             box-shadow: 0 4px 20px rgba(106, 76, 157, 0.1);
@@ -179,6 +180,10 @@
                 --subheading-size: 1.6rem;
                 --body-size: 1.1rem;
             }
+
+            .booking-option {
+                max-width: 450px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -192,11 +197,21 @@
                 padding: var(--space-xl) var(--space-sm);
             }
             
+            .booking-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .booking-option {
+                max-width: 100%;
+                margin-bottom: var(--space-lg);
+            }
+            
             .booking-card {
                 padding: var(--space-lg);
             }
             
-            .section-title::after {
+            .option-title::after {
                 width: 80px;
                 height: 3px;
             }
@@ -213,7 +228,7 @@
                 padding: var(--space-md);
             }
             
-            .section-title::after {
+            .option-title::after {
                 width: 70px;
             }
             
@@ -225,14 +240,12 @@
     </style>
 </head>
 <body>
-    <!-- Book a Call Section (30-min only) -->
-    <section class="book-section" aria-labelledby="bookHeading">
-        <div class="book-container">
-            <h1 id="bookHeading" class="section-title">BOOK A CALL</h1>
-            <h2 class="section-subtitle">Schedule a 30-minute consultation to discuss your workflow automation needs</h2>
-            
-            <div class="booking-options">
-                <!-- Single 30-min Option -->
+    <!-- Partner and Book Section -->
+    <section class="book-section">
+        <div class="booking-container">
+            <!-- Book a Call Option -->
+            <div class="booking-option">
+                <h2 class="option-title">Book a Call</h2>
                 <div class="booking-card" tabindex="0">
                     <div class="booking-icon">
                         <i class="fas fa-calendar-check"></i>
@@ -240,6 +253,19 @@
                     <h3>Strategy Session</h3>
                     <p>30-minute detailed discussion about your project requirements and automation opportunities</p>
                     <a href="calendlyBooking.html" class="book-btn">Schedule Now</a>
+                </div>
+            </div>
+            
+            <!-- Partner Up Option -->
+            <div class="booking-option">
+                <h2 class="option-title">Let's Partner Up</h2>
+                <div class="booking-card" tabindex="0">
+                    <div class="booking-icon">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <h3>Partner Up</h3>
+                    <p>Schedule a 30 minute call to discuss your company and get added to the extensive Sidian Database</p>
+                    <a href="calendlyBooking.html" class="book-btn">Partner Up</a>
                 </div>
             </div>
         </div>

@@ -123,12 +123,12 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh; /* Changed from 80vh to 100vh to occupy full screen */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, var(--primary-very-light) 0%, var(--primary-light) 100%); /* Enhanced gradient with more visible colors */
+            background: linear-gradient(to bottom, var(--primary-very-light) 0%, var(--primary-light) 100%);
             padding-top: 110px;
             position: relative;
             overflow: hidden;
@@ -142,7 +142,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle, var(--primary), transparent);
-            opacity: 0.2; /* Increased opacity for better visibility */
+            opacity: 0.2;
         }
 
         .hero-content {
@@ -168,13 +168,12 @@
             margin: var(--space-sm) auto 0;
         }
 
-
         .hero p {
             font-size: var(--subheading-size);
-            color: #000000; /* Changed from var(--neutral) to pure black */
+            color: #000000;
             max-width: 600px;
             margin: 0 auto var(--space-xl);
-            font-weight: 600; /* Added bold for better visibility */
+            font-weight: 600;
         }
 
         /* Team Section */
@@ -329,10 +328,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            align-items: center;
+            align-items: flex-start;
         }
 
-        /* Updated Logo Container */
         .footer-logo-container {
             display: flex;
             justify-content: center;
@@ -341,7 +339,6 @@
             padding-top: 2rem;
         }
 
-        /* Updated Logo Size */
         .footer-logo {
             height: 80px;
             width: auto;
@@ -368,20 +365,42 @@
             background: var(--primary-light);
         }
 
-        .footer-column a:not(.social-icons a) {
-            color: var(--primary-very-light);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-            transition: var(--transition);
+        .contact-list, .quick-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .footer-column a:not(.social-icons a):hover {
+        .contact-item, .quick-link-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .quick-link-item a {
+            color: var(--primary-very-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .quick-link-item a:hover {
             color: var(--accent);
             padding-left: 5px;
         }
 
-        /* Improved Social Icons */
+        .contact-item i {
+            width: 24px;
+            color: var(--accent);
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item span {
+            color: var(--primary-very-light);
+        }
+
         .social-icons {
             display: flex;
             gap: 1.5rem;
@@ -406,28 +425,6 @@
             color: var(--accent);
             transform: translateY(-3px);
             background: rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-list {
-            list-style: none;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .contact-item i {
-            width: 24px;
-            color: var(--accent);
-            margin-right: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item span {
-            color: var(--primary-very-light);
         }
 
         .copyright {
@@ -487,7 +484,7 @@
             }
 
             .hero {
-                height: 100vh; /* Maintain full screen height on mobile */
+                height: 100vh;
                 padding-top: 100px;
             }
 
@@ -541,6 +538,10 @@
                 justify-content: center;
                 margin-top: 1.5rem;
             }
+
+            .contact-item, .quick-link-item {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -560,7 +561,7 @@
             }
 
             .hero {
-                height: 100vh; /* Maintain full screen height on small mobile */
+                height: 100vh;
                 padding-top: 90px;
             }
 
@@ -618,7 +619,6 @@
 
         <div class="team-member">
             <div class="member-header">
-                <!-- Larger headshot image -->
                 <img src="images/james_pic.webp" alt="James Hinsperger" class="member-headshot">
                 <div>
                     <h3 class="member-name">James Hinsperger</h3>
@@ -696,11 +696,13 @@
             </div>
             
             <div class="footer-column">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="#">Newsletters</a>
-                <a href="aboutUs.html">About Us</a>
-                <a href="calendlyBooking.html">Book Now</a>
+                <h3>QUICK LINKS</h3>
+                <ul class="quick-links">
+                    <li class="quick-link-item"><a href="index.html">Home</a></li>
+                    <li class="quick-link-item"><a href="#">Newsletters</a></li>
+                    <li class="quick-link-item"><a href="aboutUs.html">About Us</a></li>
+                    <li class="quick-link-item"><a href="calendlyBooking.html">Book Now</a></li>
+                </ul>
                 
                 <!-- Social Icons -->
                 <div class="social-icons">
