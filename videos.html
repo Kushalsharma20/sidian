@@ -102,7 +102,7 @@
             color: var(--neutral);
             max-width: 700px;
             margin: 0 auto;
-            font-size: var(--subheading-size); /* Changed from body-size to subheading-size */
+            font-size: var(--subheading-size);
             font-weight: 500;
             line-height: 1.5;
         }
@@ -258,19 +258,19 @@
         /* Other Solutions Title - Now matches main Solutions title */
         .other-solutions-title {
             font-family: var(--heading-font);
-            font-size: var(--heading-size); /* Changed to match main title */
+            font-size: var(--heading-size);
             color: var(--primary-dark);
             margin-bottom: var(--space-xl);
             text-align: center;
             line-height: 1.3;
-            font-weight: 700; /* Added to match main title */
+            font-weight: 700;
         }
 
         .other-solutions-title::after {
             content: '';
             display: block;
-            width: 100px; /* Matches main title */
-            height: 4px; /* Matches main title */
+            width: 100px;
+            height: 4px;
             background: var(--primary);
             margin: var(--space-sm) auto 0;
             border-radius: 2px;
@@ -431,7 +431,7 @@
     <section id="solutions-section">
         <div class="section-header">
             <h2>Solutions</h2>
-            <p><b>Innovative tools designed to streamline your engineering workflow and enhance productivity</b></p>
+            <p>Innovative tools designed to streamline your engineering workflow and enhance productivity</p>
         </div>
 
         <div class="solutions-container">
@@ -550,36 +550,29 @@
                 </div>
             </div>
 
-            <!-- Standalone Solutions Section -->
-            <div class="standalone-solution-container">
+            <!-- Website Chatbot and Spreadsheet Automation Section -->
+            <div class="solution-section">
+                <h3 class="solution-section-title">Website Chatbot and Spreadsheet Automation</h3>
                 <div class="solution-grid">
-                    <!-- Website Chatbot -->
-                    <div>
-                        <h3 class="standalone-solution-header">Website Chatbot</h3>
-                        <div class="solution-card">
-                            <div class="solution-card-content">
-                                <p>Provide a user friendly chatbot to help navigate your website and increase customer retention.</p>
-                            </div>
-                            <div class="solution-video-container">
-                                <iframe src="https://www.youtube.com/embed/9YMOjF9RMb4" loading="lazy"
-                                    title="website_chatbot_video" allowfullscreen>
-                                </iframe>
-                            </div>
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Provide a user friendly chatbot to help navigate your website and increase customer retention.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/9YMOjF9RMb4" loading="lazy"
+                                title="website_chatbot_video" allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
 
-                    <!-- Spreadsheet Automation -->
-                    <div>
-                        <h3 class="standalone-solution-header">Spreadsheet Automation</h3>
-                        <div class="solution-card">
-                            <div class="solution-card-content">
-                                <p>Connect your spreadsheets to a friendly UI and interact with other software.</p>
-                            </div>
-                            <div class="solution-video-container">
-                                <iframe src="https://www.youtube.com/embed/mOkCm27gYAM" loading="lazy" title="Viktor"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
+                    <div class="solution-card">
+                        <div class="solution-card-content">
+                            <p>Connect your spreadsheets to a friendly UI and interact with other software.</p>
+                        </div>
+                        <div class="solution-video-container">
+                            <iframe src="https://www.youtube.com/embed/mOkCm27gYAM" loading="lazy" title="Viktor"
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -622,33 +615,6 @@
         </section>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const lazyVideos = [].slice.call(document.querySelectorAll("iframe[loading='lazy']"));
-
-            if ("IntersectionObserver" in window) {
-                let lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
-                    entries.forEach(function (video) {
-                        if (video.isIntersecting) {
-                            for (let source in video.target.children) {
-                                let videoSource = video.target.children[source];
-                                if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-                                    videoSource.src = videoSource.dataset.src;
-                                }
-                            }
-
-                            video.target.load();
-                            lazyVideoObserver.unobserve(video.target);
-                        }
-                    });
-                });
-
-                lazyVideos.forEach(function (lazyVideo) {
-                    lazyVideoObserver.observe(lazyVideo);
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
