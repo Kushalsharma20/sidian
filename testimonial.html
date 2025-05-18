@@ -1,0 +1,292 @@
+<section class="testimonial-section">
+    <div class="testimonial-glowing-bg"></div>
+    
+    <div class="section-header">
+        <h2 class="section-title">Client Success Stories</h2>
+        <div class="section-subtitle">Trusted by industry leaders</div>
+    </div>
+    
+    <div class="testimonial-container">
+        <div class="testimonial-card">
+            <!-- Author Section on Left Side -->
+            <div class="author-section">
+                <div class="author-info">
+                    <div class="company-logo-container">
+                        <img src="images/wadell_engineering_ltd.webp" alt="Waddell Engineering" class="company-logo">
+                    </div>
+                    <div class="author-meta">
+                        <h3 class="author-name">Brian Waddell</h3>
+                        <p class="author-title">Waddell Engineering Ltd.</p>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Content -->
+            <div class="testimonial-content">
+                <div class="quote-mark left">“</div>
+                
+                <div class="testimonial-text-wrapper">
+                    <p class="testimonial-text">Working with the team at Sidian has been a great experience for Waddell Engineering. Their combination of engineering knowledge and AI expertise allowed them to integrate tools that directly support our engineering designs and project management system. From the PSR report generator to the SID Code system, they delivered custom, practical solutions that save us time and streamline our workflows, including our peer review process, which is critical to how we work.</p>
+                    
+                    <div class="featured-quote">
+                        <div class="quote-bar"></div>
+                        <p>"They didn't just deliver a product. They came in, led hands-on training sessions with our team, and ensured a smooth rollout."</p>
+                    </div>
+
+                    <p class="testimonial-text">What really stood out was how they tailored everything to our specific needs. Their ability to teach and troubleshoot in real time made adoption easy. Sidian is a true one-stop shop, offering versatile, scalable tools with a strong technical foundation. Their deep understanding of both AI and the engineering industry meant they could anticipate challenges and build solutions that work in the real world.</p>
+
+                    <p class="testimonial-text">It has been a collaborative and productive relationship, and we're looking forward to working with them on future automation and optimization projects.</p>
+                </div>
+
+                <div class="quote-mark right">”</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --primary-dark: #4B2E83;
+    --primary: #6A4C9D;
+    --primary-light: #9D8DCB;
+    --primary-very-light: #F0EBF8;
+    --accent: #7E57C2;
+    --white: #FFFFFF;
+    --neutral: #5D5D5D;
+}
+
+.testimonial-section {
+    padding: 6rem 2rem;
+    position: relative;
+    background: var(--primary-very-light);
+    overflow: hidden;
+}
+
+.section-header {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-family: var(--subheading-font);
+    font-size: 1.1rem;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.testimonial-glowing-bg {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at center, 
+        rgba(106, 76, 157, 0.1) 0%, 
+        rgba(106, 76, 157, 0) 70%);
+    animation: glow-movement 20s infinite linear;
+    z-index: 0;
+}
+
+@keyframes glow-movement {
+    0% { transform: translate(-25%, -25%); }
+    50% { transform: translate(25%, 25%); }
+    100% { transform: translate(-25%, -25%); }
+}
+
+.testimonial-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    position: relative;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(106, 76, 157, 0.1);
+    border: 1px solid var(--primary-light);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+}
+
+.author-section {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+    border-right: 2px solid var(--primary-very-light);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.author-meta {
+    flex: 1;
+}
+
+.author-name {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin: 0 0 0.5rem 0;
+}
+
+.author-title {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+}
+
+.company-logo-container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(120%);
+    transition: filter 0.3s ease;
+}
+
+.company-logo-container:hover .company-logo {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.rating-stars {
+    color: var(--accent);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.quote-mark {
+    font-family: var(--heading-font);
+    font-size: 4rem;
+    color: var(--primary-light);
+    line-height: 1;
+    opacity: 0.5;
+    margin-top: -0.5rem;
+}
+
+.testimonial-text-wrapper {
+    position: relative;
+}
+
+.testimonial-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--neutral);
+    margin-bottom: 1.5rem;
+}
+
+.featured-quote {
+    margin: 2rem 0;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    background: var(--primary-very-light);
+    border-radius: 8px;
+    position: relative;
+    border-left: 4px solid var(--accent);
+}
+
+.featured-quote p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--primary-dark);
+    font-weight: 500;
+    margin: 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .testimonial-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+        grid-template-columns: 1fr;
+    }
+    
+    .author-section {
+        padding-right: 0;
+        padding-bottom: 2rem;
+        border-right: none;
+        border-bottom: 2px solid var(--primary-very-light);
+    }
+    
+    .company-logo-container {
+        height: 60px;
+    }
+    
+    .testimonial-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .quote-mark {
+        display: none;
+    }
+    
+    .featured-quote p {
+        font-size: 1rem;
+    }
+}
+</style>

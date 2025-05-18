@@ -168,12 +168,14 @@
             margin: var(--space-sm) auto 0;
         }
 
-        .hero p {
+        .hero-subtitle {
+            font-family: var(--subheading-font);
             font-size: var(--subheading-size);
-            color: #000000;
+            color: var(--neutral);
             max-width: 600px;
             margin: 0 auto var(--space-xl);
-            font-weight: 600;
+            font-weight: 500;
+            line-height: 1.5;
         }
 
         /* Team Section */
@@ -492,6 +494,10 @@
                 font-size: 2.2rem;
             }
 
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+
             .section-title {
                 font-size: 2.2rem;
             }
@@ -569,8 +575,8 @@
                 font-size: 1.8rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
 
             .team-section {
@@ -610,7 +616,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Meet Our Team</h1>
-            <p>The future of Civil Engineering with expertise and innovation</p>
+            <p class="hero-subtitle">The future of Civil Engineering with expertise and innovation</p>
         </div>
     </section>
 
@@ -638,7 +644,7 @@
             <div class="certification-card">
                 <h4 class="card-title">Certifications</h4>
                 <p class="card-subtitle">USAII Certified</p>
-                <p>Certified Artificial Intelligence Consultant (CAICTM)</p>
+                <p>Certified Artificial Intelligence Consultant (CAIC)</p>
             </div>
 
             <div class="education-card">
@@ -699,7 +705,7 @@
                 <h3>QUICK LINKS</h3>
                 <ul class="quick-links">
                     <li class="quick-link-item"><a href="index.html">Home</a></li>
-                    <li class="quick-link-item"><a href="#">Newsletters</a></li>
+                    <li class="quick-link-item"><a href="newsletter.html">Newsletters</a></li>
                     <li class="quick-link-item"><a href="aboutUs.html">About Us</a></li>
                     <li class="quick-link-item"><a href="calendlyBooking.html">Book Now</a></li>
                 </ul>

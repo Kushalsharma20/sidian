@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="icon" type="image/webp" href="images/upright_S_symbol.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -34,7 +37,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
         }
 
@@ -173,7 +177,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .rotating-text {
             position: absolute;
             width: 100%;
@@ -187,19 +191,19 @@
             font-size: var(--rotating-text-size);
             font-weight: 600;
             color: var(--highlight);
-            text-shadow: 
+            text-shadow:
                 0 2px 10px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(75, 46, 131, 0.5);
             line-height: 1.5;
             padding: 0 1.5rem;
             box-sizing: border-box;
         }
-        
+
         .rotating-text.active {
             opacity: 1;
             transform: translate3d(0, 0, 0) rotateX(0deg);
         }
-        
+
         .rotating-text.leaving {
             opacity: 0;
             transform: translate3d(0, -100%, 0) rotateX(30deg);
@@ -255,12 +259,29 @@
             padding: 0 2rem;
         }
 
+        .client-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            /* Fixed width */
+            height: 80px;
+            /* Fixed height */
+        }
+
         .client-logo {
-            height: 4.2rem;
-            max-width: 180px;
+            max-width: 100%;
+            max-height: 100%;
             width: auto;
-            transition: var(--transition);
+            height: auto;
             object-fit: contain;
+            transition: var(--transition);
+            filter: grayscale(100%) brightness(0.8);
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.05);
         }
 
         @media (max-width: 1024px) {
@@ -269,7 +290,7 @@
                 --subheading-size: 1.6rem;
                 --rotating-text-size: 2rem;
             }
-            
+
             .text-rotator {
                 height: 130px;
             }
@@ -282,6 +303,11 @@
                 width: 35px;
                 height: 35px;
             }
+
+            .client-logo-container {
+                width: 160px;
+                height: 70px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -290,33 +316,29 @@
                 --subheading-size: 1.4rem;
                 --rotating-text-size: 1.8rem;
             }
-            
+
             nav {
                 height: 100px;
                 padding: 1.2rem 5%;
             }
-            
+
             .logo {
                 height: 60px;
             }
-            
+
             #main-page {
                 padding-top: 130px;
                 min-height: calc(80vh - 100px);
             }
-            
+
             .text-rotator {
                 height: 120px;
-            }
-            
-            .client-logo {
-                height: 3.8rem;
             }
 
             .nav-links {
                 gap: 0.5rem;
             }
-            
+
             .nav-links a {
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
@@ -330,6 +352,15 @@
                 width: 30px;
                 height: 30px;
             }
+
+            .client-logo-container {
+                width: 140px;
+                height: 60px;
+            }
+
+            .client-logos {
+                gap: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -338,37 +369,33 @@
                 --subheading-size: 1.2rem;
                 --rotating-text-size: 1.4rem;
             }
-            
+
             nav {
                 height: 90px;
                 padding: 1rem 5%;
             }
-            
+
             .logo {
                 height: 50px;
             }
-            
+
             #main-page {
                 padding-top: 110px;
                 min-height: calc(80vh - 90px);
             }
-            
+
             .text-rotator {
                 height: 100px;
                 margin: 1.2rem 0;
             }
-            
+
             .nav-links a {
                 padding: 0.5rem 0.8rem;
                 font-size: 0.8rem;
             }
-            
+
             .client-logos {
-                gap: 1.8rem;
-            }
-            
-            .client-logo {
-                height: 3.2rem;
+                gap: 1.5rem;
             }
 
             .trusted-by {
@@ -379,9 +406,15 @@
                 width: 25px;
                 height: 25px;
             }
+
+            .client-logo-container {
+                width: 120px;
+                height: 50px;
+            }
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="brand-container">
@@ -400,7 +433,7 @@
             We Understand the Civil Engineering Industry and
             the Automation Solutions That Can Help You Today
         </h2>
-        
+
         <div class="text-rotator">
             <h1 class="rotating-text active">Automate the Algorithmic. Engineer the Extravagant</h1>
             <h1 class="rotating-text">Engineer Task to EIT</h1>
@@ -415,43 +448,37 @@
             <img src="images/S_symbol.webp" alt="S Icon" class="trusted-by-icon">
         </div>
         <div class="client-logos">
-            <img src="images/wadell_engineering_ltd.webp" alt="Wadell Engineering" class="client-logo">
-            <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
+            <div class="client-logo-container">
+                <img src="images/wadell_engineering_ltd.webp" alt="Wadell Engineering" class="client-logo">
+            </div>
+            <div class="client-logo-container">
+                <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
+            </div>
+            <div class="client-logo-container">
+                <img src="images/4OurInvestments.webp" alt="4OurInvestments Company" class="client-logo">
+            </div>
+            <div class="client-logo-container">
+                <img src="images/protech_company.webp" alt="Protech Company" class="client-logo">
+            </div>
         </div>
     </div>
 
     <div id="companyVideo"></div>
     <div id="process-section"></div>
+    <div id="testimonial"></div>
     <div id="videos"></div>
     <div id="booking"></div>
     <div id="footer"></div>
 
     <script>
-        function toggleStep(clickedCard) {
-        const wasActive = clickedCard.classList.contains('active');
-        
-        document.querySelectorAll('.step-card').forEach(card => {
-            if (card !== clickedCard) {
-                card.classList.remove('active');
-            }
-        });
-        
-        clickedCard.classList.toggle('active');
-        
-        if (clickedCard.classList.contains('active')) {
-            const cardTop = clickedCard.getBoundingClientRect().top;
-            const offsetPosition = cardTop + window.pageYOffset - 100;
-            
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
+    // Text Rotator Functionality
+    function initTextRotator() {
         const textRotator = document.querySelector('.text-rotator');
+        if (!textRotator) return;
+
         const textElements = textRotator.querySelectorAll('.rotating-text');
+        if (textElements.length === 0) return;
+
         let currentIndex = 0;
         const displayDuration = 3000;
         const transitionDuration = 800;
@@ -461,9 +488,9 @@
         function showNextPhrase() {
             textElements[currentIndex].classList.remove('active');
             textElements[currentIndex].classList.add('leaving');
-            
+
             currentIndex = (currentIndex + 1) % textElements.length;
-            
+
             setTimeout(() => {
                 textElements.forEach(el => {
                     el.classList.remove('leaving');
@@ -471,67 +498,107 @@
                 });
                 textElements[currentIndex].classList.add('active');
             }, transitionDuration);
-            
+
             setTimeout(showNextPhrase, displayDuration);
         }
 
         setTimeout(showNextPhrase, displayDuration);
+    }
 
+    // Process Section Functionality
+    function initProcessSection() {
+        // Process Section Specific Functions
+        function sidToggleCard(button) {
+            const card = button.closest('.sid-step-card');
+            const allCards = document.querySelectorAll('.sid-step-card');
+            
+            // Toggle the clicked card
+            card.classList.toggle('active');
+            
+            // Close all other cards
+            allCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('active');
+                }
+            });
+
+            // Smooth scroll if opened
+            if (card.classList.contains('active')) {
+                const cardTop = card.getBoundingClientRect().top;
+                window.scrollTo({
+                    top: window.pageYOffset + cardTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Event delegation for process section clicks
         document.addEventListener('click', function(event) {
-            const readMoreBtn = event.target.closest('.read-more');
+            // Handle process section read more buttons
+            const readMoreBtn = event.target.closest('.sid-read-more');
             if (readMoreBtn) {
-                event.stopPropagation();
-                const clickedCard = readMoreBtn.closest('.step-card');
-                toggleStep(clickedCard);
+                event.preventDefault();
+                sidToggleCard(readMoreBtn);
                 return;
             }
             
-            if (!event.target.closest('.step-card')) {
-                document.querySelectorAll('.step-card').forEach(card => {
+            // Close all cards when clicking outside
+            if (!event.target.closest('.sid-step-card')) {
+                document.querySelectorAll('.sid-step-card').forEach(card => {
                     card.classList.remove('active');
                 });
             }
         });
 
+        // Global ESC key handler
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.step-card').forEach(card => {
+                document.querySelectorAll('.sid-step-card').forEach(card => {
                     card.classList.remove('active');
                 });
             }
         });
+    }
 
-        fetch('process-section.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('process-section').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading process section:', error));
+    // Content Loader with Error Handling
+    async function loadContent() {
+        const sections = [
+            { id: 'process-section', url: 'process-section.html' },
+            { id: 'videos', url: 'videos.html' },
+            { id: 'booking', url: 'booking.html' },
+            { id: 'footer', url: 'footer.html' },
+            { id: 'companyVideo', url: 'companyVideo.html' },
+            { id: 'testimonial', url: 'testimonial.html' }
+        ];
 
-        fetch('videos.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('videos').innerHTML = data;
-            });
+        for (const section of sections) {
+            try {
+                const response = await fetch(section.url);
+                if (!response.ok) throw new Error(`Failed to load ${section.url}`);
+                const html = await response.text();
+                document.getElementById(section.id).innerHTML = html;
+                
+                // Initialize process section after it's loaded
+                if (section.id === 'process-section') {
+                    initProcessSection();
+                }
+            } catch (error) {
+                console.error(`Error loading ${section.url}:`, error);
+                document.getElementById(section.id).innerHTML = `
+                    <div class="error-message">
+                        Content failed to load. Please refresh the page.
+                    </div>
+                `;
+            }
+        }
+    }
 
-        fetch('booking.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('booking').innerHTML = data;
-            });
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-            });
-        
-        fetch('companyVideo.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('companyVideo').innerHTML = data;
-            });
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        initTextRotator();
+        loadContent();
     });
-    </script>
+</script>
 </body>
+
 </html>
