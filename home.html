@@ -4,6 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sidian provides cutting-edge civil engineering solutions enhanced by AI. Explore services that improve efficiency, sustainability, and performance.">
+    <meta name="keywords"
+        content="civil engineering, AI in construction, Sidian, construction technology, sustainable engineering, engineering solutions">
+    <meta name="author" content="Sidian Technologies">
+    <meta property="og:title" content="Sidian | Civil Engineering Solutions">
+    <meta property="og:description"
+        content="Explore cutting-edge civil engineering services enhanced by AI. Trusted by industry leaders.">
+    <meta property="og:image" content="https://sidian.ai/images/AI_in_construction.webp">
+    <meta property="og:url" content="https://sidian.ai/">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#4B2E83">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
     <title>Sidian | Civil Engineering Solutions</title>
     <link rel="icon" type="image/webp" href="images/upright_S_symbol.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +46,10 @@
             --body-size: 1rem;
             --rotating-text-size: 2.5rem;
             --video-title-size: 3rem;
-            --space-md: 1.5rem; /* Added from video-section.html */
-            --space-sm: 1rem; /* Added from video-section.html */
+            --space-md: 1.5rem;
+            /* Added from video-section.html */
+            --space-sm: 1rem;
+            /* Added from video-section.html */
         }
 
         * {
@@ -228,7 +246,8 @@
             align-items: center;
             margin-bottom: 1.8rem;
             width: 100%;
-            max-width: 1000px; /* Changed from 1200px to match video-container */
+            max-width: 1000px;
+            /* Changed from 1200px to match video-container */
             margin-left: auto;
             margin-right: auto;
             padding: 0 2rem;
@@ -239,7 +258,8 @@
             font-size: var(--video-title-size);
             color: var(--primary-dark);
             font-weight: 700;
-            margin-bottom: var(--space-md); /* Changed from 0.5rem */
+            margin-bottom: var(--space-md);
+            /* Changed from 0.5rem */
             position: relative;
             text-transform: none;
             letter-spacing: normal;
@@ -249,11 +269,13 @@
 
         .trusted-by::after {
             content: '';
-            display: block; /* Changed to match video-title */
+            display: block;
+            /* Changed to match video-title */
             width: 120px;
             height: 4px;
             background-color: var(--primary);
-            margin: var(--space-sm) auto 0; /* Changed from bottom: 0, transform */
+            margin: var(--space-sm) auto 0;
+            /* Changed from bottom: 0, transform */
             border-radius: 2px;
         }
 
@@ -477,133 +499,134 @@
     <div id="footer"></div>
 
     <script>
-    // Text Rotator Functionality
-    function initTextRotator() {
-        const textRotator = document.querySelector('.text-rotator');
-        if (!textRotator) return;
+        // Text Rotator Functionality
+        function initTextRotator() {
+            const textRotator = document.querySelector('.text-rotator');
+            if (!textRotator) return;
 
-        const textElements = textRotator.querySelectorAll('.rotating-text');
-        if (textElements.length === 0) return;
+            const textElements = textRotator.querySelectorAll('.rotating-text');
+            if (textElements.length === 0) return;
 
-        let currentIndex = 0;
-        const displayDuration = 3000;
-        const transitionDuration = 800;
+            let currentIndex = 0;
+            const displayDuration = 3000;
+            const transitionDuration = 800;
 
-        textElements[0].classList.add('active');
+            textElements[0].classList.add('active');
 
-        function showNextPhrase() {
-            textElements[currentIndex].classList.remove('active');
-            textElements[currentIndex].classList.add('leaving');
+            function showNextPhrase() {
+                textElements[currentIndex].classList.remove('active');
+                textElements[currentIndex].classList.add('leaving');
 
-            currentIndex = (currentIndex + 1) % textElements.length;
+                currentIndex = (currentIndex + 1) % textElements.length;
 
-            setTimeout(() => {
-                textElements.forEach(el => {
-                    el.classList.remove('leaving');
-                    el.classList.remove('active');
-                });
-                textElements[currentIndex].classList.add('active');
-            }, transitionDuration);
+                setTimeout(() => {
+                    textElements.forEach(el => {
+                        el.classList.remove('leaving');
+                        el.classList.remove('active');
+                    });
+                    textElements[currentIndex].classList.add('active');
+                }, transitionDuration);
+
+                setTimeout(showNextPhrase, displayDuration);
+            }
 
             setTimeout(showNextPhrase, displayDuration);
         }
 
-        setTimeout(showNextPhrase, displayDuration);
-    }
+        // Process Section Functionality
+        function initProcessSection() {
+            // Process Section Specific Functions
+            function sidToggleCard(button) {
+                const card = button.closest('.sid-step-card');
+                const allCards = document.querySelectorAll('.sid-step-card');
 
-    // Process Section Functionality
-    function initProcessSection() {
-        // Process Section Specific Functions
-        function sidToggleCard(button) {
-            const card = button.closest('.sid-step-card');
-            const allCards = document.querySelectorAll('.sid-step-card');
-            
-            // Toggle the clicked card
-            card.classList.toggle('active');
-            
-            // Close all other cards
-            allCards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.classList.remove('active');
+                // Toggle the clicked card
+                card.classList.toggle('active');
+
+                // Close all other cards
+                allCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('active');
+                    }
+                });
+
+                // Smooth scroll if opened
+                if (card.classList.contains('active')) {
+                    const cardTop = card.getBoundingClientRect().top;
+                    window.scrollTo({
+                        top: window.pageYOffset + cardTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Event delegation for process section clicks
+            document.addEventListener('click', function (event) {
+                // Handle process section read more buttons
+                const readMoreBtn = event.target.closest('.sid-read-more');
+                if (readMoreBtn) {
+                    event.preventDefault();
+                    sidToggleCard(readMoreBtn);
+                    return;
+                }
+
+                // Close all cards when clicking outside
+                if (!event.target.closest('.sid-step-card')) {
+                    document.querySelectorAll('.sid-step-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
                 }
             });
 
-            // Smooth scroll if opened
-            if (card.classList.contains('active')) {
-                const cardTop = card.getBoundingClientRect().top;
-                window.scrollTo({
-                    top: window.pageYOffset + cardTop - 100,
-                    behavior: 'smooth'
-                });
-            }
+            // Global ESC key handler
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.sid-step-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
+                }
+            });
         }
 
-        // Event delegation for process section clicks
-        document.addEventListener('click', function(event) {
-            // Handle process section read more buttons
-            const readMoreBtn = event.target.closest('.sid-read-more');
-            if (readMoreBtn) {
-                event.preventDefault();
-                sidToggleCard(readMoreBtn);
-                return;
-            }
-            
-            // Close all cards when clicking outside
-            if (!event.target.closest('.sid-step-card')) {
-                document.querySelectorAll('.sid-step-card').forEach(card => {
-                    card.classList.remove('active');
-                });
-            }
-        });
+        // Content Loader with Error Handling
+        async function loadContent() {
+            const sections = [
+                { id: 'process-section', url: 'process-section.html' },
+                { id: 'videos', url: 'videos.html' },
+                { id: 'booking', url: 'booking.html' },
+                { id: 'footer', url: 'footer.html' },
+                { id: 'companyVideo', url: 'companyVideo.html' },
+                { id: 'testimonial', url: 'testimonial.html' }
+            ];
 
-        // Global ESC key handler
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.sid-step-card').forEach(card => {
-                    card.classList.remove('active');
-                });
-            }
-        });
-    }
+            for (const section of sections) {
+                try {
+                    const response = await fetch(section.url);
+                    if (!response.ok) throw new Error(`Failed to load ${section.url}`);
+                    const html = await response.text();
+                    document.getElementById(section.id).innerHTML = html;
 
-    // Content Loader with Error Handling
-    async function loadContent() {
-        const sections = [
-            { id: 'process-section', url: 'process-section.html' },
-            { id: 'videos', url: 'videos.html' },
-            { id: 'booking', url: 'booking.html' },
-            { id: 'footer', url: 'footer.html' },
-            { id: 'companyVideo', url: 'companyVideo.html' },
-            { id: 'testimonial', url: 'testimonial.html' }
-        ];
-
-        for (const section of sections) {
-            try {
-                const response = await fetch(section.url);
-                if (!response.ok) throw new Error(`Failed to load ${section.url}`);
-                const html = await response.text();
-                document.getElementById(section.id).innerHTML = html;
-                
-                // Initialize process section after it's loaded
-                if (section.id === 'process-section') {
-                    initProcessSection();
-                }
-            } catch (error) {
-                console.error(`Error loading ${section.url}:`, error);
-                document.getElementById(section.id).innerHTML = `
+                    // Initialize process section after it's loaded
+                    if (section.id === 'process-section') {
+                        initProcessSection();
+                    }
+                } catch (error) {
+                    console.error(`Error loading ${section.url}:`, error);
+                    document.getElementById(section.id).innerHTML = `
                     <div class="error-message">
                         Content failed to load. Please refresh the page.
                     </div>
                 `;
+                }
             }
         }
-    }
 
-    // Initialize everything when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-        initTextRotator();
-        loadContent();
-    });
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            initTextRotator();
+            loadContent();
+        });
     </script>
 </body>
+
 </html>
