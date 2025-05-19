@@ -29,6 +29,9 @@
             --subheading-size: 1.8rem;
             --body-size: 1rem;
             --rotating-text-size: 2.5rem;
+            --video-title-size: 3rem;
+            --space-md: 1.5rem; /* Added from video-section.html */
+            --space-sm: 1rem; /* Added from video-section.html */
         }
 
         * {
@@ -220,32 +223,38 @@
 
         .trusted-by-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
             margin-bottom: 1.8rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px; /* Changed from 1200px to match video-container */
             margin-left: auto;
             margin-right: auto;
             padding: 0 2rem;
         }
 
         .trusted-by {
-            font-size: 1.5rem;
+            font-family: var(--heading-font);
+            font-size: var(--video-title-size);
             color: var(--primary-dark);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 600;
-            white-space: nowrap;
-            margin: 0 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md); /* Changed from 0.5rem */
+            position: relative;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.2;
+            text-align: center;
         }
 
-        .trusted-by-icon {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            margin-top: -5px;
+        .trusted-by::after {
+            content: '';
+            display: block; /* Changed to match video-title */
+            width: 120px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: var(--space-sm) auto 0; /* Changed from bottom: 0, transform */
+            border-radius: 2px;
         }
 
         .client-logos {
@@ -264,9 +273,7 @@
             justify-content: center;
             align-items: center;
             width: 180px;
-            /* Fixed width */
             height: 80px;
-            /* Fixed height */
         }
 
         .client-logo {
@@ -289,19 +296,15 @@
                 --heading-size: 2.5rem;
                 --subheading-size: 1.6rem;
                 --rotating-text-size: 2rem;
+                --video-title-size: 2.6rem;
             }
 
             .text-rotator {
                 height: 130px;
             }
 
-            .trusted-by {
-                font-size: 1.3rem;
-            }
-
-            .trusted-by-icon {
-                width: 35px;
-                height: 35px;
+            .trusted-by::after {
+                width: 100px;
             }
 
             .client-logo-container {
@@ -315,6 +318,7 @@
                 --heading-size: 2.2rem;
                 --subheading-size: 1.4rem;
                 --rotating-text-size: 1.8rem;
+                --video-title-size: 2.2rem;
             }
 
             nav {
@@ -344,13 +348,9 @@
                 font-size: 0.9rem;
             }
 
-            .trusted-by {
-                font-size: 1.1rem;
-            }
-
-            .trusted-by-icon {
-                width: 30px;
-                height: 30px;
+            .trusted-by::after {
+                width: 80px;
+                height: 3px;
             }
 
             .client-logo-container {
@@ -368,6 +368,7 @@
                 --heading-size: 1.8rem;
                 --subheading-size: 1.2rem;
                 --rotating-text-size: 1.4rem;
+                --video-title-size: 2rem;
             }
 
             nav {
@@ -398,13 +399,8 @@
                 gap: 1.5rem;
             }
 
-            .trusted-by {
-                font-size: 1rem;
-            }
-
-            .trusted-by-icon {
-                width: 25px;
-                height: 25px;
+            .trusted-by::after {
+                width: 70px;
             }
 
             .client-logo-container {
@@ -441,27 +437,37 @@
         </div>
     </main>
 
-    <div class="clients-section">
+    <section class="clients-section" aria-labelledby="trustedBy">
         <div class="trusted-by-container">
-            <img src="images/S_symbol.webp" alt="S Icon" class="trusted-by-icon">
-            <div class="trusted-by">Trusted by</div>
-            <img src="images/S_symbol.webp" alt="S Icon" class="trusted-by-icon">
+            <h2 id="trustedBy" class="trusted-by">Trusted By</h2>
         </div>
         <div class="client-logos">
             <div class="client-logo-container">
-                <img src="images/wadell_engineering_ltd.webp" alt="Wadell Engineering" class="client-logo">
+                <picture>
+                    <source srcset="images/wadell_engineering_ltd.webp" type="image/webp">
+                    <img src="images/wadell_engineering_ltd.webp" alt="Waddell Engineering" class="client-logo">
+                </picture>
             </div>
             <div class="client-logo-container">
-                <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
+                <picture>
+                    <source srcset="images/TT_company.webp" type="image/webp">
+                    <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
+                </picture>
             </div>
             <div class="client-logo-container">
-                <img src="images/4OurInvestments.webp" alt="4OurInvestments Company" class="client-logo">
+                <picture>
+                    <source srcset="images/4OurInvestments.webp" type="image/webp">
+                    <img src="images/4OurInvestments.webp" alt="4OurInvestments Company" class="client-logo">
+                </picture>
             </div>
             <div class="client-logo-container">
-                <img src="images/protech_company.webp" alt="Protech Company" class="client-logo">
+                <picture>
+                    <source srcset="images/protech_company.webp" type="image/webp">
+                    <img src="images/protech_company.webp" alt="Protech Company" class="client-logo">
+                </picture>
             </div>
         </div>
-    </div>
+    </section>
 
     <div id="companyVideo"></div>
     <div id="process-section"></div>
@@ -598,7 +604,6 @@
         initTextRotator();
         loadContent();
     });
-</script>
+    </script>
 </body>
-
 </html>
