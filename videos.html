@@ -193,12 +193,19 @@
         .solution-video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
+            padding-bottom: 45%; /* Reduced from 56.25% */
             height: 0;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-top: auto;
+        }
+
+        /* Special smaller video container for API section */
+        .api-video-container {
+            padding-bottom: 30%; /* Even smaller aspect ratio */
+            max-width: 600px; /* Limit maximum width */
+            margin: 0 auto; /* Center the video */
         }
 
         .solution-video-container iframe {
@@ -361,6 +368,14 @@
             .solution-box h4 {
                 font-size: 1.4rem;
             }
+
+            .solution-video-container {
+                padding-bottom: 40%; /* Adjust for tablet */
+            }
+
+            .api-video-container {
+                padding-bottom: 25%; /* Adjust for tablet */
+            }
         }
 
         @media (max-width: 768px) {
@@ -396,6 +411,15 @@
                 width: 80px;
                 height: 3px;
             }
+
+            .solution-video-container {
+                padding-bottom: 50%; /* Adjust for mobile */
+            }
+
+            .api-video-container {
+                padding-bottom: 35%; /* Adjust for mobile */
+                max-width: 100%; /* Full width on mobile */
+            }
         }
 
         @media (max-width: 480px) {
@@ -421,6 +445,14 @@
             .section-header h2::after,
             .other-solutions-title::after {
                 width: 70px;
+            }
+
+            .solution-video-container {
+                padding-bottom: 56.25%; /* Standard aspect ratio on smallest screens */
+            }
+
+            .api-video-container {
+                padding-bottom: 40%; /* Slightly smaller than standard */
             }
         }
     </style>
@@ -550,7 +582,7 @@
                 </div>
             </div>
 
-            <!-- API Connection Section - Now single card and moved to last position -->
+            <!-- API Connection Section - Now with smaller video container -->
             <div class="solution-section">
                 <h3 class="solution-section-title">API Connection</h3>
                 <div class="solution-grid">
@@ -558,7 +590,7 @@
                         <div class="solution-card-content">
                             <p>Integrate structural analysis software like Etabs, SAP 2000, Safe, Revit to in house tools and get more out of these tools.</p>
                         </div>
-                        <div class="solution-video-container">
+                        <div class="solution-video-container api-video-container">
                             <iframe src="https://www.youtube.com/embed/gnAVOqqvNB0" loading="lazy"
                                 title="Strucwise video" allowfullscreen>
                             </iframe>
