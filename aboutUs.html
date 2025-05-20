@@ -22,16 +22,12 @@
             --white: #FFFFFF;
             --text: #2D3748;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* Typography Scale */
             --heading-font: 'Playfair Display', serif;
             --subheading-font: 'Manrope', sans-serif;
             --heading-size: 2.8rem;
             --subheading-size: 1.8rem;
             --body-size: 1.15rem;
             --small-text: 1rem;
-            
-            /* Spacing variables */
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
@@ -72,7 +68,7 @@
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--primary-light);
-            height: 110px;
+            height: 140px;
         }
 
         .brand-container {
@@ -82,7 +78,7 @@
         }
 
         .logo {
-            height: 75px;
+            height: 120px;
             width: auto;
             max-height: 100%;
             transition: var(--transition);
@@ -130,7 +126,7 @@
             justify-content: center;
             text-align: center;
             background: linear-gradient(to bottom, var(--primary-very-light) 0%, var(--primary-light) 100%);
-            padding-top: 110px;
+            padding-top: 140px;
             position: relative;
             overflow: hidden;
         }
@@ -343,7 +339,7 @@
         }
 
         .footer-logo {
-            height: 80px;
+            height: 120px;
             width: auto;
             filter: brightness(0) invert(1);
         }
@@ -478,17 +474,17 @@
             }
 
             nav {
-                height: 100px;
+                height: 120px;
                 padding: 1.2rem 5%;
             }
 
             .logo {
-                height: 60px;
+                height: 100px;
             }
 
             .hero {
                 height: 100vh;
-                padding-top: 100px;
+                padding-top: 120px;
             }
 
             .hero h1 {
@@ -525,12 +521,12 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .footer-column {
                 margin-bottom: 1.5rem;
                 text-align: center;
             }
-            
+
             .footer-column h3::after {
                 left: 50%;
                 transform: translateX(-50%);
@@ -539,6 +535,10 @@
             .footer-logo-container {
                 padding-top: 0;
                 height: auto;
+            }
+
+            .footer-logo {
+                height: 100px;
             }
 
             .social-icons {
@@ -559,17 +559,17 @@
             }
 
             nav {
-                height: 90px;
+                height: 110px;
                 padding: 1rem 5%;
             }
 
             .logo {
-                height: 50px;
+                height: 80px;
             }
 
             .hero {
                 height: 100vh;
-                padding-top: 90px;
+                padding-top: 110px;
             }
 
             .hero h1 {
@@ -596,6 +596,10 @@
             .nav-links a {
                 padding: 0.5rem 0.8rem;
                 font-size: 0.8rem;
+            }
+
+            .footer-logo {
+                height: 80px;
             }
         }
     </style>
@@ -671,7 +675,6 @@
         </div>
     </section>
 
-    <!-- Updated Footer Section -->
     <footer id="footer">
         <div class="footer-content">
             <div class="footer-column">
@@ -711,7 +714,6 @@
                     <li class="quick-link-item"><a href="calendlyBooking.html">Book Now</a></li>
                 </ul>
                 
-                <!-- Social Icons -->
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/james-hinsperger-80946b211/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://youtube.com/@jameshinsperger?si=xmL523LMIugtAmIr" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -720,7 +722,7 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; <span id="current-year"></span> Sidian. All rights reserved.</p>
+            <p>© <span id="current-year"></span> Sidian. All rights reserved.</p>
             <div class="legal-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
