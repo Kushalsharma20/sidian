@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidian | Automation in Construction - May 2025</title>
+    <link rel="icon" type="image/webp" href="../images/upright_S_symbol.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #4B2E83;
+            --primary: #6A4C9D;
+            --primary-light: #9D8DCB;
+            --primary-very-light: #F0EBF8;
+            --accent: #7E57C2;
+            --neutral: #5D5D5D;
+            --highlight: #B39DDB;
+            --white: #FFFFFF;
+            --text: #2D3748;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            /* Typography Scale */
+            --heading-font: 'Playfair Display', serif;
+            --subheading-font: 'Manrope', sans-serif;
+            --heading-size: 2.8rem;
+            --subheading-size: 1.8rem;
+            --body-size: 1.15rem;
+            --small-text: 1rem;
+
+            /* Spacing variables */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-xxl: 4rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--subheading-font);
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+            font-size: var(--body-size);
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: var(--space-md);
+            left: var(--space-md);
+            z-index: 100;
+            background: var(--primary);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 4px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .newsletter-content-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-xxl) var(--space-md);
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(106, 76, 157, 0.1);
+        }
+
+        .newsletter-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .newsletter-title {
+            font-family: var(--heading-font);
+            font-size: var(--heading-size);
+            color: var(--primary-dark);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .newsletter-date {
+            font-size: var(--small-text);
+            color: var(--neutral);
+        }
+
+        .newsletter-section {
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-family: var(--heading-font);
+            font-size: var(--subheading-size);
+            color: var(--primary);
+            margin-bottom: var(--space-sm);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-light);
+            margin: var(--space-xs) 0;
+            border-radius: 2px;
+        }
+
+        .subheading {
+            font-family: var(--heading-font);
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .newsletter-text {
+            font-size: var(--body-size);
+            color: var(--text);
+            margin-bottom: var(--space-md);
+        }
+
+        ul {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-lg);
+        }
+
+        li.newsletter-text {
+            margin-bottom: var(--space-xs);
+            font-size: var(--body-size);
+            color: var(--text);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --heading-size: 2.4rem;
+                --subheading-size: 1.6rem;
+                --body-size: 1.1rem;
+            }
+
+            .newsletter-content-page {
+                padding: var(--space-xl) var(--space-sm);
+            }
+
+            .subheading {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --heading-size: 2rem;
+                --subheading-size: 1.4rem;
+                --body-size: 1rem;
+            }
+
+            .subheading {
+                font-size: 1.1rem;
+            }
+
+            .back-button {
+                top: var(--space-sm);
+                left: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="../newsletter.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back</span>
+    </a>
+
+    <!-- Newsletter Content -->
+    <article class="newsletter-content-page">
+        <header class="newsletter-header">
+            <h1 class="newsletter-title">Automation in Construction</h1>
+            <p class="newsletter-date">20 May 2025</p>
+        </header>
+
+        <section class="newsletter-section">
+            <h2 class="section-title">Introduction: Engineering the Future with AI, Automation, and Sidian</h2>
+            <h3 class="subheading">Time Spent in the Wrong Places</h3>
+            <p class="newsletter-text">
+                The modern engineer is drowning in repetition:
+            </p>
+            <ul>
+                <li class="newsletter-text">Reformatting the same report repeatedly</li>
+                <li class="newsletter-text">Searching through thick, sticky notes filled code for a clause</li>
+                <li class="newsletter-text">Predicting how much time will be spent on projects to budget accordingly</li>
+                <li class="newsletter-text">Translating site notes into Word docs</li>
+                <li class="newsletter-text">Small, repetitive calculations where human error requires major rework</li>
+            </ul>
+            <p class="newsletter-text">
+                These are not value-creating tasks. They are process-bound, algorithmic routines that could — and should — be automated. Every hour spent in this loop is an hour lost from designing, questioning, refining, and imagining.
+            </p>
+            <p class="newsletter-text">
+                Automate the algorithmic. Engineer the extravagant.
+            </p>
+            <p class="newsletter-text">
+                That is the philosophy that guides Sidian.
+            </p>
+        </section>
+
+        <section class="newsletter-section">
+            <h2 class="section-title">AI in Civil Engineering</h2>
+            <p class="newsletter-text">
+                A revolution is quietly unfolding within civil engineering—artificial intelligence.
+            </p>
+            <p class="newsletter-text">
+                Imagine you are at your desk and can quickly search, retrieve, and send building code information, have member sizes suggested to you based on architectural and project requirements, connect and automate spreadsheets to analysis software, have reports written up for you in minutes as opposed to hours or even days, and smart bidding that increases the likelihood of landing projects. This not only helps you land more jobs and spend less money doing so, but it will also help you take on more jobs with the same manpower. Strengthen your team with the Fourth Revolution.
+            </p>
+            <p class="newsletter-text">
+                Across industries, AI is transforming how work gets done. In civil engineering, that transformation has begun with tactical tools: building code assistants, machine learning models that detect defects in welds, rebar arrangements and slabs, software that generates draft reports from field inputs, and automated takeoffs. We are witnessing the rise of tools that don’t replace engineers — but empower them. This is no different from when physical prototyping was replaced by FEA analysis software, hand drafting was replaced with AutoCAD, and now BIM, and collaboration, organization, and management was drastically improved by the era of the computer.
+            </p>
+            <p class="newsletter-text">
+                Right now, most AI in civil engineering is applied to very narrow, repetitive tasks:
+            </p>
+            <ul>
+                <li class="newsletter-text">Code compliance lookup (CSA, OBC, etc)</li>
+                <li class="newsletter-text">Drafting sections of technical reports</li>
+                <li class="newsletter-text">Performing load calculations from basic templates</li>
+                <li class="newsletter-text">Image-based defect identification</li>
+                <li class="newsletter-text">Smart design and optimization</li>
+            </ul>
+            <p class="newsletter-text">
+                These applications signal the decomposition of engineering workflows into two layers: algorithmic and inventive. The algorithmic is rule-bound and repeatable, generally completed by EITs or people starting out. The inventive is human, interpretive, and relational, completed by the higher ups. The job of AI is to handle the former and assist in the latter so engineers can focus on making high value decisions. This allows EIT tasks to be handed over to agents, Engineer tasks to EITs, and the design of the future to the engineer.
+            </p>
+            <p class="newsletter-text">
+                In the near term, we will see AI further automate:
+            </p>
+            <ul>
+                <li class="newsletter-text">Code interpretations by location/project type</li>
+                <li class="newsletter-text">Drawing markups, detailing, generations, and review</li>
+                <li class="newsletter-text">Strong information retrieval of past projects</li>
+            </ul>
+            <p class="newsletter-text">
+                Long term, AI will become a real-time assistant that is able to reason through complex scenarios, synthesize design options, and pre-flag non-compliance or optimization opportunities. This includes agentic design, modelling, and calculations from a simple prompt. It will not design the bridge for you, but will present a dozen starting points, ranked by cost, feasibility, and carbon footprint. It won’t replace you; it will make you exponentially more capable. At the end of the day, the engineer is responsible for stamping the drawing and taking responsibility...at least for now.
+            </p>
+        </section>
+
+        <section class="newsletter-section">
+            <h2 class="section-title">Sidian and Mapping the Maze for Engineers</h2>
+            <p class="newsletter-text">
+                We built Sidian because we saw what was missing.
+            </p>
+            <p class="newsletter-text">
+                AI tools exist. Engineering firms exist. But in between them is a maze of complexity:
+            </p>
+            <ul>
+                <li class="newsletter-text">What tools are secure and reliable?</li>
+                <li class="newsletter-text">How do they integrate with my company's existing workflow?</li>
+                <li class="newsletter-text">Can the output be trusted?</li>
+                <li class="newsletter-text">How do we train our team?</li>
+                <li class="newsletter-text">Who owns the data?</li>
+            </ul>
+            <p class="newsletter-text">
+                Sidian is here to help map the maze. We provide direction to expedite decision making, expertise to identify problems and deliver optimal solutions, and continual support to ensure you stay up to date with the best solutions and are learning proper techniques to improve efficiency. The AI industry is moving fast; do not watch it pass by.
+            </p>
+            <p class="newsletter-text">
+                We have backgrounds in structural engineering and land development, all the way to construction and a deep understanding of how a civil engineering firm works. This accompanied with our background in data science, artificial intelligence and consulting, and most importantly, our love for technology, allows us to see what many do not; a left turn when some think right.
+            </p>
+            <p class="newsletter-text">
+                We are not just a software company. We are a distribution hub for AI in engineering — although we do develop in house, that is not all we do. We do not build every tool, we connect creators to the market through trust, infrastructure, and vision.
+            </p>
+        </section>
+
+        <section class="newsletter-section">
+            <h2 class="section-title">Sidian’s Framework</h2>
+            <p class="newsletter-text">
+                Our three-step process
+            </p>
+            <h3 class="subheading">1. Discovery</h3>
+            <p class="newsletter-text">
+                We conduct a thorough internal review of your team, procedures, and tools to identify automatable areas. We cover expectations with you to ensure our visions align.
+            </p>
+            <h3 class="subheading">2. Planning</h3>
+            <p class="newsletter-text">
+                We translate discovery findings into a tailored, actionable implementation plan. By meeting with our world-class subcontractors and understanding their availability, we provide timelines, cost, and delegate work. Then a contract is written and agreed upon, serving as our binding agreement. The risk of delivering the specified contract is out of your court and into ours.
+            </p>
+            <h3 class="subheading">3. Delivery</h3>
+            <p class="newsletter-text">
+                We handle all the back and forth to ensure the project is delivered on time, at the specified cost, and meets the requirements and metrics.
+            </p>
+            <p class="newsletter-text">
+                We also offer continual learning and maintenance where we conduct lunch and learns and hands-on learning sessions for your team to keep you updated with best practices for tools that can be leveraged to improve efficiency and productivity. Maintenance entails ongoing updates and suggestions of tools that can be implemented specific to your company and team’s operation practices and type of projects being completed.
+            </p>
+            <p class="newsletter-text">
+                No more time spent thinking about what to implement, who to choose, or how to judge if the job was done properly. Leave that up to us so you can focus on building the infrastructure to support this changing world.
+            </p>
+        </section>
+
+        <section class="newsletter-section">
+            <h2 class="section-title">Why Sidian, Why Now</h2>
+            <p class="newsletter-text">
+                AI is no longer in the lab. It’s in the office. In the field. In the hands of competitors. The firms that adapt first will dominate. And those that wait will fall behind. This technology moves more than 3 times faster than Moore’s Law predicted—the longer you wait, the steeper the learning curve will be.
+            </p>
+            <p class="newsletter-text">
+                Engineering is not just math. It is also Judgement – based on experience. The low hanging number crunching can be replaced, but the intuition is much harder to replicate. AI can pass lawyer, doctor, and business exams, but still cannot pass engineering exams because these require innovation and a deep understanding. However, once the innovation is complete, number crunching is involved. So don’t be afraid for your job but be ready for an assistant.
+            </p>
+            <p class="newsletter-text">
+                We are engineers first, technologists second. This is not the future. This is Sidian. And we’re just getting started.
+            </p>
+        </section>
+    </article>
+</body>
+
+</html>
