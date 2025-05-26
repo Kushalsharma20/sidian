@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,7 @@
     <link rel="icon" type="image/webp" href="images/upright_S_symbol.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
@@ -431,21 +428,8 @@
             <h1 class="section-title">Our Newsletters</h1>
             <p>Stay updated with the latest trends, insights, and innovations in civil engineering automation through our weekly newsletters.</p>
             
-            <div class="newsletter-grid">
-                <!-- Newsletter 1 -->
-                <article class="newsletter-card">
-                    <div class="newsletter-thumbnail">
-                        <img src="images/AI_in_construction.webp" alt="Automation in Construction Thumbnail">
-                    </div>
-                    <div class="newsletter-content">
-                        <h3 class="newsletter-title">Introduction: Engineering the Future with AI, Automation, and Sidian</h3>
-                        <p class="newsletter-date">20 May 2025</p>
-                        <p class="newsletter-excerpt">Discover how AI and automation are transforming engineering.</p>
-                        <a href="newlettercontent/newsletter1.html" class="readmore-btn"  aria-label="Read Automation in Construction Newsletter for May 2025">
-                            <i class="fas fa-book-open"></i> Read More
-                        </a>
-                    </div>
-                </article>
+            <div id="newsletterGrid" class="newsletter-grid">
+                <!-- Newsletter cards will be populated here dynamically -->
             </div>
         </section>
 
@@ -475,14 +459,65 @@
     </main>
 
     <script>
-        // Initialize Supabase client
         document.addEventListener('DOMContentLoaded', async () => {
             const supabaseUrl = 'https://yccunwxamevfxiwmrpiu.supabase.co';
             const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljY3Vud3hhbWV2Znhpd21ycGl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc1OTE0NjMsImV4cCI6MjA2MzE2NzQ2M30.NGoQBYT6nvxTdz1g5JJ4ZNgvo8zwjgEuyvMfvQmPSNw';
-
             const { createClient } = supabase;
             const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
+            // Function to create URL-friendly slugs
+            function createSlug(title) {
+                return title
+                    .toLowerCase()
+                    .replace(/[^\w\s]/g, '')  // Remove special characters
+                    .replace(/\s+/g, '-')      // Replace spaces with hyphens
+                    .replace(/-+/g, '-')       // Replace multiple hyphens with single
+                    .substring(0, 50);         // Limit length
+            }
+
+            // Fetch newsletters from Supabase
+            async function fetchNewsletters() {
+                try {
+                    const { data, error } = await supabaseClient
+                        .from('newsletters')
+                        .select('id, title, summary, published_at, image_url, slug')
+                        .order('published_at', { ascending: false });
+
+                    if (error) throw error;
+
+                    const newsletterGrid = document.getElementById('newsletterGrid');
+                    
+                    if (!data || data.length === 0) {
+                        newsletterGrid.innerHTML = '<p>No newsletters found.</p>';
+                        return;
+                    }
+
+                    newsletterGrid.innerHTML = data.map(newsletter => {
+                        // Ensure slug exists - generate if missing
+                        const slug = newsletter.slug || createSlug(newsletter.title);
+                        return `
+                        <article class="newsletter-card">
+                            <div class="newsletter-thumbnail">
+                                <img src="${newsletter.image_url || 'https://via.placeholder.com/800x400'}" alt="${newsletter.title}">
+                            </div>
+                            <div class="newsletter-content">
+                                <h3 class="newsletter-title">${newsletter.title}</h3>
+                                <p class="newsletter-date">${new Date(newsletter.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p class="newsletter-excerpt">${newsletter.summary}</p>
+                                <a href="newsletter-detail.html?slug=${slug}" class="readmore-btn">
+                                    <i class="fas fa-book-open"></i> Read More
+                                </a>
+                            </div>
+                        </article>
+                        `;
+                    }).join('');
+                } catch (error) {
+                    console.error('Error fetching newsletters:', error);
+                    document.getElementById('newsletterGrid').innerHTML = '<p>Error loading newsletters. Please try again later.</p>';
+                }
+            }
+
+            // Handle form submission
             document.getElementById('newsletterForm').addEventListener('submit', async (event) => {
                 event.preventDefault();
 
@@ -505,9 +540,21 @@
                         created_at: new Date().toISOString()
                     };
 
-                    console.log('Submitting:', subscriptionData);
+                    // First check if email already exists
+                    const { data: existingSubscriber, error: lookupError } = await supabaseClient
+                        .from('newsletter_subscribers')
+                        .select('email')
+                        .eq('email', subscriptionData.email)
+                        .maybeSingle();
 
-                    const { data, error } = await supabaseClient
+                    if (lookupError) throw lookupError;
+
+                    if (existingSubscriber) {
+                        throw { code: '23505', message: 'Email already exists' };
+                    }
+
+                    // Insert new subscriber
+                    const { error } = await supabaseClient
                         .from('newsletter_subscribers')
                         .insert([subscriptionData]);
 
@@ -521,11 +568,19 @@
                     const closeBtn = document.createElement('button');
                     closeBtn.className = 'close-btn';
                     closeBtn.innerHTML = '×';
+                    closeBtn.style.position = 'absolute';
+                    closeBtn.style.right = '10px';
+                    closeBtn.style.top = '10px';
+                    closeBtn.style.background = 'none';
+                    closeBtn.style.border = 'none';
+                    closeBtn.style.fontSize = '1.2rem';
+                    closeBtn.style.cursor = 'pointer';
                     closeBtn.addEventListener('click', () => {
                         feedbackMessage.classList.remove('active');
                     });
                     feedbackMessage.appendChild(closeBtn);
                     
+                    // Reset form
                     event.target.reset();
 
                     // Hide message after 5 seconds
@@ -537,9 +592,7 @@
                     console.error('Error:', error);
 
                     let errorMessage = 'Subscription failed. Please try again.';
-                    if (error.code === '22008') {
-                        errorMessage = 'Invalid timestamp format. Please contact support.';
-                    } else if (error.code === '23505') {
+                    if (error.code === '23505') {
                         errorMessage = 'This email is already subscribed.';
                     }
 
@@ -550,6 +603,13 @@
                     const closeBtn = document.createElement('button');
                     closeBtn.className = 'close-btn';
                     closeBtn.innerHTML = '×';
+                    closeBtn.style.position = 'absolute';
+                    closeBtn.style.right = '10px';
+                    closeBtn.style.top = '10px';
+                    closeBtn.style.background = 'none';
+                    closeBtn.style.border = 'none';
+                    closeBtn.style.fontSize = '1.2rem';
+                    closeBtn.style.cursor = 'pointer';
                     closeBtn.addEventListener('click', () => {
                         feedbackMessage.classList.remove('active');
                     });
@@ -561,6 +621,9 @@
                     }, 5000);
                 }
             });
+
+            // Initialize the page
+            fetchNewsletters();
         });
     </script>
 </body>
