@@ -1,6 +1,6 @@
 User-agent: *
-Disallow: /
-Allow: /home.html
 Allow: /sitemap.xml
+Allow: /home.html
+Disallow: /
 
 Sitemap: https://sidian.ai/sitemap.xml
