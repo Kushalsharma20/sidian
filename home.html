@@ -80,16 +80,16 @@
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--primary-light);
-            height: 100px; /* Reduced from 140px */
+            height: 100px;
         }
 
         #main-page {
-            min-height: calc(80vh - 100px); /* Adjusted for smaller nav */
+            min-height: calc(80vh - 100px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 130px 2rem 2rem; /* Reduced top padding */
+            padding: 130px 2rem 2rem;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -123,7 +123,7 @@
         }
 
         .logo {
-            height: 70px; /* Reduced from 120px */
+            height: 70px;
             width: auto;
             max-height: 100%;
             transition: var(--transition);
@@ -307,6 +307,14 @@
             transform: scale(1.05);
         }
 
+        .client-logo-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
         @media (max-width: 1024px) {
             :root {
                 --heading-size: 2.5rem;
@@ -338,16 +346,16 @@
             }
 
             nav {
-                height: 90px; /* Reduced from 120px */
+                height: 90px;
                 padding: 1.2rem 5%;
             }
 
             .logo {
-                height: 60px; /* Reduced from 90px */
+                height: 60px;
             }
 
             #main-page {
-                padding-top: 120px; /* Reduced from 150px */
+                padding-top: 120px;
                 min-height: calc(80vh - 90px);
             }
 
@@ -388,16 +396,16 @@
             }
 
             nav {
-                height: 80px; /* Reduced from 110px */
+                height: 80px;
                 padding: 1rem 5%;
             }
 
             .logo {
-                height: 50px; /* Reduced from 75px */
+                height: 50px;
             }
 
             #main-page {
-                padding-top: 110px; /* Reduced from 130px */
+                padding-top: 110px;
                 min-height: calc(80vh - 80px);
             }
 
@@ -460,28 +468,36 @@
         </div>
         <div class="client-logos">
             <div class="client-logo-container">
-                <picture>
-                    <source srcset="images/wadell_engineering_ltd.webp" type="image/webp">
-                    <img src="images/wadell_engineering_ltd.webp" alt="Waddell Engineering" class="client-logo">
-                </picture>
+                <!-- <a href="https://www.waddelleng.com/" class="client-logo-link" target="_blank" rel="noopener noreferrer"> -->
+                    <picture>
+                        <source srcset="images/wadell_engineering_ltd.webp" type="image/webp">
+                        <img src="images/wadell_engineering_ltd.webp" alt="Waddell Engineering" class="client-logo">
+                    </picture>
+                </a>
             </div>
             <div class="client-logo-container">
-                <picture>
-                    <source srcset="images/TT_company.webp" type="image/webp">
-                    <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
-                </picture>
+                <a href="https://www.ttc.ca/" class="client-logo-link" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="images/TT_company.webp" type="image/webp">
+                        <img src="images/TT_company.webp" alt="TT Company" class="client-logo">
+                    </picture>
+                </a>
             </div>
             <div class="client-logo-container">
-                <picture>
-                    <source srcset="images/4OurInvestments.webp" type="image/webp">
-                    <img src="images/4OurInvestments.webp" alt="4OurInvestments Company" class="client-logo">
-                </picture>
+                <a href="https://www.4ourinvestments.com/" class="client-logo-link" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="images/4OurInvestments.webp" type="image/webp">
+                        <img src="images/4OurInvestments.webp" alt="4OurInvestments Company" class="client-logo">
+                    </picture>
+                </a>
             </div>
             <div class="client-logo-container">
-                <picture>
-                    <source srcset="images/protech_company.webp" type="image/webp">
-                    <img src="images/protech_company.webp" alt="Protech Company" class="client-logo">
-                </picture>
+                <a href="https://protechconstructions.com/" class="client-logo-link" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="images/protech_company.webp" type="image/webp">
+                        <img src="images/protech_company.webp" alt="Protech Company" class="client-logo">
+                    </picture>
+                </a>
             </div>
         </div>
     </section>
